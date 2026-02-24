@@ -58,11 +58,27 @@ AWS Cloud (parent="1")
 </mxCell>
 ```
 
-### Nesting Rules
-1. **Groups must be defined BEFORE their children** in the XML
-2. **Edges (connections) should have `parent="1"`** - they connect across containers
-3. **Use relative coordinates** for children inside containers
-4. **Container must have `vertex="1"`** to be a valid parent
+### Nesting Rules and Z-Order
+
+**XML Order (defines z-order - later items appear on top):**
+1. **Containers first, then children** - Define parent containers before their children in XML
+2. **Inner items appear AFTER containers** - This ensures children render ON TOP of container backgrounds
+3. **Edges last** - Connection edges should be defined after all shapes
+
+**Visual Layering (bottom to top):**
+```
+1. AWS Cloud (bottom - largest container)
+2. Region
+3. VPC
+4. Subnets
+5. Service icons (top - innermost items)
+6. Edges (topmost - always visible)
+```
+
+**Other Rules:**
+- **Edges should have `parent="1"`** - They connect across containers
+- **Use relative coordinates** for children inside containers
+- **Container must have `vertex="1"`** to be a valid parent
 
 ---
 
@@ -303,6 +319,32 @@ Arrow styles define the visual indicators at the start and end of edges.
 | ERzeroToMany | `ERzeroToMany` | ER "zero-to-many" |
 | ERzeroToOne | `ERzeroToOne` | ER "zero-to-one" |
 | Async | `async` | Half arrow (async message) |
+
+### Arrow Type Selection Guide
+
+**Choose arrow type based on connection semantics:**
+
+| Connection Type | Arrow | Style | Example |
+|-----------------|-------|-------|---------|
+| **HTTP Request/Response** | `classic` | `endArrow=classic;endFill=1` | Users→ALB, ALB→Service |
+| **Data Flow** | `classic` | `endArrow=classic;endFill=1;flowAnimation=1` | Service→Database |
+| **Read/Write (bidirectional)** | Both `classic` | `startArrow=classic;startFill=1;endArrow=classic;endFill=1` | App↔RDS, App↔Redis |
+| **Runs On / Lightweight** | `open` | `endArrow=open;endFill=0` | Service→Fargate, Cluster→CloudWatch |
+| **Async Messaging (poll)** | `async` | `endArrow=async;endFill=1` | Worker→SQS |
+| **Pull / Fetch** | `block` | `endArrow=block;endFill=1` | ECS←ECR (image pull) |
+| **Publish / Push** | `classic` | `endArrow=classic;endFill=1` | Service→SQS |
+| **Association (no direction)** | `none` | `endArrow=none` | Dashed grouping lines |
+
+### Quick Reference
+
+```
+classic  ────▶     Primary data flow, HTTP, publish
+open     ────>     Lightweight, runs-on, metrics
+async    ────▷     Async polling, message consumption
+block    ────▮     Pull/fetch operations
+both     ◀───▶     Bidirectional read/write
+none     ─────     Association, no direction
+```
 
 ### Arrow Examples
 
@@ -698,7 +740,7 @@ Control where edges connect to shapes:
 3. **Include proper groups** - Use VPC/Subnet/Region groups to show architecture boundaries
 4. **CRITICAL: Set correct parent attributes** - Children must have `parent="<container-id>"` to move with their container
 5. **Use relative coordinates for nested elements** - Child coordinates are relative to parent's top-left
-6. **Define containers before children** - Parent elements must appear first in XML
+6. **XML order determines z-order** - Containers first → Children after → Edges last (inner items render on top)
 7. **REQUIRED: Add shadow to all shapes** - Every service icon must have `shadow=1`
 
 ### Lines and Arrows
@@ -706,7 +748,13 @@ Control where edges connect to shapes:
 9. **Use orthogonal edge style** - Prefer `edgeStyle=orthogonalEdgeStyle` for clean architecture diagrams
 10. **All edges use strokeWidth=2** - Consistent 2pt stroke for all arrows and connections
 11. **Add flow animation to unidirectional arrows** - Set `flowAnimation=1` for single-head arrows showing data flow
-12. **Choose appropriate arrow types** - Use `classic` for data flow, `open` for lightweight connections, `async` for asynchronous operations
+12. **Choose arrow type by connection semantics:**
+    - `classic` - HTTP requests, data flow, publish operations
+    - `open` - Lightweight connections (runs-on, metrics, telemetry)
+    - `async` - Async messaging, polling, event consumption
+    - `block` - Pull/fetch operations (image pull, data fetch)
+    - Bidirectional (`startArrow` + `endArrow`) - Read/write (database, cache)
+    - `none` - Associations without direction
 13. **Add edge labels for protocols** - Label connections with protocol names (HTTPS, gRPC, etc.)
 14. **Use dashed lines for management relationships** - Set `dashed=1` for control plane, monitoring, or optional paths
 
@@ -718,13 +766,15 @@ Control where edges connect to shapes:
 16. **Apply consistent frame colors** - Green for public, blue for private, red for security boundaries
 17. **Position frame labels consistently** - Use `verticalAlign=top;align=left` for frame titles
 
-### Edge Routing
-18. **CRITICAL: Edges must NEVER cross shapes** - Use waypoints to route around obstacles
-19. **Use entry/exit points** - Control connection angles with `exitX`, `exitY`, `entryX`, `entryY`
-20. **Route along container boundaries** - Keep edges outside of shape footprints
-21. **Maintain edge spacing** - Keep 20px between parallel edges, 10px from shapes
+### Edge Routing and Shape Positioning
+18. **CRITICAL: Edges must NEVER cross shapes** - Position shapes so connected items are adjacent
+19. **Position connected shapes adjacently** - Shapes that connect should be neighbors (horizontally or vertically)
+20. **Use row-based layout** - Organize shapes in rows where each row represents a logical tier
+21. **Stagger non-connected shapes** - Avoid grid alignment that forces diagonal crossings
+22. **Use entry/exit points** - Control connection angles with `exitX`, `exitY`, `entryX`, `entryY`
+23. **Maintain edge spacing** - Keep 20px between parallel edges, 10px from shapes
 
 ### General Guidelines
-22. **Use correct colors** - Follow the provider's color palette for each service category
-23. **Label all components** - Include service names in the `value` attribute
-24. **Position logically** - Arrange components following left-to-right or top-to-bottom flow
+24. **Use correct colors** - Follow the provider's color palette for each service category
+25. **Label all components** - Include service names in the `value` attribute
+26. **Position logically** - Arrange components following left-to-right or top-to-bottom flow
