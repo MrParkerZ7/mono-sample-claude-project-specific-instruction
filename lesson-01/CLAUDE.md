@@ -62,44 +62,39 @@ AWS Cloud (parent="1")
 
 **XML Order determines visual stacking - elements defined later appear in front.**
 
-**Visual Z-Order (top to bottom / front to back):**
+**Visual Z-Order (1=front, 4=back):**
 ```
-TOP (Front)     ─────────────────────────
-                │  Text Labels          │
-                ─────────────────────────
-                │  Service Icons        │
-                ─────────────────────────
-                │  EDGES (Arrows)       │
-                ─────────────────────────
-BOTTOM (Back)   │  Groups (VPC/Subnets) │
-                ─────────────────────────
+1. Service Icons  (front)
+2. Text Labels
+3. Edges
+4. Groups         (back)
 ```
 
-**XML Definition Order (top to bottom in file):**
+**XML Definition Order (to achieve above):**
 ```
-1. GROUPS (Bottom/Back) - outermost to innermost
-2. EDGES (Middle) - arrows/connections
-3. SERVICE ICONS (Top/Front) - inside their containers
-4. TEXT LABELS (Top/Front) - standalone text boxes
+4. GROUPS         ← first in XML  → back
+3. EDGES          ← second        → middle
+2. TEXT LABELS    ← third         → front
+1. SERVICE ICONS  ← last in XML   → front (top)
 ```
 
 **Example XML Structure:**
 ```xml
-<!-- ========== GROUPS (Bottom/Back) ========== -->
+<!-- ========== 4. GROUPS (Back) ========== -->
 <mxCell id="aws-cloud" value="AWS Cloud" ... />
   <mxCell id="region" parent="aws-cloud" ... />
     <mxCell id="vpc" parent="region" ... />
       <mxCell id="subnet" parent="vpc" ... />
 
-<!-- ========== EDGES (Middle) ========== -->
+<!-- ========== 3. EDGES ========== -->
 <mxCell id="edge-1" parent="1" source="ecs" target="rds" edge="1" />
 
-<!-- ========== SERVICE ICONS (Top/Front) ========== -->
+<!-- ========== 2. TEXT LABELS ========== -->
+<mxCell id="label-1" value="Security Rules" ... />
+
+<!-- ========== 1. SERVICE ICONS (Front) ========== -->
 <mxCell id="ecs" parent="subnet" ... />
 <mxCell id="rds" parent="subnet" ... />
-
-<!-- ========== TEXT LABELS (Top/Front) ========== -->
-<mxCell id="label-1" value="Security Rules" ... />
 ```
 
 **Rules:**

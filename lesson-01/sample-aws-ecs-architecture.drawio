@@ -4,7 +4,7 @@
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <!-- ========== GROUPS (Bottom/Back) ========== -->
+                <!-- ========== 4. GROUPS (Back) ========== -->
                 <mxCell id="aws-cloud" value="AWS Cloud" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;strokeWidth=4;" parent="1" vertex="1">
                     <mxGeometry x="140" y="40" width="1000" height="400" as="geometry"/>
                 </mxCell>
@@ -20,7 +20,7 @@
                 <mxCell id="private-subnet" value="Private Subnet" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=11;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;strokeColor=#147EBA;fillColor=#E6F2F8;verticalAlign=top;align=left;spacingLeft=30;fontColor=#147EBA;dashed=0;strokeWidth=2;" parent="vpc" vertex="1">
                     <mxGeometry x="180" y="40" width="720" height="220" as="geometry"/>
                 </mxCell>
-                <!-- ========== EDGES (Middle) ========== -->
+                <!-- ========== 3. EDGES ========== -->
                 <mxCell id="edge-users-igw" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="users" target="igw" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
@@ -54,7 +54,7 @@
                 <mxCell id="edge-ecr-cluster" style="edgeStyle=none;rounded=0;html=1;strokeColor=#ED7100;strokeWidth=2;endArrow=block;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="ecr" target="ecs-cluster" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <!-- ========== SERVICE ICONS (Top/Front) ========== -->
+                <!-- ========== 1. SERVICE ICONS (Front) ========== -->
                 <!-- External -->
                 <mxCell id="users" value="Users" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3E;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.users;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="40" y="160" width="60" height="60" as="geometry"/>
