@@ -454,8 +454,7 @@ Frames are rectangular containers used to group related components visually.
 
 | Attribute | Values | Description |
 |-----------|--------|-------------|
-| `rounded` | `0`, `1` | Square or rounded corners |
-| `arcSize` | `0-50` | Corner radius (when rounded=1) |
+| `rounded` | `0` | **Always use square corners for groups** |
 | `fillColor` | `#RRGGBB`, `none` | Background color |
 | `strokeColor` | `#RRGGBB` | Border color |
 | `strokeWidth` | `1`, `2`, `3`... | Border thickness |
@@ -477,6 +476,8 @@ Frames are rectangular containers used to group related components visually.
 
 ### Common Frame Styles
 
+**Note: Group/container shapes should always use `rounded=0` (square corners).**
+
 ```xml
 <!-- Simple border frame -->
 <mxCell id="frame-simple" value="Component Group"
@@ -485,9 +486,9 @@ Frames are rectangular containers used to group related components visually.
   <mxGeometry x="40" y="40" width="300" height="200" as="geometry"/>
 </mxCell>
 
-<!-- Rounded frame with background -->
-<mxCell id="frame-rounded" value="Service Layer"
-  style="rounded=1;arcSize=10;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontStyle=1;fontSize=14;"
+<!-- Frame with background -->
+<mxCell id="frame-bg" value="Service Layer"
+  style="rounded=0;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontStyle=1;fontSize=14;"
   vertex="1" parent="1">
   <mxGeometry x="40" y="40" width="300" height="200" as="geometry"/>
 </mxCell>
@@ -501,7 +502,7 @@ Frames are rectangular containers used to group related components visually.
 
 <!-- Swimlane (horizontal partition) -->
 <mxCell id="swimlane-1" value="Frontend Layer"
-  style="swimlane;horizontal=1;fillColor=#dae8fc;strokeColor=#6c8ebf;startSize=30;fontStyle=1;"
+  style="swimlane;horizontal=1;rounded=0;fillColor=#dae8fc;strokeColor=#6c8ebf;startSize=30;fontStyle=1;"
   vertex="1" parent="1">
   <mxGeometry x="40" y="40" width="600" height="150" as="geometry"/>
 </mxCell>
@@ -625,18 +626,37 @@ Control where edges connect to shapes:
 - `verticalLabelPosition=bottom` - Label below icon
 - `verticalAlign=top` - Align icon to top
 - `html=1` - Enable HTML in labels
-- `shadow=1` - **REQUIRED**: All shapes must have drop shadow
+- `shadow=1` - **REQUIRED**: All shapes, text labels, and edges must have drop shadow
+- `textShadow=1` - **REQUIRED**: All elements with text labels must have text shadow
 
-### Shadow (Required for All Shapes)
+### Shadow (Required for All Elements)
 
-**All service icons must have shadow enabled** for visual depth and clarity.
+**All service icons, text labels, and edges must have shadow enabled** for visual depth and clarity.
+
+**Two shadow attributes:**
+- `shadow=1` - Drop shadow on the element (shape, edge, text box)
+- `textShadow=1` - Shadow on text/labels within the element
 
 ```xml
-<!-- Shape with shadow -->
+<!-- Shape with shadow on icon and text label -->
 <mxCell id="ecs-1" value="ECS"
-  style="...;shadow=1;"
+  style="...;shadow=1;textShadow=1;"
   vertex="1" parent="1">
   <mxGeometry x="100" y="100" width="60" height="60" as="geometry"/>
+</mxCell>
+
+<!-- Text label with shadow -->
+<mxCell id="label-1" value="Security Group Rules"
+  style="text;html=1;strokeColor=#7AA116;fillColor=#d5e8d4;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=8;fontColor=#333333;spacing=4;shadow=1;textShadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="60" y="350" width="140" height="50" as="geometry"/>
+</mxCell>
+
+<!-- Edge with shadow on line and text label -->
+<mxCell id="edge-1" value="HTTPS:443"
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry"/>
 </mxCell>
 ```
 
@@ -770,7 +790,7 @@ Control where edges connect to shapes:
 4. **CRITICAL: Set correct parent attributes** - Children must have `parent="<container-id>"` to move with their container
 5. **Use relative coordinates for nested elements** - Child coordinates are relative to parent's top-left
 6. **XML order determines z-order** - Containers first → Children after → Edges last (inner items render on top)
-7. **REQUIRED: Add shadow to all shapes** - Every service icon must have `shadow=1`
+7. **REQUIRED: Add shadow to all elements** - Every service icon, text label, and edge must have `shadow=1;textShadow=1`
 
 ### Lines and Arrows
 8. **Keep edges at root level** - Connection edges should have `parent="1"`
@@ -794,18 +814,19 @@ Control where edges connect to shapes:
     - Top-level (AWS Cloud): `strokeWidth=4`
     - Sub-groups (Region, VPC): `strokeWidth=3`
     - Leaf groups (Subnets): `strokeWidth=2`
-16. **Apply consistent frame colors** - Green for public, blue for private, red for security boundaries
-17. **Position frame labels consistently** - Use `verticalAlign=top;align=left` for frame titles
+16. **Group shapes must have square corners** - Always use `rounded=0` for container/group shapes
+17. **Apply consistent frame colors** - Green for public, blue for private, red for security boundaries
+18. **Position frame labels consistently** - Use `verticalAlign=top;align=left` for frame titles
 
 ### Edge Routing and Shape Positioning
-18. **CRITICAL: Edges must NEVER cross shapes** - Position shapes so connected items are adjacent
-19. **Position connected shapes adjacently** - Shapes that connect should be neighbors (horizontally or vertically)
-20. **Use row-based layout** - Organize shapes in rows where each row represents a logical tier
-21. **Stagger non-connected shapes** - Avoid grid alignment that forces diagonal crossings
-22. **Use entry/exit points** - Control connection angles with `exitX`, `exitY`, `entryX`, `entryY`
-23. **Maintain edge spacing** - Keep 20px between parallel edges, 10px from shapes
+19. **CRITICAL: Edges must NEVER cross shapes** - Position shapes so connected items are adjacent
+20. **Position connected shapes adjacently** - Shapes that connect should be neighbors (horizontally or vertically)
+21. **Use row-based layout** - Organize shapes in rows where each row represents a logical tier
+22. **Stagger non-connected shapes** - Avoid grid alignment that forces diagonal crossings
+23. **Use entry/exit points** - Control connection angles with `exitX`, `exitY`, `entryX`, `entryY`
+24. **Maintain edge spacing** - Keep 20px between parallel edges, 10px from shapes
 
 ### General Guidelines
-24. **Use correct colors** - Follow the provider's color palette for each service category
-25. **Label all components** - Include service names in the `value` attribute
-26. **Position logically** - Arrange components following left-to-right or top-to-bottom flow
+25. **Use correct colors** - Follow the provider's color palette for each service category
+26. **Label all components** - Include service names in the `value` attribute
+27. **Position logically** - Arrange components following left-to-right or top-to-bottom flow
