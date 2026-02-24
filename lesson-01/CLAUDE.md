@@ -210,6 +210,287 @@ Use `shape=mxgraph.kubernetes.` prefix for Kubernetes icons.
 
 ---
 
+## Lines and Edges (Connections)
+
+Edges connect shapes and represent data flow, dependencies, or relationships between components.
+
+### Edge Structure
+
+```xml
+<mxCell id="edge-1"
+  style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#232F3E;strokeWidth=2;"
+  edge="1" parent="1" source="source-id" target="target-id">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+```
+
+### Edge Style Attributes
+
+| Attribute | Values | Description |
+|-----------|--------|-------------|
+| `edgeStyle` | `orthogonalEdgeStyle`, `elbowEdgeStyle`, `entityRelationEdgeStyle`, `none` | Routing algorithm |
+| `curved` | `0`, `1` | Enable curved lines |
+| `rounded` | `0`, `1` | Round corners on orthogonal edges |
+| `strokeColor` | `#RRGGBB` | Line color |
+| `strokeWidth` | `1`, `2`, `3`... | Line thickness in pixels |
+| `dashed` | `0`, `1` | Solid or dashed line |
+| `dashPattern` | `8 8`, `4 4` | Custom dash pattern (dash space) |
+| `opacity` | `0-100` | Line transparency |
+
+### Edge Routing Styles
+
+| Style | Description | Use Case |
+|-------|-------------|----------|
+| `orthogonalEdgeStyle` | Right-angle turns only | Clean architecture diagrams |
+| `elbowEdgeStyle` | Single elbow bend | Simple L-shaped connections |
+| `entityRelationEdgeStyle` | ER diagram style | Database relationships |
+| `none` | Direct straight line | Point-to-point connections |
+
+### Line Style Examples
+
+```xml
+<!-- Solid orthogonal line -->
+<mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#232F3E;strokeWidth=2;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Dashed line (async/optional flow) -->
+<mxCell style="edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;strokeWidth=1;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Curved line -->
+<mxCell style="curved=1;strokeColor=#232F3E;strokeWidth=2;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+```
+
+---
+
+## Arrows (Edge Endpoints)
+
+Arrow styles define the visual indicators at the start and end of edges.
+
+### Arrow Attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| `startArrow` | Arrow shape at source end |
+| `endArrow` | Arrow shape at target end |
+| `startFill` | `0` = outline only, `1` = filled |
+| `endFill` | `0` = outline only, `1` = filled |
+| `startSize` | Arrow size at source (default: 6) |
+| `endSize` | Arrow size at target (default: 6) |
+
+### Arrow Types
+
+| Arrow Type | Style Value | Description |
+|------------|-------------|-------------|
+| Classic | `classic` | Standard filled arrow |
+| Open | `open` | Open arrow (V-shape) |
+| Block | `block` | Filled block arrow |
+| Oval | `oval` | Circular endpoint |
+| Diamond | `diamond` | Diamond shape |
+| Diamond (outline) | `diamondThin` | Thin diamond outline |
+| None | `none` | No arrow |
+| Circle | `circle` | Small circle |
+| ERone | `ERone` | ER diagram "one" |
+| ERmany | `ERmany` | ER diagram "many" (crow's foot) |
+| ERoneToMany | `ERoneToMany` | ER "one-to-many" |
+| ERzeroToMany | `ERzeroToMany` | ER "zero-to-many" |
+| ERzeroToOne | `ERzeroToOne` | ER "zero-to-one" |
+| Async | `async` | Half arrow (async message) |
+
+### Arrow Examples
+
+```xml
+<!-- Standard directional arrow (source to target) -->
+<mxCell style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;endFill=1;startArrow=none;strokeWidth=2;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Bidirectional arrow -->
+<mxCell style="edgeStyle=orthogonalEdgeStyle;startArrow=classic;startFill=1;endArrow=classic;endFill=1;strokeWidth=2;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Open arrow (lightweight) -->
+<mxCell style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeWidth=1;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Async message arrow -->
+<mxCell style="edgeStyle=orthogonalEdgeStyle;endArrow=async;endFill=1;dashed=1;strokeWidth=1;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Database relationship (one-to-many) -->
+<mxCell style="edgeStyle=entityRelationEdgeStyle;startArrow=ERone;endArrow=ERmany;strokeWidth=1;"
+  edge="1" parent="1" source="table1" target="table2">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+```
+
+### Edge Labels
+
+Add labels to edges using the `value` attribute or child `mxCell`:
+
+```xml
+<!-- Simple edge label -->
+<mxCell id="edge-1" value="HTTPS"
+  style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Positioned edge label -->
+<mxCell id="edge-1" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint as="offset"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="edge-1-label" value="API Call" style="edgeLabel;fontSize=10;"
+  vertex="1" connectable="0" parent="edge-1">
+  <mxGeometry x="0.5" relative="1" as="geometry"/>
+</mxCell>
+```
+
+---
+
+## Frames and Containers
+
+Frames are rectangular containers used to group related components visually.
+
+### Basic Frame Structure
+
+```xml
+<mxCell id="frame-1" value="Frame Title"
+  style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;strokeWidth=2;dashed=0;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;fontSize=14;fontStyle=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="40" width="300" height="200" as="geometry"/>
+</mxCell>
+```
+
+### Frame Style Attributes
+
+| Attribute | Values | Description |
+|-----------|--------|-------------|
+| `rounded` | `0`, `1` | Square or rounded corners |
+| `arcSize` | `0-50` | Corner radius (when rounded=1) |
+| `fillColor` | `#RRGGBB`, `none` | Background color |
+| `strokeColor` | `#RRGGBB` | Border color |
+| `strokeWidth` | `1`, `2`, `3`... | Border thickness |
+| `dashed` | `0`, `1` | Solid or dashed border |
+| `opacity` | `0-100` | Fill transparency |
+| `shadow` | `0`, `1` | Drop shadow effect |
+| `glass` | `0`, `1` | Glass/gradient effect |
+
+### Frame Title Positioning
+
+| Attribute | Values | Description |
+|-----------|--------|-------------|
+| `verticalAlign` | `top`, `middle`, `bottom` | Vertical text position |
+| `align` | `left`, `center`, `right` | Horizontal text position |
+| `spacingLeft` | pixels | Left padding for text |
+| `spacingTop` | pixels | Top padding for text |
+| `labelPosition` | `left`, `center`, `right` | Label horizontal position |
+| `verticalLabelPosition` | `top`, `middle`, `bottom` | Label vertical position |
+
+### Common Frame Styles
+
+```xml
+<!-- Simple border frame -->
+<mxCell id="frame-simple" value="Component Group"
+  style="rounded=0;fillColor=none;strokeColor=#333333;strokeWidth=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;fontStyle=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="40" width="300" height="200" as="geometry"/>
+</mxCell>
+
+<!-- Rounded frame with background -->
+<mxCell id="frame-rounded" value="Service Layer"
+  style="rounded=1;arcSize=10;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontStyle=1;fontSize=14;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="40" width="300" height="200" as="geometry"/>
+</mxCell>
+
+<!-- Dashed boundary frame -->
+<mxCell id="frame-dashed" value="Optional Components"
+  style="rounded=0;fillColor=none;strokeColor=#999999;strokeWidth=1;dashed=1;dashPattern=8 4;verticalAlign=top;align=left;spacingLeft=10;fontStyle=2;fontColor=#666666;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="40" width="300" height="200" as="geometry"/>
+</mxCell>
+
+<!-- Swimlane (horizontal partition) -->
+<mxCell id="swimlane-1" value="Frontend Layer"
+  style="swimlane;horizontal=1;fillColor=#dae8fc;strokeColor=#6c8ebf;startSize=30;fontStyle=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="40" width="600" height="150" as="geometry"/>
+</mxCell>
+```
+
+### Frame Colors by Purpose
+
+| Purpose | Fill Color | Stroke Color |
+|---------|------------|--------------|
+| Public/External | `#d5e8d4` (light green) | `#82b366` |
+| Private/Internal | `#dae8fc` (light blue) | `#6c8ebf` |
+| Security Boundary | `#f8cecc` (light red) | `#b85450` |
+| Optional/Future | `none` | `#999999` (dashed) |
+| Highlight/Important | `#fff2cc` (light yellow) | `#d6b656` |
+
+---
+
+## Waypoints and Edge Control Points
+
+Control edge routing with waypoints for precise path control.
+
+### Adding Waypoints
+
+```xml
+<mxCell id="edge-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=classic;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry">
+    <Array as="points">
+      <mxPoint x="200" y="100"/>
+      <mxPoint x="200" y="200"/>
+      <mxPoint x="300" y="200"/>
+    </Array>
+  </mxGeometry>
+</mxCell>
+```
+
+### Entry and Exit Points
+
+Control where edges connect to shapes:
+
+```xml
+<mxCell id="edge-1" style="edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;exitX=1;exitY=0.5;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+```
+
+| Attribute | Description |
+|-----------|-------------|
+| `entryX` | Target connection X (0=left, 0.5=center, 1=right) |
+| `entryY` | Target connection Y (0=top, 0.5=middle, 1=bottom) |
+| `exitX` | Source connection X |
+| `exitY` | Source connection Y |
+| `entryDx` | Target X offset in pixels |
+| `entryDy` | Target Y offset in pixels |
+| `exitDx` | Source X offset in pixels |
+| `exitDy` | Source Y offset in pixels |
+
+---
+
 ## Example: AWS ECS Architecture Cell
 
 ```xml
@@ -273,6 +554,54 @@ Use `shape=mxgraph.kubernetes.` prefix for Kubernetes icons.
 - `verticalLabelPosition=bottom` - Label below icon
 - `verticalAlign=top` - Align icon to top
 - `html=1` - Enable HTML in labels
+- `shadow=1` - **REQUIRED**: All shapes must have drop shadow
+
+### Shadow (Required for All Shapes)
+
+**All service icons must have shadow enabled** for visual depth and clarity.
+
+```xml
+<!-- Shape with shadow -->
+<mxCell id="ecs-1" value="ECS"
+  style="...;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="100" y="100" width="60" height="60" as="geometry"/>
+</mxCell>
+```
+
+### Stroke Width Hierarchy
+
+**Groups/Frames use hierarchical stroke widths based on nesting level:**
+
+| Level | Element Type | Stroke Width |
+|-------|--------------|--------------|
+| 1 (Top) | AWS Cloud, Azure Subscription | `strokeWidth=4` |
+| 2 | Region, Resource Group | `strokeWidth=3` |
+| 3 | VPC, Virtual Network | `strokeWidth=3` |
+| 4+ | Subnets, Security Groups | `strokeWidth=2` |
+
+**Edges/Arrows always use consistent width:**
+
+| Edge Type | Stroke Width |
+|-----------|--------------|
+| All arrows/connections | `strokeWidth=2` |
+
+```xml
+<!-- Top-level group (4pt) -->
+<mxCell id="aws-cloud" value="AWS Cloud"
+  style="...;strokeWidth=4;" vertex="1" parent="1">
+
+<!-- Sub-group (3pt) -->
+<mxCell id="region" value="Region"
+  style="...;strokeWidth=3;" vertex="1" parent="aws-cloud">
+
+<!-- Subnet (2pt) -->
+<mxCell id="subnet" value="Public Subnet"
+  style="...;strokeWidth=2;" vertex="1" parent="vpc">
+
+<!-- Edge (always 2pt) -->
+<mxCell id="edge-1" style="...;strokeWidth=2;" edge="1" parent="1">
+```
 
 ### AWS Color Palette
 | Category | Fill Color |
@@ -282,7 +611,7 @@ Use `shape=mxgraph.kubernetes.` prefix for Kubernetes icons.
 | Database (Purple) | `#C925D1` |
 | Networking (Purple) | `#8C4FFF` |
 | Security (Red) | `#DD344C` |
-| Analytics (Blue) | `#006Fà7` |
+| Analytics (Blue) | `#006FB7` |
 
 ### Recommended Icon Size
 - Standard icons: `60x60` or `78x78`
@@ -291,16 +620,111 @@ Use `shape=mxgraph.kubernetes.` prefix for Kubernetes icons.
 
 ---
 
+## Flow Animation
+
+**Unidirectional arrows (single arrow head) should have flow animation** to indicate data direction.
+
+### Flow Animation Attributes
+
+| Attribute | Value | Description |
+|-----------|-------|-------------|
+| `flowAnimation` | `1` | Enable animated flow along edge |
+
+### Flow Animation Example
+
+```xml
+<!-- Animated flow arrow -->
+<mxCell id="edge-flow" value="HTTPS"
+  style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+```
+
+**When to use flow animation:**
+- Data flow connections (API calls, requests)
+- Network traffic paths
+- Message/event flows
+
+**When NOT to use flow animation:**
+- Bidirectional arrows
+- Management/control relationships (dashed lines)
+- Static associations
+
+---
+
+## Edge Routing Best Practices
+
+### CRITICAL: Avoid Crossing Shapes
+
+**Edges must NEVER cross over shapes.** Use waypoints to route around obstacles.
+
+### Routing Strategies
+
+1. **Use waypoints to route around shapes:**
+```xml
+<mxCell id="edge-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=classic;"
+  edge="1" parent="1" source="a" target="b">
+  <mxGeometry relative="1" as="geometry">
+    <Array as="points">
+      <mxPoint x="150" y="50"/>  <!-- Route above obstacle -->
+      <mxPoint x="300" y="50"/>
+    </Array>
+  </mxGeometry>
+</mxCell>
+```
+
+2. **Use entry/exit points to control connection angles:**
+```xml
+<!-- Connect from right side of source to left side of target -->
+<mxCell style="exitX=1;exitY=0.5;entryX=0;entryY=0.5;" ...>
+```
+
+3. **Route edges along container boundaries** rather than through them
+
+### Edge Spacing
+
+- Maintain minimum `20px` gap between parallel edges
+- Keep edges at least `10px` away from shape boundaries
+- Align waypoints to grid (10px increments) for clean routing
+
+---
+
 ## Instructions for Claude
 
+### Shape and Structure
 1. **Always use official shape references** - Never use generic rectangles for cloud services
 2. **Match provider to request** - If user says "AWS diagram", use `mxgraph.aws4.*` shapes
 3. **Include proper groups** - Use VPC/Subnet/Region groups to show architecture boundaries
 4. **CRITICAL: Set correct parent attributes** - Children must have `parent="<container-id>"` to move with their container
 5. **Use relative coordinates for nested elements** - Child coordinates are relative to parent's top-left
 6. **Define containers before children** - Parent elements must appear first in XML
-7. **Keep edges at root level** - Connection edges should have `parent="1"`
-8. **Add connection edges** - Show data flow with properly styled arrows
-9. **Use correct colors** - Follow the provider's color palette for each service category
-10. **Label all components** - Include service names in the `value` attribute
-11. **Position logically** - Arrange components following left-to-right or top-to-bottom flow
+7. **REQUIRED: Add shadow to all shapes** - Every service icon must have `shadow=1`
+
+### Lines and Arrows
+8. **Keep edges at root level** - Connection edges should have `parent="1"`
+9. **Use orthogonal edge style** - Prefer `edgeStyle=orthogonalEdgeStyle` for clean architecture diagrams
+10. **All edges use strokeWidth=2** - Consistent 2pt stroke for all arrows and connections
+11. **Add flow animation to unidirectional arrows** - Set `flowAnimation=1` for single-head arrows showing data flow
+12. **Choose appropriate arrow types** - Use `classic` for data flow, `open` for lightweight connections, `async` for asynchronous operations
+13. **Add edge labels for protocols** - Label connections with protocol names (HTTPS, gRPC, etc.)
+14. **Use dashed lines for management relationships** - Set `dashed=1` for control plane, monitoring, or optional paths
+
+### Frames and Containers
+15. **Use hierarchical stroke widths for groups:**
+    - Top-level (AWS Cloud): `strokeWidth=4`
+    - Sub-groups (Region, VPC): `strokeWidth=3`
+    - Leaf groups (Subnets): `strokeWidth=2`
+16. **Apply consistent frame colors** - Green for public, blue for private, red for security boundaries
+17. **Position frame labels consistently** - Use `verticalAlign=top;align=left` for frame titles
+
+### Edge Routing
+18. **CRITICAL: Edges must NEVER cross shapes** - Use waypoints to route around obstacles
+19. **Use entry/exit points** - Control connection angles with `exitX`, `exitY`, `entryX`, `entryY`
+20. **Route along container boundaries** - Keep edges outside of shape footprints
+21. **Maintain edge spacing** - Keep 20px between parallel edges, 10px from shapes
+
+### General Guidelines
+22. **Use correct colors** - Follow the provider's color palette for each service category
+23. **Label all components** - Include service names in the `value` attribute
+24. **Position logically** - Arrange components following left-to-right or top-to-bottom flow
