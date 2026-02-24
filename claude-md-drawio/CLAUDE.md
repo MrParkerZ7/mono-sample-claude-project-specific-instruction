@@ -744,7 +744,7 @@ created_at: TIMESTAMP
 
 ### ER Relationship Arrows
 
-Use `entityRelationEdgeStyle` with ER-specific arrows:
+Use ER-specific arrows for database relationships:
 
 | Relationship | Start Arrow | End Arrow | Style |
 |--------------|-------------|-----------|-------|
@@ -754,15 +754,30 @@ Use `entityRelationEdgeStyle` with ER-specific arrows:
 | Many-to-Many (M:N) | `ERmany` | `ERmany` | `startArrow=ERmany;startFill=0;endArrow=ERmany;endFill=0` |
 | Zero/Many-to-Many (0..*:N) | `ERzeroToMany` | `ERmany` | `startArrow=ERzeroToMany;startFill=0;endArrow=ERmany;endFill=0` |
 
+**Edge Style by Connection Direction:**
+
+| Connection Direction | Edge Style | Reason |
+|---------------------|------------|--------|
+| Horizontal (left ↔ right) | `entityRelationEdgeStyle` | Direct straight line connection |
+| Vertical (top ↔ bottom) | `orthogonalEdgeStyle;rounded=1` | Proper right-angle routing for waypoints |
+| Diagonal/Mixed | `orthogonalEdgeStyle;rounded=1` | Clean orthogonal routing with waypoints |
+
 ```xml
-<!-- One-to-Many relationship -->
+<!-- Horizontal connection: entityRelationEdgeStyle (left-right) -->
 <mxCell id="rel-users-orders"
   style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;"
   edge="1" parent="1" source="tbl-users" target="tbl-orders">
   <mxGeometry relative="1" as="geometry"/>
 </mxCell>
 
-<!-- One-to-Zero/One (optional) relationship -->
+<!-- Vertical connection: orthogonalEdgeStyle (top-bottom) -->
+<mxCell id="rel-users-properties"
+  style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
+  edge="1" parent="1" source="tbl-users" target="tbl-properties">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Horizontal optional relationship -->
 <mxCell id="rel-transactions-contracts"
   style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERzeroToOne;endFill=0;shadow=1;"
   edge="1" parent="1" source="tbl-transactions" target="tbl-contracts">
