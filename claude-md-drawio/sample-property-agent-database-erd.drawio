@@ -1,0 +1,262 @@
+<mxfile host="65bd71144e">
+    <diagram name="Property-Agent-Database-ERD" id="property-db-erd">
+        <mxGraphModel dx="916" dy="2255" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1600" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="pg-group" value="PostgreSQL (Primary Relational Database)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontStyle=1;fontSize=14;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="1500" height="1100" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-agencies" value="agencies&#xa;─────────────────&#xa;PK id: UUID&#xa;name: VARCHAR(255)&#xa;license_no: VARCHAR(50)&#xa;address: TEXT&#xa;phone: VARCHAR(20)&#xa;email: VARCHAR(255)&#xa;commission_rate: DECIMAL&#xa;status: ENUM&#xa;created_at: TIMESTAMP" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="40" y="60" width="180" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-users" value="users&#xa;─────────────────&#xa;PK id: UUID&#xa;email: VARCHAR(255)&#xa;password_hash: VARCHAR&#xa;first_name: VARCHAR(100)&#xa;last_name: VARCHAR(100)&#xa;phone: VARCHAR(20)&#xa;role: ENUM(agent,customer,admin)&#xa;FK agency_id: UUID → agencies&#xa;status: ENUM&#xa;created_at: TIMESTAMP" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="320" y="60" width="210" height="195" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-favorites" value="favorites&#xa;─────────────────&#xa;PK id: UUID&#xa;FK user_id: UUID → users&#xa;FK property_id: UUID → properties&#xa;created_at: TIMESTAMP" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="630" y="60" width="210" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-property-types" value="property_types&#xa;─────────────────&#xa;PK id: UUID&#xa;name: VARCHAR(100)&#xa;description: TEXT&#xa;icon: VARCHAR(50)&#xa;is_active: BOOLEAN" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="40" y="320" width="180" height="115" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-locations" value="locations&#xa;─────────────────&#xa;PK id: UUID&#xa;address: VARCHAR(255)&#xa;district: VARCHAR(100)&#xa;province: VARCHAR(100)&#xa;postal_code: VARCHAR(10)&#xa;country: VARCHAR(100)&#xa;latitude: DECIMAL(10,8)&#xa;longitude: DECIMAL(11,8)" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="40" y="480" width="180" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-properties" value="properties&#xa;─────────────────&#xa;PK id: UUID&#xa;title: VARCHAR(255)&#xa;description: TEXT&#xa;FK property_type_id: UUID → property_types&#xa;FK location_id: UUID → locations&#xa;FK owner_id: UUID → users&#xa;price: DECIMAL(15,2)&#xa;area_sqm: DECIMAL(10,2)&#xa;bedrooms: INT&#xa;bathrooms: INT&#xa;parking_spaces: INT&#xa;status: ENUM&#xa;is_featured: BOOLEAN&#xa;created_at: TIMESTAMP" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=3;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="320" y="320" width="230" height="270" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-property-images" value="property_images&#xa;─────────────────&#xa;PK id: UUID&#xa;FK property_id: UUID → properties&#xa;image_url: TEXT&#xa;thumbnail_url: TEXT&#xa;caption: VARCHAR(255)&#xa;sort_order: INT&#xa;is_primary: BOOLEAN" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="650" y="320" width="200" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-features" value="features&#xa;─────────────────&#xa;PK id: UUID&#xa;name: VARCHAR(100)&#xa;category: VARCHAR(50)&#xa;icon: VARCHAR(50)&#xa;is_active: BOOLEAN" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="950" y="320" width="180" height="115" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-property-features" value="property_features&#xa;─────────────────&#xa;PK id: UUID&#xa;FK property_id: UUID → properties&#xa;FK feature_id: UUID → features&#xa;value: VARCHAR(255)" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="650" y="500" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-inquiries" value="inquiries&#xa;─────────────────&#xa;PK id: UUID&#xa;FK listing_id: UUID → listings&#xa;FK customer_id: UUID → users&#xa;message: TEXT&#xa;status: ENUM&#xa;responded_at: TIMESTAMP&#xa;created_at: TIMESTAMP" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="40" y="710" width="180" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-listings" value="listings&#xa;─────────────────&#xa;PK id: UUID&#xa;FK property_id: UUID → properties&#xa;FK agent_id: UUID → users&#xa;listing_type: ENUM(sale,rent)&#xa;price: DECIMAL(15,2)&#xa;available_from: DATE&#xa;expires_at: TIMESTAMP&#xa;status: ENUM&#xa;views_count: INT&#xa;created_at: TIMESTAMP" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="320" y="680" width="210" height="195" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-appointments" value="appointments&#xa;─────────────────&#xa;PK id: UUID&#xa;FK listing_id: UUID → listings&#xa;FK customer_id: UUID → users&#xa;FK agent_id: UUID → users&#xa;scheduled_at: TIMESTAMP&#xa;duration_mins: INT&#xa;notes: TEXT&#xa;status: ENUM&#xa;created_at: TIMESTAMP" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="630" y="680" width="210" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-transactions" value="transactions&#xa;─────────────────&#xa;PK id: UUID&#xa;FK listing_id: UUID → listings&#xa;FK buyer_id: UUID → users&#xa;FK seller_id: UUID → users&#xa;FK agent_id: UUID → users&#xa;transaction_type: ENUM&#xa;amount: DECIMAL(15,2)&#xa;commission: DECIMAL(15,2)&#xa;status: ENUM&#xa;closed_at: TIMESTAMP" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="950" y="500" width="210" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-contracts" value="contracts&#xa;─────────────────&#xa;PK id: UUID&#xa;FK transaction_id: UUID → transactions&#xa;contract_no: VARCHAR(50)&#xa;document_url: TEXT&#xa;signed_at: TIMESTAMP&#xa;effective_date: DATE&#xa;expiry_date: DATE&#xa;status: ENUM" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="1250" y="500" width="200" height="155" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbl-payments" value="payments&#xa;─────────────────&#xa;PK id: UUID&#xa;FK transaction_id: UUID → transactions&#xa;FK payer_id: UUID → users&#xa;amount: DECIMAL(15,2)&#xa;payment_method: ENUM&#xa;reference_no: VARCHAR(100)&#xa;status: ENUM&#xa;paid_at: TIMESTAMP" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;" parent="pg-group" vertex="1">
+                    <mxGeometry x="1250" y="700" width="200" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="mongo-group" value="MongoDB (Document Store)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=3;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontStyle=1;fontSize=14;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="1600" y="40" width="400" height="420" as="geometry"/>
+                </mxCell>
+                <mxCell id="col-activity-logs" value="activity_logs&#xa;─────────────────&#xa;_id: ObjectId&#xa;user_id: String (ref)&#xa;action: String&#xa;entity_type: String&#xa;entity_id: String&#xa;metadata: Object&#xa;ip_address: String&#xa;timestamp: Date" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F8E8;strokeColor=#4DB33D;strokeWidth=2;shadow=1;fontSize=10;" parent="mongo-group" vertex="1">
+                    <mxGeometry x="20" y="55" width="175" height="165" as="geometry"/>
+                </mxCell>
+                <mxCell id="col-notifications" value="notifications&#xa;─────────────────&#xa;_id: ObjectId&#xa;user_id: String (ref)&#xa;type: String&#xa;title: String&#xa;body: String&#xa;data: Object&#xa;read: Boolean&#xa;created_at: Date" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F8E8;strokeColor=#4DB33D;strokeWidth=2;shadow=1;fontSize=10;" parent="mongo-group" vertex="1">
+                    <mxGeometry x="210" y="55" width="175" height="165" as="geometry"/>
+                </mxCell>
+                <mxCell id="col-chat-messages" value="chat_messages&#xa;─────────────────&#xa;_id: ObjectId&#xa;conversation_id: String&#xa;sender_id: String (ref)&#xa;recipient_id: String (ref)&#xa;message: String&#xa;attachments: Array&#xa;read_at: Date&#xa;created_at: Date" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F8E8;strokeColor=#4DB33D;strokeWidth=2;shadow=1;fontSize=10;" parent="mongo-group" vertex="1">
+                    <mxGeometry x="20" y="240" width="175" height="165" as="geometry"/>
+                </mxCell>
+                <mxCell id="col-property-analytics" value="property_analytics&#xa;─────────────────&#xa;_id: ObjectId&#xa;property_id: String (ref)&#xa;date: Date&#xa;views: Number&#xa;unique_visitors: Number&#xa;source_breakdown: Object&#xa;device_stats: Object" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F8E8;strokeColor=#4DB33D;strokeWidth=2;shadow=1;fontSize=10;" parent="mongo-group" vertex="1">
+                    <mxGeometry x="210" y="240" width="175" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="redis-group" value="Redis (Cache Layer)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=3;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontStyle=1;fontSize=14;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="1600" y="500" width="400" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="cache-session" value="session:{user_id}&#xa;─────────────────&#xa;token: String&#xa;user_data: Hash&#xa;permissions: Set&#xa;TTL: 24 hours" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#FCE8E8;strokeColor=#DC382D;strokeWidth=2;shadow=1;fontSize=10;" parent="redis-group" vertex="1">
+                    <mxGeometry x="20" y="55" width="175" height="115" as="geometry"/>
+                </mxCell>
+                <mxCell id="cache-property" value="property:{id}&#xa;─────────────────&#xa;property_json: String&#xa;images: List&#xa;features: Set&#xa;TTL: 1 hour" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#FCE8E8;strokeColor=#DC382D;strokeWidth=2;shadow=1;fontSize=10;" parent="redis-group" vertex="1">
+                    <mxGeometry x="210" y="55" width="175" height="115" as="geometry"/>
+                </mxCell>
+                <mxCell id="es-group" value="Elasticsearch (Full-Text Search)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontStyle=1;fontSize=14;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="1600" y="760" width="400" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="idx-property-search" value="idx_properties&#xa;─────────────────&#xa;id: keyword&#xa;title: text (analyzed)&#xa;description: text (analyzed)&#xa;location: geo_point&#xa;price: float&#xa;property_type: keyword&#xa;features: keyword[]&#xa;bedrooms: integer&#xa;status: keyword" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#FFF0F0;strokeColor=#b85450;strokeWidth=2;shadow=1;fontSize=10;" parent="es-group" vertex="1">
+                    <mxGeometry x="20" y="55" width="175" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="idx-agent-search" value="idx_agents&#xa;─────────────────&#xa;id: keyword&#xa;name: text (analyzed)&#xa;agency_name: text&#xa;location: geo_point&#xa;specializations: keyword[]&#xa;rating: float&#xa;listings_count: integer&#xa;verified: boolean" style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#FFF0F0;strokeColor=#b85450;strokeWidth=2;shadow=1;fontSize=10;" parent="es-group" vertex="1">
+                    <mxGeometry x="210" y="55" width="175" height="165" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel-agencies-users" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;" edge="1" parent="1" source="tbl-agencies" target="tbl-users">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel-users-favorites" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;" edge="1" parent="1" source="tbl-users" target="tbl-favorites">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel-types-properties" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.15;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl-property-types" target="tbl-properties">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel-locations-properties" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl-locations" target="tbl-properties">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel-users-properties" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl-users" target="tbl-properties">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel-properties-images" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl-properties" target="tbl-property-images">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel-properties-propfeatures" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl-properties" target="tbl-property-features">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel-features-propfeatures" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl-features" target="tbl-property-features">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel-properties-favorites" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl-properties" target="tbl-favorites">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="475" y="340"/>
+                            <mxPoint x="775" y="340"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rel-properties-listings" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl-properties" target="tbl-listings">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel-listings-inquiries" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl-listings" target="tbl-inquiries">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel-listings-appointments" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl-listings" target="tbl-appointments">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel-listings-transactions" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=1;exitY=0.8;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl-listings" target="tbl-transactions">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="920" y="870"/>
+                            <mxPoint x="920" y="640"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rel-transactions-contracts" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERzeroToOne;endFill=0;shadow=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl-transactions" target="tbl-contracts">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel-transactions-payments" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=1;exitY=0.8;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl-transactions" target="tbl-payments">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sync-pg-es-properties" value="Index Sync" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9673a6;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;shadow=1;flowAnimation=1;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="tbl-properties" target="idx-property-search">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1570" y="495"/>
+                            <mxPoint x="1570" y="900"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="sync-pg-es-agents" value="Index Sync" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9673a6;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;shadow=1;flowAnimation=1;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="tbl-users" target="idx-agent-search">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="880" y="155"/>
+                            <mxPoint x="880" y="20"/>
+                            <mxPoint x="2020" y="20"/>
+                            <mxPoint x="2020" y="900"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="sync-pg-redis-properties" value="Cache" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;shadow=1;flowAnimation=1;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="tbl-properties" target="cache-property">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1560" y="495"/>
+                            <mxPoint x="1560" y="613"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="sync-pg-redis-session" value="Session" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;shadow=1;flowAnimation=1;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="tbl-users" target="cache-session">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="870" y="155"/>
+                            <mxPoint x="870" y="10"/>
+                            <mxPoint x="1580" y="10"/>
+                            <mxPoint x="1580" y="613"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="sync-pg-mongo-activity" value="Events" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#82b366;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;shadow=1;flowAnimation=1;fontSize=10;labelBackgroundColor=#ffffff;exitX=1;exitY=0.2;exitDx=0;exitDy=0;" edge="1" parent="1" source="tbl-users" target="col-activity-logs">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="860" y="139"/>
+                            <mxPoint x="860"/>
+                            <mxPoint x="1708"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="sync-pg-mongo-analytics" value="Analytics" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#82b366;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;shadow=1;flowAnimation=1;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="tbl-listings" target="col-property-analytics">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1550" y="820"/>
+                            <mxPoint x="1550" y="375"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="legend" value="Legend" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;fontStyle=1;fontSize=12;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1180" width="800" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-sql" value="PostgreSQL" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="1210" width="90" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-mongo" value="MongoDB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F8E8;strokeColor=#4DB33D;strokeWidth=2;shadow=1;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="165" y="1210" width="90" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-redis" value="Redis" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE8E8;strokeColor=#DC382D;strokeWidth=2;shadow=1;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="270" y="1210" width="90" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-es" value="Elasticsearch" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#b85450;strokeWidth=2;shadow=1;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="375" y="1210" width="90" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-central" value="Central Table" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=3;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="1210" width="90" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-one-many" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="70" y="1270" as="sourcePoint"/>
+                        <mxPoint x="150" y="1270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="legend-one-many-label" value="One-to-Many" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="1275" width="90" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-one-one" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERzeroToOne;endFill=0;shadow=1;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="175" y="1270" as="sourcePoint"/>
+                        <mxPoint x="255" y="1270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="legend-one-one-label" value="One-to-One (Opt)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="165" y="1275" width="100" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-sync" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#9673a6;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;shadow=1;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="290" y="1270" as="sourcePoint"/>
+                        <mxPoint x="370" y="1270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="legend-sync-label" value="Index Sync" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="285" y="1275" width="80" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-cache" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;shadow=1;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="395" y="1270" as="sourcePoint"/>
+                        <mxPoint x="475" y="1270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="legend-cache-label" value="Cache Sync" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="1275" width="80" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-event" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#82b366;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;shadow=1;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="500" y="1270" as="sourcePoint"/>
+                        <mxPoint x="580" y="1270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="legend-event-label" value="Event Stream" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="495" y="1275" width="80" height="25" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -9,6 +9,7 @@ Comprehensive guide for creating `.drawio` architecture diagrams covering:
 - **Software Architecture**: Microservices, APIs, Databases
 - **Integration Systems**: Message Queues, ESB, API Gateways
 - **IT Development**: CI/CD, DevOps, Monitoring
+- **Database ERD**: Entity-Relationship Diagrams with multi-database support (SQL, NoSQL, Cache, Search)
 
 DrawIO uses XML format with specific style attributes to reference official shape libraries for each domain.
 
@@ -669,6 +670,195 @@ Use `shape=mxgraph.cisco.` for Cisco-style network diagrams.
 | Error/End | `#f8cecc` | `#b85450` |
 | Data/Storage | `#e1d5e7` | `#9673a6` |
 | External/Manual | `#f5f5f5` | `#666666` |
+
+---
+
+## Database ERD (Entity-Relationship Diagrams)
+
+Guidelines for creating database schema diagrams with table relationships, including multi-database architectures (SQL + NoSQL + Cache + Search).
+
+### Table Shape Structure
+
+Use `swimlane` shape for database tables:
+
+```xml
+<mxCell id="tbl-users" value="users&#xa;─────────────────&#xa;PK id: UUID&#xa;email: VARCHAR(255)&#xa;FK agency_id: UUID → agencies&#xa;status: ENUM&#xa;created_at: TIMESTAMP"
+  style="shape=swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;"
+  vertex="1" parent="db-group">
+  <mxGeometry x="40" y="60" width="200" height="180" as="geometry"/>
+</mxCell>
+```
+
+### Table Content Format
+
+```
+table_name
+─────────────────
+PK column_name: DATA_TYPE
+column_name: DATA_TYPE
+FK column_name: DATA_TYPE → ref_table
+column_name: ENUM
+created_at: TIMESTAMP
+```
+
+- Use `PK` prefix for primary keys
+- Use `FK` prefix for foreign keys with `→ table_name` reference
+- Use `&#xa;` for line breaks in XML
+- Use `─` (box drawing character) for separator line
+
+### Database Type Colors
+
+| Database Type | Fill Color | Stroke Color | Use Case |
+|---------------|------------|--------------|----------|
+| PostgreSQL | `#E8F4F8` | `#336791` | Primary relational DB |
+| MySQL | `#E8F4FC` | `#4479A1` | Relational DB |
+| MongoDB | `#E8F8E8` | `#4DB33D` | Document store |
+| Redis | `#FCE8E8` | `#DC382D` | Cache layer |
+| Elasticsearch | `#FFF0F0` | `#b85450` | Full-text search |
+| Central/Core Table | `#FFF2CC` | `#D6B656` | Highlight key entity |
+
+### Database Group Containers
+
+```xml
+<!-- PostgreSQL Group -->
+<mxCell id="pg-group" value="PostgreSQL (Primary Database)"
+  style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontStyle=1;fontSize=14;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="40" width="1500" height="1100" as="geometry"/>
+</mxCell>
+
+<!-- MongoDB Group -->
+<mxCell id="mongo-group" value="MongoDB (Document Store)"
+  style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=3;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontStyle=1;fontSize=14;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="1600" y="40" width="400" height="420" as="geometry"/>
+</mxCell>
+
+<!-- Redis Group -->
+<mxCell id="redis-group" value="Redis (Cache Layer)"
+  style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=3;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontStyle=1;fontSize=14;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="1600" y="500" width="400" height="220" as="geometry"/>
+</mxCell>
+```
+
+### ER Relationship Arrows
+
+Use `entityRelationEdgeStyle` with ER-specific arrows:
+
+| Relationship | Start Arrow | End Arrow | Style |
+|--------------|-------------|-----------|-------|
+| One-to-Many (1:N) | `ERone` | `ERmany` | `startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0` |
+| One-to-One (1:1) | `ERone` | `ERone` | `startArrow=ERone;startFill=0;endArrow=ERone;endFill=0` |
+| One-to-Zero/One (1:0..1) | `ERone` | `ERzeroToOne` | `startArrow=ERone;startFill=0;endArrow=ERzeroToOne;endFill=0` |
+| Many-to-Many (M:N) | `ERmany` | `ERmany` | `startArrow=ERmany;startFill=0;endArrow=ERmany;endFill=0` |
+| Zero/Many-to-Many (0..*:N) | `ERzeroToMany` | `ERmany` | `startArrow=ERzeroToMany;startFill=0;endArrow=ERmany;endFill=0` |
+
+```xml
+<!-- One-to-Many relationship -->
+<mxCell id="rel-users-orders"
+  style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;"
+  edge="1" parent="1" source="tbl-users" target="tbl-orders">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- One-to-Zero/One (optional) relationship -->
+<mxCell id="rel-transactions-contracts"
+  style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERzeroToOne;endFill=0;shadow=1;"
+  edge="1" parent="1" source="tbl-transactions" target="tbl-contracts">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+```
+
+### Cross-Database Sync Arrows
+
+For data synchronization between different database types:
+
+| Sync Type | Stroke Color | Style |
+|-----------|--------------|-------|
+| Index Sync (→ Elasticsearch) | `#9673a6` | `dashed=1;dashPattern=8 8;flowAnimation=1` |
+| Cache Sync (→ Redis) | `#d79b00` | `dashed=1;dashPattern=8 8;flowAnimation=1` |
+| Event Stream (→ MongoDB) | `#82b366` | `dashed=1;dashPattern=8 8;flowAnimation=1` |
+
+```xml
+<!-- Index sync to Elasticsearch -->
+<mxCell id="sync-pg-es" value="Index Sync"
+  style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9673a6;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;shadow=1;flowAnimation=1;fontSize=10;labelBackgroundColor=#ffffff;"
+  edge="1" parent="1" source="tbl-properties" target="idx-property-search">
+  <mxGeometry relative="1" as="geometry">
+    <Array as="points">
+      <mxPoint x="1570" y="495"/>
+      <mxPoint x="1570" y="900"/>
+    </Array>
+  </mxGeometry>
+</mxCell>
+
+<!-- Cache sync to Redis -->
+<mxCell id="sync-pg-redis" value="Cache"
+  style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;shadow=1;flowAnimation=1;fontSize=10;labelBackgroundColor=#ffffff;"
+  edge="1" parent="1" source="tbl-properties" target="cache-property">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+```
+
+### ERD Layout Best Practices
+
+**CRITICAL: Spacing Requirements**
+
+| Spacing Type | Minimum Distance | Recommended |
+|--------------|------------------|-------------|
+| Horizontal gap between tables | 150px | **200px** |
+| Vertical gap between rows | 60px | **80-100px** |
+| Table width | 180px | 200-230px |
+| Table height | Based on columns | ~180px for 10 columns |
+
+**Row-Based Organization:**
+```
+Row 1: User Management    [agencies] → [users] → [favorites]
+Row 2: Core Entities      [types] [locations] → [CENTRAL TABLE] ← [images] [features]
+Row 3: Business Logic     [inquiries] ← [listings] → [appointments]
+Row 4: Transactions       [transactions] → [contracts] [payments]
+```
+
+**Table Placement Rules:**
+1. **Central/core table highlighted** - Use yellow (`#FFF2CC`) for the main entity
+2. **Related tables adjacent** - Tables with FK relationships should be neighbors
+3. **Flow direction** - Left-to-right for dependencies, top-to-bottom for hierarchy
+4. **NoSQL/Cache on separate side** - Place non-SQL databases in separate column (right side)
+
+**Avoiding Edge Crossings:**
+1. Position related tables as direct neighbors
+2. Route cross-database sync arrows around the perimeter (top/right edges)
+3. Use waypoints for complex routing
+4. Never route edges through table shapes
+
+### ERD Legend Example
+
+```xml
+<!-- Legend container -->
+<mxCell id="legend" value="Legend"
+  style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;fontStyle=1;fontSize=12;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="1180" width="800" height="130" as="geometry"/>
+</mxCell>
+
+<!-- Legend items for database types -->
+<mxCell id="legend-sql" value="PostgreSQL"
+  style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F4F8;strokeColor=#336791;strokeWidth=2;shadow=1;fontSize=10;fontStyle=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="60" y="1210" width="90" height="28" as="geometry"/>
+</mxCell>
+
+<!-- Legend edge for One-to-Many -->
+<mxCell id="legend-one-many" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="70" y="1270" as="sourcePoint"/>
+    <mxPoint x="150" y="1270" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+```
 
 ---
 
@@ -1353,6 +1543,17 @@ Control where edges connect to shapes:
 - Indicate queue/topic names
 - Use different colors for sync vs async
 - Show retry/error paths with dashed lines
+
+**Database ERD:**
+- Use `swimlane` shape for tables with column details
+- Use `entityRelationEdgeStyle` with ER arrows (ERone, ERmany, ERzeroToOne)
+- Minimum 200px horizontal spacing between tables
+- Minimum 80px vertical spacing between rows
+- Highlight central/core table with yellow (`#FFF2CC`)
+- Group tables by domain (User, Product, Transaction, etc.)
+- Place NoSQL/Cache/Search databases in separate column
+- Route cross-database sync arrows around perimeter (dashed lines)
+- Include legend showing database types and relationship notations
 
 ### General Guidelines
 25. **Use correct colors** - Follow the provider's color palette for each service category

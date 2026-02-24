@@ -31,6 +31,7 @@ Reference diagrams demonstrating the CLAUDE.md guidelines:
 | `sample-core-banking-ddd.drawio` | Domain-Driven Design for core banking (ITMX) |
 | `sample-payment-flow-sequence.drawio` | Payment sequence diagram (Mobile to ITMX) |
 | `sample-insurance-cobroker-portal-k8s-onprem.drawio` | On-premises K8s architecture |
+| `sample-property-agent-database-erd.drawio` | Property agent system ERD (SQL/NoSQL/Cache) |
 
 ## Usage
 
@@ -47,3 +48,4 @@ Reference diagrams demonstrating the CLAUDE.md guidelines:
 - Network topology
 - Data flow and ETL pipelines
 - BPMN workflow diagrams
+- Database ERD (Entity-Relationship Diagrams)
