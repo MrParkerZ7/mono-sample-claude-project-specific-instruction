@@ -62,41 +62,44 @@ AWS Cloud (parent="1")
 
 **XML Order determines visual stacking - elements defined later appear in front.**
 
-**XML Definition Order (top to bottom in file):**
+**Visual Z-Order (top to bottom / front to back):**
 ```
-1. Groups/Containers (AWS Cloud → Region → VPC → Subnets)
-2. Shapes/Service Icons (inside their parent containers)
-3. Text Labels (standalone text boxes)
-4. Edges/Arrows (connection lines between shapes)
+TOP (Front)     ─────────────────────────
+                │  Text Labels          │
+                ─────────────────────────
+                │  Service Icons        │
+                ─────────────────────────
+                │  EDGES (Arrows)       │
+                ─────────────────────────
+BOTTOM (Back)   │  Groups (VPC/Subnets) │
+                ─────────────────────────
 ```
 
-**Visual Z-Order (back to front):**
-| Layer | Element Type | XML Position |
-|-------|--------------|--------------|
-| 1 (Back) | Top-level groups (AWS Cloud, On-Prem DC) | First |
-| 2 | Sub-groups (Region, VPC) | After parent |
-| 3 | Leaf groups (Subnets, Zones) | After parent |
-| 4 | Service icons/shapes | After their container |
-| 5 | Text labels | After shapes |
-| 6 (Front) | Edges/Arrows | Last |
+**XML Definition Order (top to bottom in file):**
+```
+1. GROUPS (Bottom/Back) - outermost to innermost
+2. EDGES (Middle) - arrows/connections
+3. SERVICE ICONS (Top/Front) - inside their containers
+4. TEXT LABELS (Top/Front) - standalone text boxes
+```
 
 **Example XML Structure:**
 ```xml
-<!-- 1. Groups (back) - outermost to innermost -->
+<!-- ========== GROUPS (Bottom/Back) ========== -->
 <mxCell id="aws-cloud" value="AWS Cloud" ... />
   <mxCell id="region" parent="aws-cloud" ... />
     <mxCell id="vpc" parent="region" ... />
       <mxCell id="subnet" parent="vpc" ... />
 
-<!-- 2. Shapes (middle) - inside containers -->
-        <mxCell id="ecs" parent="subnet" ... />
-        <mxCell id="rds" parent="subnet" ... />
-
-<!-- 3. Text labels -->
-<mxCell id="label-1" value="Security Rules" ... />
-
-<!-- 4. Edges (front) - always last, always parent="1" -->
+<!-- ========== EDGES (Middle) ========== -->
 <mxCell id="edge-1" parent="1" source="ecs" target="rds" edge="1" />
+
+<!-- ========== SERVICE ICONS (Top/Front) ========== -->
+<mxCell id="ecs" parent="subnet" ... />
+<mxCell id="rds" parent="subnet" ... />
+
+<!-- ========== TEXT LABELS (Top/Front) ========== -->
+<mxCell id="label-1" value="Security Rules" ... />
 ```
 
 **Rules:**
