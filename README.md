@@ -22,71 +22,60 @@ A mono-repo containing sample `CLAUDE.md` files for different use cases with Cla
 
 ```
 mono-sample-claude-project-specific-instruction/
+├── README.md
+├── .gitignore
+│
+├── claude-md-drawio/
+│   ├── CLAUDE.md                              # Main instruction file (93KB)
+│   ├── README.md
+│   │
+│   ├── sample-architecture/                   # Cloud & infrastructure diagrams
+│   │   ├── README.md
+│   │   ├── sample-architecture-aws-ecs.drawio/.png
+│   │   ├── sample-architecture-azure-webapp.drawio/.png
+│   │   ├── sample-architecture-aws-portal-k8s-insurance.drawio/.png
+│   │   └── sample-architecture-insurance-cobroker-portal-k8s-onprem.drawio/.png
+│   │
+│   ├── sample-c4-model/                       # C4 Model architecture
+│   │   ├── README.md
+│   │   └── sample-c4-model-core-banking.drawio/.png
+│   │
+│   ├── sample-domain-driven-design/           # DDD diagrams
+│   │   ├── README.md
+│   │   └── sample-domain-driven-design-core-banking.drawio/.png
+│   │
+│   ├── sample-entity-erd/                     # Database ERD
+│   │   ├── README.md
+│   │   └── sample-entity-property-agent-database.drawio/.png
+│   │
+│   ├── sample-sequence/                       # Sequence diagrams
+│   │   ├── README.md
+│   │   └── sample-sequence-payment-flow.drawio/.png
+│   │
+│   └── sample-autoclickkey-workflow/          # Application workflow
+│       ├── README.md
+│       └── data-workflow-diagram.drawio
+│
+└── claude-md-excel/                           # Excel generation (planned)
+    └── ...
 ```
 
-- [README.md](./README.md)
-- [.gitignore](./.gitignore)
+## Sample Diagrams
 
-### [claude-md-drawio/](./claude-md-drawio/) — DrawIO diagram generation
+| Category | Folder | Samples |
+|----------|--------|---------|
+| Cloud Architecture | [sample-architecture/](./claude-md-drawio/sample-architecture/) | AWS ECS, Azure WebApp, AWS+K8s Hybrid, On-Prem K8s |
+| C4 Model | [sample-c4-model/](./claude-md-drawio/sample-c4-model/) | Core Banking (Context, Container, Component) |
+| Domain-Driven Design | [sample-domain-driven-design/](./claude-md-drawio/sample-domain-driven-design/) | Core Banking bounded contexts |
+| Database ERD | [sample-entity-erd/](./claude-md-drawio/sample-entity-erd/) | Property Agent (PostgreSQL, MongoDB, Redis, ES) |
+| Sequence Diagram | [sample-sequence/](./claude-md-drawio/sample-sequence/) | Payment Flow |
+| Application Workflow | [sample-autoclickkey-workflow/](./claude-md-drawio/sample-autoclickkey-workflow/) | [AutoClickKey](https://github.com/MrParkerZ7/app-auto-key-click-x-claude) Data Flow |
 
-| File | Description |
-|------|-------------|
-| [CLAUDE.md](./claude-md-drawio/CLAUDE.md) | Main instruction file (93KB) |
-| [README.md](./claude-md-drawio/README.md) | Project documentation |
+## Preview
 
-**Cloud Architecture Samples:**
+![AWS ECS Architecture](./claude-md-drawio/sample-architecture/sample-architecture-aws-ecs.png)
 
-| DrawIO | PNG Preview |
-|--------|-------------|
-| [sample-architecture-aws-ecs.drawio](./claude-md-drawio/sample-architecture-aws-ecs.drawio) | [PNG](./claude-md-drawio/sample-architecture-aws-ecs.png) |
-| [sample-architecture-azure-webapp.drawio](./claude-md-drawio/sample-architecture-azure-webapp.drawio) | [PNG](./claude-md-drawio/sample-architecture-azure-webapp.png) |
-| [sample-architecture-aws-portal-k8s-insurance.drawio](./claude-md-drawio/sample-architecture-aws-portal-k8s-insurance.drawio) | [PNG](./claude-md-drawio/sample-architecture-aws-portal-k8s-insurance.png) |
-| [sample-architecture-insurance-cobroker-portal-k8s-onprem.drawio](./claude-md-drawio/sample-architecture-insurance-cobroker-portal-k8s-onprem.drawio) | [PNG](./claude-md-drawio/sample-architecture-insurance-cobroker-portal-k8s-onprem.png) |
-
-**Software Architecture Samples:**
-
-| DrawIO | PNG Preview |
-|--------|-------------|
-| [sample-c4-model-core-banking.drawio](./claude-md-drawio/sample-c4-model-core-banking.drawio) | [PNG](./claude-md-drawio/sample-c4-model-core-banking.png) |
-| [sample-domain-driven-design-core-banking.drawio](./claude-md-drawio/sample-domain-driven-design-core-banking.drawio) | [PNG](./claude-md-drawio/sample-domain-driven-design-core-banking.png) |
-| [sample-sequence-payment-flow.drawio](./claude-md-drawio/sample-sequence-payment-flow.drawio) | [PNG](./claude-md-drawio/sample-sequence-payment-flow.png) |
-
-**Database Samples:**
-
-| DrawIO | PNG Preview |
-|--------|-------------|
-| [sample-entity-property-agent-database.drawio](./claude-md-drawio/sample-entity-property-agent-database.drawio) | [PNG](./claude-md-drawio/sample-entity-property-agent-database.png) |
-
-### [claude-md-excel/](./claude-md-excel/) — Excel generation (planned)
-
-*Coming soon*
-
-## claude-md-drawio
-
-Comprehensive guidelines for generating professional DrawIO diagrams:
-
-### Supported Diagram Types
-
-- **Cloud Architecture**: AWS, Azure, GCP
-- **Container Orchestration**: Kubernetes, Docker
-- **Software Architecture**: C4 Model, DDD, Microservices
-- **Database**: ERD with multi-database support (SQL, NoSQL, Cache, Search)
-- **Workflows**: BPMN, Flowcharts, Sequence Diagrams
-- **Network**: Infrastructure, Cisco, On-Premises
-
-### Sample Diagrams
-
-| Category | Samples |
-|----------|---------|
-| Cloud Architecture | AWS ECS, Azure WebApp, AWS+K8s Hybrid, On-Prem K8s |
-| Software Architecture | C4 Model, Domain-Driven Design, Sequence Diagram |
-| Database | Property Agent ERD (PostgreSQL, MongoDB, Redis, Elasticsearch) |
-
-### Preview
-
-![AWS ECS Architecture](./claude-md-drawio/sample-architecture-aws-ecs.png)
-
-![C4 Model Core Banking](./claude-md-drawio/sample-c4-model-core-banking.png)
+![C4 Model Core Banking](./claude-md-drawio/sample-c4-model/sample-c4-model-core-banking.png)
 
 ## Usage
 

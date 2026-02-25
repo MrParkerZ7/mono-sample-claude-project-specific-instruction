@@ -24,30 +24,27 @@ The main reference file containing:
 
 ### Sample Diagrams
 
-Reference diagrams demonstrating the CLAUDE.md guidelines:
+Reference diagrams organized by category:
+
+| Folder | Description | Samples |
+|--------|-------------|---------|
+| [sample-architecture/](./sample-architecture/) | Cloud & infrastructure diagrams | AWS ECS, Azure WebApp, AWS+K8s, On-Prem K8s |
+| [sample-c4-model/](./sample-c4-model/) | C4 Model architecture | Core Banking (Context, Container, Component) |
+| [sample-domain-driven-design/](./sample-domain-driven-design/) | DDD diagrams | Core Banking bounded contexts |
+| [sample-entity-erd/](./sample-entity-erd/) | Database ERD | Property Agent (PostgreSQL, MongoDB, Redis, ES) |
+| [sample-sequence/](./sample-sequence/) | Sequence diagrams | Payment Flow |
+| [sample-autoclickkey-workflow/](./sample-autoclickkey-workflow/) | Application workflow | [AutoClickKey](https://github.com/MrParkerZ7/app-auto-key-click-x-claude) data flow |
+
+### Preview
 
 #### Cloud Architecture
+![AWS ECS](./sample-architecture/sample-architecture-aws-ecs.png)
 
-| Diagram | Preview |
-|---------|---------|
-| **AWS ECS Architecture**<br>`sample-architecture-aws-ecs.drawio`<br>VPC, subnets, Fargate, RDS, Redis, SQS | ![AWS ECS](sample-architecture-aws-ecs.png) |
-| **Azure WebApp Architecture**<br>`sample-architecture-azure-webapp.drawio`<br>App Service, Functions, SQL, Cosmos DB, Redis | ![Azure WebApp](sample-architecture-azure-webapp.png) |
-| **AWS + K8s Insurance Portal**<br>`sample-architecture-aws-portal-k8s-insurance.drawio`<br>Hybrid AWS cloud + On-prem K8s | ![AWS K8s Insurance](sample-architecture-aws-portal-k8s-insurance.png) |
-| **On-Prem K8s CoBroker Portal**<br>`sample-architecture-insurance-cobroker-portal-k8s-onprem.drawio`<br>Full K8s on-premises with data layer | ![K8s OnPrem](sample-architecture-insurance-cobroker-portal-k8s-onprem.png) |
+#### C4 Model
+![C4 Model](./sample-c4-model/sample-c4-model-core-banking.png)
 
-#### Software Architecture
-
-| Diagram | Preview |
-|---------|---------|
-| **C4 Model - Core Banking**<br>`sample-c4-model-core-banking.drawio`<br>Context, Container, Component levels | ![C4 Model](sample-c4-model-core-banking.png) |
-| **Domain-Driven Design**<br>`sample-domain-driven-design-core-banking.drawio`<br>DDD for ITMX core banking system | ![DDD](sample-domain-driven-design-core-banking.png) |
-| **Sequence Diagram**<br>`sample-sequence-payment-flow.drawio`<br>Payment flow (Mobile to ITMX) | ![Sequence](sample-sequence-payment-flow.png) |
-
-#### Database
-
-| Diagram | Preview |
-|---------|---------|
-| **Entity-Relationship Diagram**<br>`sample-entity-property-agent-database.drawio`<br>Property agent ERD (PostgreSQL, MongoDB, Redis, Elasticsearch) | ![ERD](sample-entity-property-agent-database.png) |
+#### Entity-Relationship Diagram
+![ERD](./sample-entity-erd/sample-entity-property-agent-database.png)
 
 ## Usage
 
@@ -80,3 +77,4 @@ Protocol-based colors for consistent architecture diagrams:
 - Data flow and ETL pipelines
 - BPMN workflow diagrams
 - Database ERD (multi-database: SQL, NoSQL, Cache, Search)
+- Application data workflow
