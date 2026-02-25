@@ -1,16 +1,16 @@
-# DrawIO CLAUDE.md Research
+# DrawIO Diagram Standards
 
-Project-specific instructions (CLAUDE.md) for Claude Code to generate DrawIO architecture diagrams.
+Standards and templates for generating professional DrawIO architecture diagrams with Claude Code.
 
 ## Purpose
 
-This folder contains research and reference materials for creating `CLAUDE.md` files that enable Claude Code to generate professional DrawIO diagrams.
+This folder contains reference materials and standards for creating DrawIO diagrams.
 
 ## Contents
 
-### CLAUDE.md
+### CLAUDE-DIAGRAMS-STANDARD-FORMAT.md
 
-The main reference file containing:
+The main standards file containing:
 - DrawIO XML structure and syntax
 - Shape references for all major platforms (AWS, Azure, GCP, Kubernetes)
 - Network and infrastructure shapes
@@ -46,12 +46,21 @@ Reference diagrams organized by category:
 #### Entity-Relationship Diagram
 ![ERD](./sample-entity-erd/sample-entity-property-agent-database.png)
 
+### PROMPT_TEMPLATE.md
+
+Ready-to-use prompt template for generating comprehensive diagrams. Copy, paste, and replace the project path.
+
 ## Usage
 
-1. Copy `CLAUDE.md` to your project root or relevant subdirectory
-2. Claude Code will automatically load the instructions when working in that directory
-3. Ask Claude to create DrawIO diagrams - it will follow the guidelines
-4. Reference sample diagrams for expected output format
+**Option 1: Copy to your project (auto-load)**
+1. Copy `CLAUDE-DIAGRAMS-STANDARD-FORMAT.md` to your project root as `CLAUDE.md`
+2. Claude Code will automatically load the instructions
+3. Ask Claude to create DrawIO diagrams
+
+**Option 2: Reference in prompt (no copy needed)**
+1. Use the prompt from `PROMPT_TEMPLATE.md`
+2. It references the standards file directly
+3. Replace `[YOUR_PROJECT_PATH]` with your project path
 
 ## Arrow Color Standards
 

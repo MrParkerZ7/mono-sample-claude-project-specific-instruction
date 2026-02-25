@@ -26,7 +26,8 @@ mono-sample-claude-project-specific-instruction/
 ├── .gitignore
 │
 ├── claude-md-drawio/
-│   ├── CLAUDE.md                              # Main instruction file (93KB)
+│   ├── CLAUDE-DIAGRAMS-STANDARD-FORMAT.md    # Main standards file (93KB)
+│   ├── PROMPT_TEMPLATE.md                    # Ready-to-use prompt template
 │   ├── README.md
 │   │
 │   ├── sample-architecture/                   # Cloud & infrastructure diagrams
@@ -79,9 +80,15 @@ mono-sample-claude-project-specific-instruction/
 
 ## Usage
 
-1. Copy the relevant `CLAUDE.md` to your project root
-2. Claude Code will automatically load it when working in that directory
-3. Ask Claude to generate diagrams/files following the guidelines
+**Option 1: Copy to your project (auto-load)**
+1. Copy `CLAUDE-DIAGRAMS-STANDARD-FORMAT.md` to your project root as `CLAUDE.md`
+2. Claude Code will automatically load the instructions
+3. Ask Claude to create diagrams
+
+**Option 2: Use prompt template (no copy needed)**
+1. Use the prompt from `claude-md-drawio/PROMPT_TEMPLATE.md`
+2. Replace `[YOUR_PROJECT_PATH]` with your project path
+3. Paste into Claude Code
 
 ## How CLAUDE.md Works
 

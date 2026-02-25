@@ -76,7 +76,7 @@ Workspace
 
 ## Diagram Standards
 
-This diagram follows the guidelines defined in [CLAUDE.md](../CLAUDE.md):
+This diagram follows the guidelines defined in [CLAUDE-DIAGRAMS-STANDARD-FORMAT.md](../CLAUDE-DIAGRAMS-STANDARD-FORMAT.md):
 
 - Swimlane format for data models with property details
 - Protocol-based arrow colors (gray: data flow, green: storage, red: execution)
