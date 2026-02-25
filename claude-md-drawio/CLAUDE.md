@@ -1317,6 +1317,99 @@ Edges connect shapes and represent data flow, dependencies, or relationships bet
 | `dashPattern` | `8 8`, `4 4` | Custom dash pattern (dash space) |
 | `opacity` | `0-100` | Line transparency |
 
+### Arrow Color Standards (Protocol-Based)
+
+Arrow colors represent the **type of connection/protocol**, making it easy to identify data flow types at a glance.
+
+#### Primary Connection Colors
+
+| Connection Type | Color | Hex Code | Use Case |
+|-----------------|-------|----------|----------|
+| **HTTP/HTTPS/API** | Dark Gray | `#232F3E` | REST APIs, web requests, general traffic |
+| **Database (SQL)** | Purple | `#C925D1` | PostgreSQL, MySQL, RDS, Aurora connections |
+| **Cache** | Red | `#DC382D` | Redis, Memcached, ElastiCache |
+| **Message Queue** | Pink | `#E7157B` | SQS, SNS, RabbitMQ, Kafka |
+| **Storage** | Green | `#7AA116` | S3, Blob Storage, file systems |
+| **Authentication** | Dark Red | `#DD344C` | OAuth, IAM, identity providers |
+| **Monitoring/Logs** | Pink | `#E7157B` | CloudWatch, metrics, telemetry |
+
+#### Secondary Connection Colors
+
+| Connection Type | Color | Hex Code | Use Case |
+|-----------------|-------|----------|----------|
+| **gRPC** | Blue | `#4285F4` | gRPC service-to-service calls |
+| **GraphQL** | Pink | `#E535AB` | GraphQL API endpoints |
+| **WebSocket** | Teal | `#00BCD4` | Real-time bidirectional connections |
+| **FTP/SFTP** | Brown | `#795548` | File transfer protocols |
+| **SMTP/Email** | Orange | `#FF9800` | Email services |
+
+#### Sync vs Async Indicators
+
+| Pattern | Style | Use Case |
+|---------|-------|----------|
+| **Synchronous** | Solid line | HTTP, SQL, direct calls |
+| **Asynchronous** | Dashed line (`dashed=1`) | Message queues, events, webhooks |
+| **Polling** | Dashed + async arrow | Consumer polling from queue |
+
+#### Color Application Examples
+
+```xml
+<!-- HTTP/API Request (gray) -->
+<mxCell style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;"
+  edge="1" parent="1" source="users" target="alb">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Database Connection (purple) -->
+<mxCell style="edgeStyle=none;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;textShadow=1;"
+  edge="1" parent="1" source="service" target="rds">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Cache Connection (red) -->
+<mxCell style="edgeStyle=none;rounded=0;html=1;strokeColor=#DC382D;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;textShadow=1;"
+  edge="1" parent="1" source="service" target="redis">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Message Queue - Publish (pink, solid) -->
+<mxCell style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;"
+  edge="1" parent="1" source="producer" target="sqs">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Message Queue - Consume (pink, dashed) -->
+<mxCell style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=async;endFill=1;shadow=1;textShadow=1;"
+  edge="1" parent="1" source="consumer" target="sqs">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Storage (green) -->
+<mxCell style="edgeStyle=none;rounded=0;html=1;strokeColor=#7AA116;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;textShadow=1;"
+  edge="1" parent="1" source="service" target="s3">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+```
+
+#### When to Use Neutral Gray
+
+Use neutral gray (`#232F3E`) for ALL arrows when:
+- The diagram focuses on **architecture structure** rather than data flow types
+- You want a **cleaner, less colorful** appearance
+- The connection types are obvious from context or labels
+
+#### Arrow Color Quick Reference
+
+```
+#232F3E (gray)   ─────▶  HTTP/HTTPS, API, general
+#C925D1 (purple) ◀────▶  Database (SQL read/write)
+#DC382D (red)    ◀────▶  Cache (Redis, Memcached)
+#E7157B (pink)   ─────▶  Message queue publish
+#E7157B (pink)   - - -▷  Message queue consume (dashed)
+#7AA116 (green)  ◀────▶  Storage (S3, files)
+#DD344C (red)    ─ ─ ─▶  Auth/security (dashed)
+```
+
 ### Edge Routing Styles
 
 | Style | Description | Use Case |

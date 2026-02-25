@@ -34,28 +34,28 @@
                 <mxCell id="edge-app-func" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="app-service" target="functions" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-app-sql" value="SQL" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="sql-db" edge="1">
+                <mxCell id="edge-app-sql" value="SQL" style="edgeStyle=none;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="sql-db" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-app-cosmos" value="NoSQL" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="cosmos-db" edge="1">
+                <mxCell id="edge-app-cosmos" value="NoSQL" style="edgeStyle=none;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="cosmos-db" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-app-redis" value="Cache" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="redis-cache" edge="1">
+                <mxCell id="edge-app-redis" value="Cache" style="edgeStyle=none;rounded=0;html=1;strokeColor=#DC382D;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="redis-cache" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-func-sb" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="functions" target="service-bus" edge="1">
+                <mxCell id="edge-func-sb" value="Publish" style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;" parent="1" source="functions" target="service-bus" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-sb-logic" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="service-bus" target="logic-apps" edge="1">
+                <mxCell id="edge-sb-logic" value="Trigger" style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;" parent="1" source="service-bus" target="logic-apps" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-app-blob" value="Files" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="blob-storage" edge="1">
+                <mxCell id="edge-app-blob" value="Files" style="edgeStyle=none;rounded=0;html=1;strokeColor=#7AA116;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="blob-storage" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-app-kv" value="Secrets" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="key-vault" edge="1">
+                <mxCell id="edge-app-kv" value="Secrets" style="edgeStyle=none;rounded=0;html=1;strokeColor=#DD344C;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="key-vault" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-aad-appgw" value="Auth" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;dashed=1;" parent="1" source="azure-ad" target="app-gateway" edge="1">
+                <mxCell id="edge-aad-appgw" value="Auth" style="edgeStyle=none;rounded=0;html=1;strokeColor=#DD344C;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;dashed=1;dashPattern=8 8;" parent="1" source="azure-ad" target="app-gateway" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="users" value="Users" style="aspect=fixed;html=1;points=[];align=center;image;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;fontSize=11;imageAspect=0;image=img/lib/azure2/identity/Users.svg;shadow=1;textShadow=1;" parent="1" vertex="1">

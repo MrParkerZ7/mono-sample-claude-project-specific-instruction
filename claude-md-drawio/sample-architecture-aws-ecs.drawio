@@ -67,22 +67,22 @@
                 <mxCell id="edge-api-fargate" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=open;endFill=0;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="ecs-service1" target="fargate" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-fargate-rds" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;textShadow=1;" parent="1" source="fargate" target="rds" edge="1">
+                <mxCell id="edge-fargate-rds" value="SQL" style="edgeStyle=none;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;textShadow=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;" parent="1" source="fargate" target="rds" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-rds-s3" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="rds" target="s3" edge="1">
+                <mxCell id="edge-rds-s3" value="Backup" style="edgeStyle=none;rounded=0;html=1;strokeColor=#7AA116;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;" parent="1" source="rds" target="s3" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-fargate-redis" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;textShadow=1;" parent="1" source="fargate" target="elasticache" edge="1">
+                <mxCell id="edge-fargate-redis" value="Cache" style="edgeStyle=none;rounded=0;html=1;strokeColor=#DC382D;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;textShadow=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;" parent="1" source="fargate" target="elasticache" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-worker-sqs" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=async;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="ecs-service2" target="sqs" edge="1">
+                <mxCell id="edge-worker-sqs" value="Poll" style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=async;endFill=1;shadow=1;textShadow=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;" parent="1" source="ecs-service2" target="sqs" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="edge-worker-fargate" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=open;endFill=0;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="ecs-service2" target="fargate" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-cluster-cw" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=open;endFill=0;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="ecs-cluster" target="cloudwatch" edge="1">
+                <mxCell id="edge-cluster-cw" value="Metrics" style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;endArrow=open;endFill=0;flowAnimation=1;shadow=1;textShadow=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;" parent="1" source="ecs-cluster" target="cloudwatch" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="edge-ecr-cluster" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=block;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="ecr" target="ecs-cluster" edge="1">
