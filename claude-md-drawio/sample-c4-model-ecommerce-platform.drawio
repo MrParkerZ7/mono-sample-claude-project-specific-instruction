@@ -6,63 +6,63 @@
                 <mxCell id="1" parent="0"/>
 
                 <!-- Title -->
-                <mxCell id="title-context" value="System Context Diagram - E-Commerce Platform" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+                <mxCell id="title-context" value="System Context Diagram - E-Commerce Platform" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#333333;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="400" y="30" width="500" height="40" as="geometry"/>
                 </mxCell>
 
                 <!-- Person: Customer -->
-                <mxCell id="person-customer" value="&lt;b&gt;Customer&lt;/b&gt;&lt;br&gt;[Person]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;A user who browses products,&lt;br&gt;adds to cart, and makes purchases&lt;/font&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#FFFFFF;labelPosition=center;align=center;spacingTop=-60;spacing=0;fontSize=11;" parent="1" vertex="1">
+                <mxCell id="person-customer" value="&lt;b&gt;Customer&lt;/b&gt;&lt;br&gt;[Person]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;A user who browses products,&lt;br&gt;adds to cart, and makes purchases&lt;/font&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#FFFFFF;labelPosition=center;align=center;spacingTop=-60;spacing=0;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="200" y="200" width="80" height="120" as="geometry"/>
                 </mxCell>
 
                 <!-- Person: Admin -->
-                <mxCell id="person-admin" value="&lt;b&gt;Administrator&lt;/b&gt;&lt;br&gt;[Person]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Manages products, orders,&lt;br&gt;and system configuration&lt;/font&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#FFFFFF;labelPosition=center;align=center;spacingTop=-60;spacing=0;fontSize=11;" parent="1" vertex="1">
+                <mxCell id="person-admin" value="&lt;b&gt;Administrator&lt;/b&gt;&lt;br&gt;[Person]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Manages products, orders,&lt;br&gt;and system configuration&lt;/font&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#FFFFFF;labelPosition=center;align=center;spacingTop=-60;spacing=0;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="200" y="500" width="80" height="120" as="geometry"/>
                 </mxCell>
 
                 <!-- System: E-Commerce Platform (main) -->
-                <mxCell id="system-ecommerce" value="&lt;b&gt;E-Commerce Platform&lt;/b&gt;&lt;br&gt;[Software System]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Allows customers to browse products,&lt;br&gt;manage cart, checkout, and track orders.&lt;br&gt;Provides admin panel for management.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="system-ecommerce" value="&lt;b&gt;E-Commerce Platform&lt;/b&gt;&lt;br&gt;[Software System]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Allows customers to browse products,&lt;br&gt;manage cart, checkout, and track orders.&lt;br&gt;Provides admin panel for management.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=3;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="520" y="300" width="260" height="160" as="geometry"/>
                 </mxCell>
 
                 <!-- External System: Payment Gateway -->
-                <mxCell id="system-payment" value="&lt;b&gt;Payment Gateway&lt;/b&gt;&lt;br&gt;[External System]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Stripe/PayPal&lt;br&gt;Handles payment processing&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="system-payment" value="&lt;b&gt;Payment Gateway&lt;/b&gt;&lt;br&gt;[External System]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Stripe/PayPal&lt;br&gt;Handles payment processing&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="900" y="150" width="200" height="120" as="geometry"/>
                 </mxCell>
 
                 <!-- External System: Email Service -->
-                <mxCell id="system-email" value="&lt;b&gt;Email Service&lt;/b&gt;&lt;br&gt;[External System]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;SendGrid/SES&lt;br&gt;Sends transactional emails&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="system-email" value="&lt;b&gt;Email Service&lt;/b&gt;&lt;br&gt;[External System]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;SendGrid/SES&lt;br&gt;Sends transactional emails&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="900" y="320" width="200" height="120" as="geometry"/>
                 </mxCell>
 
                 <!-- External System: Shipping Provider -->
-                <mxCell id="system-shipping" value="&lt;b&gt;Shipping Provider&lt;/b&gt;&lt;br&gt;[External System]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;FedEx/UPS API&lt;br&gt;Calculates shipping &amp; tracking&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="system-shipping" value="&lt;b&gt;Shipping Provider&lt;/b&gt;&lt;br&gt;[External System]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;FedEx/UPS API&lt;br&gt;Calculates shipping &amp; tracking&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="900" y="490" width="200" height="120" as="geometry"/>
                 </mxCell>
 
                 <!-- Relationships -->
-                <mxCell id="rel-customer-system" value="Browses products, places orders" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=10;exitX=1;exitY=0.5;entryX=0;entryY=0.3;" parent="1" source="person-customer" target="system-ecommerce" edge="1">
+                <mxCell id="rel-customer-system" value="Browses products, places orders" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=10;exitX=1;exitY=0.5;entryX=0;entryY=0.3;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="person-customer" target="system-ecommerce" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="rel-admin-system" value="Manages products, orders, users" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=10;exitX=1;exitY=0.5;entryX=0;entryY=0.7;" parent="1" source="person-admin" target="system-ecommerce" edge="1">
+                <mxCell id="rel-admin-system" value="Manages products, orders, users" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=10;exitX=1;exitY=0.5;entryX=0;entryY=0.7;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="person-admin" target="system-ecommerce" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="rel-system-payment" value="Processes payments via API" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=10;exitX=1;exitY=0.3;entryX=0;entryY=0.5;" parent="1" source="system-ecommerce" target="system-payment" edge="1">
+                <mxCell id="rel-system-payment" value="Processes payments via API" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=10;exitX=1;exitY=0.3;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="system-ecommerce" target="system-payment" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="rel-system-email" value="Sends emails via SMTP/API" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=10;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="system-ecommerce" target="system-email" edge="1">
+                <mxCell id="rel-system-email" value="Sends emails via SMTP/API" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=10;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="system-ecommerce" target="system-email" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="rel-system-shipping" value="Gets shipping rates &amp; tracking" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=10;exitX=1;exitY=0.7;entryX=0;entryY=0.5;" parent="1" source="system-ecommerce" target="system-shipping" edge="1">
+                <mxCell id="rel-system-shipping" value="Gets shipping rates &amp; tracking" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=10;exitX=1;exitY=0.7;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="system-ecommerce" target="system-shipping" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
                 <!-- Legend -->
-                <mxCell id="legend-context" value="Legend" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;fontSize=12;shadow=1;" parent="1" vertex="1">
+                <mxCell id="legend-context" value="Legend" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;fontSize=12;shadow=1;" parent="1" vertex="1">
                     <mxGeometry x="40" y="750" width="300" height="130" as="geometry"/>
                 </mxCell>
                 <mxCell id="legend-person" value="&lt;table&gt;&lt;tr&gt;&lt;td style=&#39;background:#08427B;width:20px;&#39;&gt;&lt;/td&gt;&lt;td&gt; Person&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;" parent="legend-context" vertex="1">
@@ -87,126 +87,126 @@
                 <mxCell id="1" parent="0"/>
 
                 <!-- Title -->
-                <mxCell id="title-container" value="Container Diagram - E-Commerce Platform" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+                <mxCell id="title-container" value="Container Diagram - E-Commerce Platform" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#333333;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="550" y="30" width="500" height="40" as="geometry"/>
                 </mxCell>
 
                 <!-- System Boundary -->
-                <mxCell id="boundary-ecommerce" value="E-Commerce Platform [Software System]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#3C7FC0;strokeWidth=3;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=20;spacingTop=10;fontSize=14;fontStyle=1;fontColor=#3C7FC0;" parent="1" vertex="1">
+                <mxCell id="boundary-ecommerce" value="E-Commerce Platform [Software System]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#3C7FC0;strokeWidth=3;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=20;spacingTop=10;fontSize=14;fontStyle=1;fontColor=#3C7FC0;shadow=1;" parent="1" vertex="1">
                     <mxGeometry x="300" y="180" width="1000" height="700" as="geometry"/>
                 </mxCell>
 
                 <!-- Person: Customer -->
-                <mxCell id="c-person-customer" value="&lt;b&gt;Customer&lt;/b&gt;&lt;br&gt;[Person]" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#FFFFFF;labelPosition=center;align=center;spacingTop=-30;fontSize=11;" parent="1" vertex="1">
+                <mxCell id="c-person-customer" value="&lt;b&gt;Customer&lt;/b&gt;&lt;br&gt;[Person]" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#FFFFFF;labelPosition=center;align=center;spacingTop=-30;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="100" y="300" width="60" height="90" as="geometry"/>
                 </mxCell>
 
                 <!-- Person: Admin -->
-                <mxCell id="c-person-admin" value="&lt;b&gt;Admin&lt;/b&gt;&lt;br&gt;[Person]" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#FFFFFF;labelPosition=center;align=center;spacingTop=-30;fontSize=11;" parent="1" vertex="1">
+                <mxCell id="c-person-admin" value="&lt;b&gt;Admin&lt;/b&gt;&lt;br&gt;[Person]" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#FFFFFF;labelPosition=center;align=center;spacingTop=-30;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="100" y="550" width="60" height="90" as="geometry"/>
                 </mxCell>
 
                 <!-- Container: Web Application (SPA) -->
-                <mxCell id="container-spa" value="&lt;b&gt;Web Application&lt;/b&gt;&lt;br&gt;[Container: React SPA]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Provides e-commerce&lt;br&gt;functionality to customers&lt;br&gt;via web browser&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="container-spa" value="&lt;b&gt;Web Application&lt;/b&gt;&lt;br&gt;[Container: React SPA]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Provides e-commerce&lt;br&gt;functionality to customers&lt;br&gt;via web browser&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="340" y="280" width="180" height="120" as="geometry"/>
                 </mxCell>
 
                 <!-- Container: Admin Panel -->
-                <mxCell id="container-admin" value="&lt;b&gt;Admin Panel&lt;/b&gt;&lt;br&gt;[Container: React SPA]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Admin dashboard for&lt;br&gt;managing products,&lt;br&gt;orders, and users&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="container-admin" value="&lt;b&gt;Admin Panel&lt;/b&gt;&lt;br&gt;[Container: React SPA]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Admin dashboard for&lt;br&gt;managing products,&lt;br&gt;orders, and users&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="340" y="500" width="180" height="120" as="geometry"/>
                 </mxCell>
 
                 <!-- Container: API Gateway -->
-                <mxCell id="container-gateway" value="&lt;b&gt;API Gateway&lt;/b&gt;&lt;br&gt;[Container: Kong/NGINX]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Routes requests, handles&lt;br&gt;authentication, rate limiting&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="container-gateway" value="&lt;b&gt;API Gateway&lt;/b&gt;&lt;br&gt;[Container: Kong/NGINX]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Routes requests, handles&lt;br&gt;authentication, rate limiting&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="600" y="380" width="180" height="120" as="geometry"/>
                 </mxCell>
 
                 <!-- Container: Product Service -->
-                <mxCell id="container-product" value="&lt;b&gt;Product Service&lt;/b&gt;&lt;br&gt;[Container: Node.js]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Manages product catalog,&lt;br&gt;inventory, and search&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="container-product" value="&lt;b&gt;Product Service&lt;/b&gt;&lt;br&gt;[Container: Node.js]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Manages product catalog,&lt;br&gt;inventory, and search&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="860" y="220" width="180" height="110" as="geometry"/>
                 </mxCell>
 
                 <!-- Container: Order Service -->
-                <mxCell id="container-order" value="&lt;b&gt;Order Service&lt;/b&gt;&lt;br&gt;[Container: Node.js]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Handles orders, cart,&lt;br&gt;and checkout flow&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="container-order" value="&lt;b&gt;Order Service&lt;/b&gt;&lt;br&gt;[Container: Node.js]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Handles orders, cart,&lt;br&gt;and checkout flow&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="860" y="380" width="180" height="110" as="geometry"/>
                 </mxCell>
 
                 <!-- Container: User Service -->
-                <mxCell id="container-user" value="&lt;b&gt;User Service&lt;/b&gt;&lt;br&gt;[Container: Node.js]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Manages user accounts,&lt;br&gt;authentication, profiles&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="container-user" value="&lt;b&gt;User Service&lt;/b&gt;&lt;br&gt;[Container: Node.js]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Manages user accounts,&lt;br&gt;authentication, profiles&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="860" y="540" width="180" height="110" as="geometry"/>
                 </mxCell>
 
                 <!-- Container: Notification Service -->
-                <mxCell id="container-notification" value="&lt;b&gt;Notification Service&lt;/b&gt;&lt;br&gt;[Container: Node.js]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Sends emails, SMS,&lt;br&gt;push notifications&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="container-notification" value="&lt;b&gt;Notification Service&lt;/b&gt;&lt;br&gt;[Container: Node.js]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Sends emails, SMS,&lt;br&gt;push notifications&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="860" y="700" width="180" height="110" as="geometry"/>
                 </mxCell>
 
                 <!-- Container: Database -->
-                <mxCell id="container-db" value="&lt;b&gt;Database&lt;/b&gt;&lt;br&gt;[Container: PostgreSQL]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Stores products, orders,&lt;br&gt;users, and transactions&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="container-db" value="&lt;b&gt;Database&lt;/b&gt;&lt;br&gt;[Container: PostgreSQL]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Stores products, orders,&lt;br&gt;users, and transactions&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="1120" y="360" width="150" height="120" as="geometry"/>
                 </mxCell>
 
                 <!-- Container: Cache -->
-                <mxCell id="container-cache" value="&lt;b&gt;Cache&lt;/b&gt;&lt;br&gt;[Container: Redis]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Session storage,&lt;br&gt;caching, rate limits&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="container-cache" value="&lt;b&gt;Cache&lt;/b&gt;&lt;br&gt;[Container: Redis]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Session storage,&lt;br&gt;caching, rate limits&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="1120" y="540" width="150" height="110" as="geometry"/>
                 </mxCell>
 
                 <!-- Container: Message Queue -->
-                <mxCell id="container-mq" value="&lt;b&gt;Message Queue&lt;/b&gt;&lt;br&gt;[Container: RabbitMQ]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Async communication&lt;br&gt;between services&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="container-mq" value="&lt;b&gt;Message Queue&lt;/b&gt;&lt;br&gt;[Container: RabbitMQ]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Async communication&lt;br&gt;between services&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="1120" y="710" width="150" height="100" as="geometry"/>
                 </mxCell>
 
                 <!-- External Systems -->
-                <mxCell id="c-ext-payment" value="&lt;b&gt;Payment Gateway&lt;/b&gt;&lt;br&gt;[External: Stripe]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="c-ext-payment" value="&lt;b&gt;Payment Gateway&lt;/b&gt;&lt;br&gt;[External: Stripe]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="1400" y="280" width="150" height="70" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="c-ext-email" value="&lt;b&gt;Email Service&lt;/b&gt;&lt;br&gt;[External: SendGrid]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="c-ext-email" value="&lt;b&gt;Email Service&lt;/b&gt;&lt;br&gt;[External: SendGrid]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="1400" y="700" width="150" height="70" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="c-ext-cdn" value="&lt;b&gt;CDN&lt;/b&gt;&lt;br&gt;[External: CloudFront]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="c-ext-cdn" value="&lt;b&gt;CDN&lt;/b&gt;&lt;br&gt;[External: CloudFront]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="1400" y="490" width="150" height="70" as="geometry"/>
                 </mxCell>
 
                 <!-- Relationships -->
-                <mxCell id="c-rel-cust-spa" value="Uses [HTTPS]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="c-person-customer" target="container-spa" edge="1">
+                <mxCell id="c-rel-cust-spa" value="Uses [HTTPS]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="c-person-customer" target="container-spa" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="c-rel-admin-panel" value="Uses [HTTPS]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="c-person-admin" target="container-admin" edge="1">
+                <mxCell id="c-rel-admin-panel" value="Uses [HTTPS]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="c-person-admin" target="container-admin" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="c-rel-spa-gw" value="API calls [JSON/HTTPS]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.3;" parent="1" source="container-spa" target="container-gateway" edge="1">
+                <mxCell id="c-rel-spa-gw" value="API calls [JSON/HTTPS]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.3;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="container-spa" target="container-gateway" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="c-rel-admin-gw" value="API calls [JSON/HTTPS]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.7;" parent="1" source="container-admin" target="container-gateway" edge="1">
+                <mxCell id="c-rel-admin-gw" value="API calls [JSON/HTTPS]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.7;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="container-admin" target="container-gateway" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="c-rel-gw-product" value="Routes to" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.3;entryX=0;entryY=0.5;" parent="1" source="container-gateway" target="container-product" edge="1">
+                <mxCell id="c-rel-gw-product" value="Routes to" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.3;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="container-gateway" target="container-product" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="c-rel-gw-order" value="Routes to" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="container-gateway" target="container-order" edge="1">
+                <mxCell id="c-rel-gw-order" value="Routes to" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="container-gateway" target="container-order" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="c-rel-gw-user" value="Routes to" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.7;entryX=0;entryY=0.5;" parent="1" source="container-gateway" target="container-user" edge="1">
+                <mxCell id="c-rel-gw-user" value="Routes to" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.7;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="container-gateway" target="container-user" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="c-rel-services-db" value="Reads/Writes [SQL]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="container-order" target="container-db" edge="1">
+                <mxCell id="c-rel-services-db" value="Reads/Writes [SQL]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="container-order" target="container-db" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="c-rel-services-cache" value="Caches [Redis Protocol]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="container-user" target="container-cache" edge="1">
+                <mxCell id="c-rel-services-cache" value="Caches [Redis Protocol]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="container-user" target="container-cache" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="c-rel-order-mq" value="Publishes events" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" parent="1" source="container-order" target="container-mq" edge="1">
+                <mxCell id="c-rel-order-mq" value="Publishes events" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=0.5;exitY=1;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="container-order" target="container-mq" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="950" y="760"/>
@@ -214,11 +214,11 @@
                     </mxGeometry>
                 </mxCell>
 
-                <mxCell id="c-rel-notif-mq" value="Subscribes" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.3;" parent="1" source="container-notification" target="container-mq" edge="1">
+                <mxCell id="c-rel-notif-mq" value="Subscribes" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.3;shadow=1;textShadow=1;endArrow=async;endFill=1;" parent="1" source="container-notification" target="container-mq" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="c-rel-order-payment" value="Processes payment" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.3;entryX=0;entryY=0.5;" parent="1" source="container-order" target="c-ext-payment" edge="1">
+                <mxCell id="c-rel-order-payment" value="Processes payment" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.3;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="container-order" target="c-ext-payment" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="1080" y="413"/>
@@ -227,7 +227,7 @@
                     </mxGeometry>
                 </mxCell>
 
-                <mxCell id="c-rel-notif-email" value="Sends emails" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.7;entryX=0;entryY=0.5;" parent="1" source="container-notification" target="c-ext-email" edge="1">
+                <mxCell id="c-rel-notif-email" value="Sends emails" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;exitX=1;exitY=0.7;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="container-notification" target="c-ext-email" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="1350" y="777"/>
@@ -236,7 +236,7 @@
                     </mxGeometry>
                 </mxCell>
 
-                <mxCell id="c-rel-spa-cdn" value="Static assets" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;dashed=1;exitX=0.5;exitY=0;entryX=0;entryY=0.5;" parent="1" source="container-spa" target="c-ext-cdn" edge="1">
+                <mxCell id="c-rel-spa-cdn" value="Static assets" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;dashed=1;exitX=0.5;exitY=0;entryX=0;entryY=0.5;shadow=1;textShadow=1;endArrow=block;endFill=1;" parent="1" source="container-spa" target="c-ext-cdn" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="430" y="220"/>
@@ -247,7 +247,7 @@
                 </mxCell>
 
                 <!-- Legend -->
-                <mxCell id="legend-container" value="Legend" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;fontSize=12;shadow=1;" parent="1" vertex="1">
+                <mxCell id="legend-container" value="Legend" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;fontSize=12;shadow=1;" parent="1" vertex="1">
                     <mxGeometry x="40" y="950" width="350" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="leg-c-person" value="&lt;table&gt;&lt;tr&gt;&lt;td style=&#39;background:#08427B;width:20px;&#39;&gt;&lt;/td&gt;&lt;td&gt; Person&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;" parent="legend-container" vertex="1">
@@ -278,77 +278,77 @@
                 <mxCell id="1" parent="0"/>
 
                 <!-- Title -->
-                <mxCell id="title-component" value="Component Diagram - Order Service" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+                <mxCell id="title-component" value="Component Diagram - Order Service" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#333333;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="450" y="30" width="500" height="40" as="geometry"/>
                 </mxCell>
 
                 <!-- Container Boundary -->
-                <mxCell id="boundary-order" value="Order Service [Container: Node.js]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#3C7FC0;strokeWidth=3;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=20;spacingTop=10;fontSize=14;fontStyle=1;fontColor=#3C7FC0;" parent="1" vertex="1">
+                <mxCell id="boundary-order" value="Order Service [Container: Node.js]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#3C7FC0;strokeWidth=3;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=20;spacingTop=10;fontSize=14;fontStyle=1;fontColor=#3C7FC0;shadow=1;" parent="1" vertex="1">
                     <mxGeometry x="250" y="120" width="900" height="550" as="geometry"/>
                 </mxCell>
 
                 <!-- API Gateway (external to boundary) -->
-                <mxCell id="comp-gateway" value="&lt;b&gt;API Gateway&lt;/b&gt;&lt;br&gt;[Container]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="comp-gateway" value="&lt;b&gt;API Gateway&lt;/b&gt;&lt;br&gt;[Container]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="40" y="340" width="140" height="70" as="geometry"/>
                 </mxCell>
 
                 <!-- Component: Order Controller -->
-                <mxCell id="comp-order-ctrl" value="&lt;b&gt;Order Controller&lt;/b&gt;&lt;br&gt;[Component: Express Router]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Handles HTTP requests&lt;br&gt;for order operations&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="comp-order-ctrl" value="&lt;b&gt;Order Controller&lt;/b&gt;&lt;br&gt;[Component: Express Router]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Handles HTTP requests&lt;br&gt;for order operations&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="290" y="200" width="180" height="100" as="geometry"/>
                 </mxCell>
 
                 <!-- Component: Cart Controller -->
-                <mxCell id="comp-cart-ctrl" value="&lt;b&gt;Cart Controller&lt;/b&gt;&lt;br&gt;[Component: Express Router]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Handles cart add/remove&lt;br&gt;and update operations&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="comp-cart-ctrl" value="&lt;b&gt;Cart Controller&lt;/b&gt;&lt;br&gt;[Component: Express Router]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Handles cart add/remove&lt;br&gt;and update operations&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="290" y="340" width="180" height="100" as="geometry"/>
                 </mxCell>
 
                 <!-- Component: Checkout Controller -->
-                <mxCell id="comp-checkout-ctrl" value="&lt;b&gt;Checkout Controller&lt;/b&gt;&lt;br&gt;[Component: Express Router]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Handles checkout flow&lt;br&gt;and payment initiation&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="comp-checkout-ctrl" value="&lt;b&gt;Checkout Controller&lt;/b&gt;&lt;br&gt;[Component: Express Router]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Handles checkout flow&lt;br&gt;and payment initiation&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="290" y="480" width="180" height="100" as="geometry"/>
                 </mxCell>
 
                 <!-- Component: Order Service (business logic) -->
-                <mxCell id="comp-order-svc" value="&lt;b&gt;Order Service&lt;/b&gt;&lt;br&gt;[Component: Service Class]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Order business logic,&lt;br&gt;validation, state machine&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="comp-order-svc" value="&lt;b&gt;Order Service&lt;/b&gt;&lt;br&gt;[Component: Service Class]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Order business logic,&lt;br&gt;validation, state machine&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="560" y="200" width="180" height="100" as="geometry"/>
                 </mxCell>
 
                 <!-- Component: Cart Service -->
-                <mxCell id="comp-cart-svc" value="&lt;b&gt;Cart Service&lt;/b&gt;&lt;br&gt;[Component: Service Class]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Cart management,&lt;br&gt;pricing calculations&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="comp-cart-svc" value="&lt;b&gt;Cart Service&lt;/b&gt;&lt;br&gt;[Component: Service Class]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Cart management,&lt;br&gt;pricing calculations&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="560" y="340" width="180" height="100" as="geometry"/>
                 </mxCell>
 
                 <!-- Component: Payment Service -->
-                <mxCell id="comp-payment-svc" value="&lt;b&gt;Payment Service&lt;/b&gt;&lt;br&gt;[Component: Service Class]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Payment processing,&lt;br&gt;Stripe integration&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="comp-payment-svc" value="&lt;b&gt;Payment Service&lt;/b&gt;&lt;br&gt;[Component: Service Class]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Payment processing,&lt;br&gt;Stripe integration&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="560" y="480" width="180" height="100" as="geometry"/>
                 </mxCell>
 
                 <!-- Component: Order Repository -->
-                <mxCell id="comp-order-repo" value="&lt;b&gt;Order Repository&lt;/b&gt;&lt;br&gt;[Component: Repository]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Order data access,&lt;br&gt;CRUD operations&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="comp-order-repo" value="&lt;b&gt;Order Repository&lt;/b&gt;&lt;br&gt;[Component: Repository]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Order data access,&lt;br&gt;CRUD operations&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="830" y="270" width="180" height="100" as="geometry"/>
                 </mxCell>
 
                 <!-- Component: Event Publisher -->
-                <mxCell id="comp-event-pub" value="&lt;b&gt;Event Publisher&lt;/b&gt;&lt;br&gt;[Component: Publisher]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Publishes order events&lt;br&gt;to message queue&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="comp-event-pub" value="&lt;b&gt;Event Publisher&lt;/b&gt;&lt;br&gt;[Component: Publisher]&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Publishes order events&lt;br&gt;to message queue&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="830" y="420" width="180" height="100" as="geometry"/>
                 </mxCell>
 
                 <!-- External: Database -->
-                <mxCell id="comp-db" value="&lt;b&gt;Database&lt;/b&gt;&lt;br&gt;[PostgreSQL]" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="comp-db" value="&lt;b&gt;Database&lt;/b&gt;&lt;br&gt;[PostgreSQL]" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="1220" y="280" width="120" height="80" as="geometry"/>
                 </mxCell>
 
                 <!-- External: Message Queue -->
-                <mxCell id="comp-mq" value="&lt;b&gt;Message Queue&lt;/b&gt;&lt;br&gt;[RabbitMQ]" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#438DD5;strokeColor=#3C7FC0;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="comp-mq" value="&lt;b&gt;Message Queue&lt;/b&gt;&lt;br&gt;[RabbitMQ]" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="1220" y="430" width="120" height="80" as="geometry"/>
                 </mxCell>
 
                 <!-- External: Payment Gateway -->
-                <mxCell id="comp-stripe" value="&lt;b&gt;Stripe API&lt;/b&gt;&lt;br&gt;[External]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;" parent="1" vertex="1">
+                <mxCell id="comp-stripe" value="&lt;b&gt;Stripe API&lt;/b&gt;&lt;br&gt;[External]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="1220" y="560" width="120" height="60" as="geometry"/>
                 </mxCell>
 
                 <!-- Relationships -->
-                <mxCell id="comp-rel-gw-order" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="comp-gateway" target="comp-order-ctrl" edge="1">
+                <mxCell id="comp-rel-gw-order" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="comp-gateway" target="comp-order-ctrl" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="220" y="375"/>
@@ -357,11 +357,11 @@
                     </mxGeometry>
                 </mxCell>
 
-                <mxCell id="comp-rel-gw-cart" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="comp-gateway" target="comp-cart-ctrl" edge="1">
+                <mxCell id="comp-rel-gw-cart" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="comp-gateway" target="comp-cart-ctrl" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="comp-rel-gw-checkout" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="comp-gateway" target="comp-checkout-ctrl" edge="1">
+                <mxCell id="comp-rel-gw-checkout" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="comp-gateway" target="comp-checkout-ctrl" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="220" y="375"/>
@@ -370,23 +370,23 @@
                     </mxGeometry>
                 </mxCell>
 
-                <mxCell id="comp-rel-orderctrl-svc" value="Uses" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="comp-order-ctrl" target="comp-order-svc" edge="1">
+                <mxCell id="comp-rel-orderctrl-svc" value="Uses" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="comp-order-ctrl" target="comp-order-svc" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="comp-rel-cartctrl-svc" value="Uses" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="comp-cart-ctrl" target="comp-cart-svc" edge="1">
+                <mxCell id="comp-rel-cartctrl-svc" value="Uses" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="comp-cart-ctrl" target="comp-cart-svc" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="comp-rel-checkctrl-pay" value="Uses" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="comp-checkout-ctrl" target="comp-payment-svc" edge="1">
+                <mxCell id="comp-rel-checkctrl-pay" value="Uses" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="comp-checkout-ctrl" target="comp-payment-svc" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="comp-rel-ordersvc-repo" value="Uses" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="comp-order-svc" target="comp-order-repo" edge="1">
+                <mxCell id="comp-rel-ordersvc-repo" value="Uses" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="comp-order-svc" target="comp-order-repo" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="comp-rel-ordersvc-event" value="Uses" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.7;entryX=0;entryY=0.3;" parent="1" source="comp-order-svc" target="comp-event-pub" edge="1">
+                <mxCell id="comp-rel-ordersvc-event" value="Uses" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.7;entryX=0;entryY=0.3;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="comp-order-svc" target="comp-event-pub" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="800" y="270"/>
@@ -395,20 +395,20 @@
                     </mxGeometry>
                 </mxCell>
 
-                <mxCell id="comp-rel-repo-db" value="Reads/Writes" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="comp-order-repo" target="comp-db" edge="1">
+                <mxCell id="comp-rel-repo-db" value="Reads/Writes" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="comp-order-repo" target="comp-db" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="comp-rel-event-mq" value="Publishes" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="comp-event-pub" target="comp-mq" edge="1">
+                <mxCell id="comp-rel-event-mq" value="Publishes" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="comp-event-pub" target="comp-mq" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="comp-rel-pay-stripe" value="Calls API" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="comp-payment-svc" target="comp-stripe" edge="1">
+                <mxCell id="comp-rel-pay-stripe" value="Calls API" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontSize=9;fontColor=#707070;exitX=1;exitY=0.5;entryX=0;entryY=0.5;shadow=1;textShadow=1;flowAnimation=1;endArrow=classic;endFill=1;" parent="1" source="comp-payment-svc" target="comp-stripe" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
 
                 <!-- Legend -->
-                <mxCell id="legend-component" value="Legend" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;fontSize=12;shadow=1;" parent="1" vertex="1">
+                <mxCell id="legend-component" value="Legend" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;fontSize=12;shadow=1;" parent="1" vertex="1">
                     <mxGeometry x="40" y="750" width="350" height="156" as="geometry"/>
                 </mxCell>
                 <mxCell id="leg-comp-container" value="&lt;table&gt;&lt;tr&gt;&lt;td style=&#39;background:#438DD5;width:20px;&#39;&gt;&lt;/td&gt;&lt;td&gt; Container (external to scope)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;" parent="legend-component" vertex="1">
