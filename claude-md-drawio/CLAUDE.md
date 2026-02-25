@@ -835,33 +835,40 @@ Use ER-specific arrows for database relationships:
 | Many-to-Many (M:N) | `ERmany` | `ERmany` | `startArrow=ERmany;startFill=0;endArrow=ERmany;endFill=0` |
 | Zero/Many-to-Many (0..*:N) | `ERzeroToMany` | `ERmany` | `startArrow=ERzeroToMany;startFill=0;endArrow=ERmany;endFill=0` |
 
-**Edge Style by Connection Direction:**
+**CRITICAL: ER Arrows Must Connect Horizontally Only (Side to Side)**
 
-| Connection Direction | Edge Style | Reason |
-|---------------------|------------|--------|
-| Horizontal (left ↔ right) | `entityRelationEdgeStyle` | Direct straight line connection |
-| Vertical (top ↔ bottom) | `orthogonalEdgeStyle;rounded=1` | Proper right-angle routing for waypoints |
-| Diagonal/Mixed | `orthogonalEdgeStyle;rounded=1` | Clean orthogonal routing with waypoints |
+ER relationship arrows should ONLY connect horizontally (left ↔ right), NEVER vertically (top ↔ bottom). If tables need vertical relationships, reposition them so arrows can connect side to side.
+
+| Connection Direction | Edge Style | Required |
+|---------------------|------------|----------|
+| Horizontal (left ↔ right) | `entityRelationEdgeStyle;rounded=0` | **YES - Always use** |
+| Vertical (top ↔ bottom) | N/A | **NO - Reposition tables instead** |
+
+**Connection Points for Horizontal Arrows:**
+- Exit from left side: `exitX=0;exitY=0.5`
+- Exit from right side: `exitX=1;exitY=0.5`
+- Enter from left side: `entryX=0;entryY=0.5`
+- Enter from right side: `entryX=1;entryY=0.5`
 
 ```xml
-<!-- Horizontal connection: entityRelationEdgeStyle (left-right) -->
+<!-- Left-to-Right connection (exitX=1, entryX=0) -->
 <mxCell id="rel-users-orders"
-  style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;"
-  edge="1" parent="1" source="tbl-users" target="tbl-orders">
+  style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;"
+  edge="1" parent="1" source="tbl-users-id" target="tbl-orders-user_id">
   <mxGeometry relative="1" as="geometry"/>
 </mxCell>
 
-<!-- Vertical connection: orthogonalEdgeStyle (top-bottom) -->
-<mxCell id="rel-users-properties"
-  style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"
-  edge="1" parent="1" source="tbl-users" target="tbl-properties">
+<!-- Right-to-Right connection (exitX=1, entryX=1) - for tables on same side -->
+<mxCell id="rel-properties-favorites"
+  style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=1;exitY=0.5;entryX=1;entryY=0.5;"
+  edge="1" parent="1" source="tbl-properties-id" target="tbl-favorites-property_id">
   <mxGeometry relative="1" as="geometry"/>
 </mxCell>
 
-<!-- Horizontal optional relationship -->
-<mxCell id="rel-transactions-contracts"
-  style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERzeroToOne;endFill=0;shadow=1;"
-  edge="1" parent="1" source="tbl-transactions" target="tbl-contracts">
+<!-- Left-to-Left connection (exitX=0, entryX=0) - for tables on same side -->
+<mxCell id="rel-properties-listings"
+  style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;"
+  edge="1" parent="1" source="tbl-properties-id" target="tbl-listings-property_id">
   <mxGeometry relative="1" as="geometry"/>
 </mxCell>
 ```
