@@ -1309,36 +1309,31 @@ Edges connect shapes and represent data flow, dependencies, or relationships bet
 
 ### Choosing Edge Style by Layout
 
-**Use `orthogonalEdgeStyle` when shapes are aligned (same row or column):**
-```
-Same Row (use orthogonal):     Same Column (use orthogonal):
-    ┌───┐ ────► ┌───┐              ┌───┐
-    │ A │       │ B │              │ A │
-    └───┘       └───┘              └───┘
-                                     │
-                                     ▼
-                                   ┌───┐
-                                   │ B │
-                                   └───┘
-```
+**Use `edgeStyle=none` (straight) for complex architecture diagrams:**
 
-**Use `edgeStyle=none` (straight) when shapes are diagonal (not aligned):**
+When diagrams have multiple service icons of similar size (cloud architecture, microservices, etc.), use straight lines for ALL connections. This provides cleaner visuals and avoids routing complexity.
+
 ```
-Diagonal Layout (use straight):
-    ┌───┐           ┌───┐
-    │ A │╲          │ C │
-    └───┘ ╲         └───┘
-           ╲
-            ╲ ┌───┐
-             ╲│ B │
-              └───┘
+Complex Architecture (use straight for ALL):
+    ┌───┐           ┌───┐           ┌───┐
+    │ A │─────────▶ │ B │─────────▶ │ C │
+    └───┘           └───┘     ╲     └───┘
+       ╲              │        ╲
+        ╲             ▼         ╲
+         ╲          ┌───┐        ╲▶┌───┐
+          ╲────────▶│ D │─────────▶│ E │
+                    └───┘          └───┘
 ```
 
 **When to use straight lines (`edgeStyle=none`):**
-- **Diagonal relationships** - Shapes not aligned on same row or column
-- **Same-size shapes in complex layouts** - When orthogonal routing creates unnecessary bends
+- **Complex architecture diagrams** - Multiple service icons (AWS, Azure, GCP, K8s)
+- **Same-size shapes** - Icons of similar dimensions
 - Dense shape clusters where orthogonal routing creates crossings
-- Short connections between adjacent shapes
+
+**When to use orthogonal (`edgeStyle=orthogonalEdgeStyle`):**
+- **Simple diagrams** - Few shapes with clear row/column alignment
+- **Flowcharts** - Sequential process flows
+- **ER diagrams** - Database relationships (use `entityRelationEdgeStyle`)
 
 **Straight line example:**
 ```xml

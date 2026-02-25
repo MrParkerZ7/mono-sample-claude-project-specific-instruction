@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Azure-WebApp-Architecture" id="azure-webapp-arch-1">
-        <mxGraphModel dx="903" dy="533" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="800" math="0" shadow="0">
+        <mxGraphModel dx="902" dy="737" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="800" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -28,13 +28,13 @@
                 <mxCell id="edge-users-appgw" value="HTTPS" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="users" target="app-gateway" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-appgw-app" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="app-gateway" target="app-service" edge="1">
+                <mxCell id="edge-appgw-app" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="app-gateway" target="app-service" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-app-func" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="app-service" target="functions" edge="1">
+                <mxCell id="edge-app-func" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="app-service" target="functions" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-app-sql" value="SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="sql-db" edge="1">
+                <mxCell id="edge-app-sql" value="SQL" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="sql-db" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="edge-app-cosmos" value="NoSQL" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="cosmos-db" edge="1">
@@ -46,7 +46,7 @@
                 <mxCell id="edge-func-sb" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="functions" target="service-bus" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge-sb-logic" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="service-bus" target="logic-apps" edge="1">
+                <mxCell id="edge-sb-logic" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="service-bus" target="logic-apps" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="edge-app-blob" value="Files" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=10;fontColor=#666666;labelBackgroundColor=#ffffff;shadow=1;textShadow=1;" parent="1" source="app-service" target="blob-storage" edge="1">
