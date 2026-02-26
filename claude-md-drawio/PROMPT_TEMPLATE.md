@@ -1,9 +1,5 @@
 # Diagram Generation Prompt Template
 
-Copy the prompt below and replace `[YOUR_PROJECT_PATH]` with your project directory.
-
----
-
 ## Full Application Analysis & Diagram Generation
 
 ```
