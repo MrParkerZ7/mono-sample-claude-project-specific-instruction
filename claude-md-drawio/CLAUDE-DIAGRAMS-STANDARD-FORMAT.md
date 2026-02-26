@@ -44,6 +44,7 @@ DrawIO uses XML format with specific style attributes to reference official shap
 ### Lines, Arrows & Styling
 - [Lines and Edges (Connections)](#lines-and-edges-connections) - Edge styles, routing
 - [Arrow Color Standards (Protocol-Based)](#arrow-color-standards-protocol-based) - HTTP, Database, Cache, Queue colors
+- [CRITICAL: Mandatory Arrow Legend Requirements](#critical-mandatory-arrow-legend-requirements) - **Required legends for meaningful arrows**
 - [Arrows (Edge Endpoints)](#arrows-edge-endpoints) - Arrow types, selection guide
 - [Frames and Containers](#frames-and-containers) - Grouping, styling
 - [Waypoints and Edge Control Points](#waypoints-and-edge-control-points)
@@ -1454,6 +1455,311 @@ Use neutral gray (`#232F3E`) for ALL arrows when:
 #DD344C (red)    ─ ─ ─▶  Auth/security (dashed)
 ```
 
+---
+
+## CRITICAL: Mandatory Arrow Legend Requirements
+
+**Every diagram that uses meaningful arrow styles MUST include a legend section defining what each arrow color, style, and type represents.**
+
+### When Arrow Legend is Required
+
+A legend is **MANDATORY** when:
+- Using **protocol-based colors** (different colors for HTTP, database, cache, queue, etc.)
+- Using **ER relationship arrows** (ERone, ERmany, ERzeroToOne, etc.)
+- Using **internal vs external request differentiation** (solid vs dashed, different colors)
+- Using **sync vs async indicators** (solid vs dashed lines)
+- Using **different arrow types** with semantic meaning (classic, open, async, block)
+- Using **any custom arrow color or style** not standard gray
+
+### Legend Position and Structure
+
+**Position:** Bottom-left or bottom-right corner of the diagram, outside main content area.
+
+**Required Elements:**
+1. **Legend container** - Gray background box with title "Legend"
+2. **Arrow samples** - Visual example of each arrow type used
+3. **Text labels** - Clear description of what each arrow means
+
+### Arrow Legend Template (Infrastructure/Architecture Diagrams)
+
+```xml
+<!-- ================================================================ -->
+<!-- ARROW LEGEND - Required for diagrams with meaningful arrow styles -->
+<!-- ================================================================ -->
+<mxCell id="arrow-legend" value="Arrow Legend"
+  style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;fontStyle=1;fontSize=12;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="820" width="400" height="180" as="geometry"/>
+</mxCell>
+
+<!-- HTTP/API Arrow Sample -->
+<mxCell id="legend-http-line" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="60" y="860" as="sourcePoint"/>
+    <mxPoint x="140" y="860" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="legend-http-text" value="HTTP/HTTPS Request"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+  vertex="1" parent="1">
+  <mxGeometry x="150" y="850" width="130" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Database Arrow Sample -->
+<mxCell id="legend-db-line" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="60" y="890" as="sourcePoint"/>
+    <mxPoint x="140" y="890" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="legend-db-text" value="Database Read/Write (SQL)"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+  vertex="1" parent="1">
+  <mxGeometry x="150" y="880" width="150" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Cache Arrow Sample -->
+<mxCell id="legend-cache-line" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#DC382D;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="60" y="920" as="sourcePoint"/>
+    <mxPoint x="140" y="920" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="legend-cache-text" value="Cache Read/Write (Redis)"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+  vertex="1" parent="1">
+  <mxGeometry x="150" y="910" width="150" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Message Queue Publish Arrow Sample -->
+<mxCell id="legend-mq-pub-line" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="60" y="950" as="sourcePoint"/>
+    <mxPoint x="140" y="950" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="legend-mq-pub-text" value="Queue Publish (async)"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+  vertex="1" parent="1">
+  <mxGeometry x="150" y="940" width="130" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Message Queue Consume Arrow Sample -->
+<mxCell id="legend-mq-con-line" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=async;endFill=1;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="60" y="980" as="sourcePoint"/>
+    <mxPoint x="140" y="980" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="legend-mq-con-text" value="Queue Consume (polling)"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+  vertex="1" parent="1">
+  <mxGeometry x="150" y="970" width="140" height="20" as="geometry"/>
+</mxCell>
+```
+
+### Arrow Legend Template (ERD Diagrams)
+
+```xml
+<!-- ================================================================ -->
+<!-- ARROW LEGEND - Required for ERD diagrams with relationship arrows -->
+<!-- ================================================================ -->
+<mxCell id="erd-legend" value="Relationship Legend"
+  style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;fontStyle=1;fontSize=12;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="1100" width="350" height="160" as="geometry"/>
+</mxCell>
+
+<!-- One-to-Many -->
+<mxCell id="legend-one-many-line" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="60" y="1140" as="sourcePoint"/>
+    <mxPoint x="140" y="1140" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="legend-one-many-text" value="One-to-Many (1:N)"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+  vertex="1" parent="1">
+  <mxGeometry x="150" y="1130" width="120" height="20" as="geometry"/>
+</mxCell>
+
+<!-- One-to-One -->
+<mxCell id="legend-one-one-line" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="60" y="1170" as="sourcePoint"/>
+    <mxPoint x="140" y="1170" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="legend-one-one-text" value="One-to-One (1:1)"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+  vertex="1" parent="1">
+  <mxGeometry x="150" y="1160" width="120" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Many-to-Many -->
+<mxCell id="legend-many-many-line" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#336791;strokeWidth=2;startArrow=ERmany;startFill=0;endArrow=ERmany;endFill=0;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="60" y="1200" as="sourcePoint"/>
+    <mxPoint x="140" y="1200" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="legend-many-many-text" value="Many-to-Many (M:N)"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+  vertex="1" parent="1">
+  <mxGeometry x="150" y="1190" width="130" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Cross-database Sync -->
+<mxCell id="legend-sync-line" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#9673a6;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="60" y="1230" as="sourcePoint"/>
+    <mxPoint x="140" y="1230" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="legend-sync-text" value="Cross-DB Sync (async)"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+  vertex="1" parent="1">
+  <mxGeometry x="150" y="1220" width="140" height="20" as="geometry"/>
+</mxCell>
+```
+
+### Arrow Legend Template (Internal vs External Traffic)
+
+```xml
+<!-- ================================================================ -->
+<!-- ARROW LEGEND - Required for diagrams differentiating traffic types -->
+<!-- ================================================================ -->
+<mxCell id="traffic-legend" value="Traffic Legend"
+  style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;fontStyle=1;fontSize=12;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="700" width="320" height="140" as="geometry"/>
+</mxCell>
+
+<!-- External Request (Internet) -->
+<mxCell id="legend-ext-line" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="60" y="740" as="sourcePoint"/>
+    <mxPoint x="140" y="740" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="legend-ext-text" value="External Request (Internet)"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+  vertex="1" parent="1">
+  <mxGeometry x="150" y="730" width="150" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Internal Service-to-Service -->
+<mxCell id="legend-int-line" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#4285F4;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="60" y="770" as="sourcePoint"/>
+    <mxPoint x="140" y="770" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="legend-int-text" value="Internal Service-to-Service"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+  vertex="1" parent="1">
+  <mxGeometry x="150" y="760" width="150" height="20" as="geometry"/>
+</mxCell>
+
+<!-- VPN / Private Link -->
+<mxCell id="legend-vpn-line" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#00BCD4;strokeWidth=2;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="60" y="800" as="sourcePoint"/>
+    <mxPoint x="140" y="800" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="legend-vpn-text" value="VPN / Private Link"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+  vertex="1" parent="1">
+  <mxGeometry x="150" y="790" width="120" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Management / Monitoring -->
+<mxCell id="legend-mgmt-line" value=""
+  style="edgeStyle=none;rounded=0;html=1;strokeColor=#666666;strokeWidth=1;dashed=1;dashPattern=4 4;endArrow=open;endFill=0;shadow=1;"
+  edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="60" y="830" as="sourcePoint"/>
+    <mxPoint x="140" y="830" as="targetPoint"/>
+  </mxGeometry>
+</mxCell>
+<mxCell id="legend-mgmt-text" value="Management / Monitoring"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+  vertex="1" parent="1">
+  <mxGeometry x="150" y="820" width="150" height="20" as="geometry"/>
+</mxCell>
+```
+
+### Minimal Legend (When Using Few Arrow Types)
+
+For simple diagrams with only 2-3 arrow types, use a compact horizontal legend:
+
+```xml
+<!-- Compact horizontal legend -->
+<mxCell id="compact-legend" value=""
+  style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="700" width="500" height="40" as="geometry"/>
+</mxCell>
+
+<!-- Legend entries inline -->
+<mxCell id="legend-sync" value="─────▶ Sync Request"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#232F3E;"
+  vertex="1" parent="1">
+  <mxGeometry x="50" y="710" width="120" height="20" as="geometry"/>
+</mxCell>
+<mxCell id="legend-async" value="- - -▷ Async Message"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#E7157B;"
+  vertex="1" parent="1">
+  <mxGeometry x="180" y="710" width="130" height="20" as="geometry"/>
+</mxCell>
+<mxCell id="legend-bidir" value="◀────▶ Read/Write"
+  style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#C925D1;"
+  vertex="1" parent="1">
+  <mxGeometry x="320" y="710" width="110" height="20" as="geometry"/>
+</mxCell>
+```
+
+### Legend Checklist
+
+Before finalizing any diagram, verify:
+
+| Check | Description |
+|-------|-------------|
+| ☐ | Legend container exists with gray background |
+| ☐ | All arrow colors used in diagram are explained |
+| ☐ | All arrow types (solid, dashed, bidirectional) are explained |
+| ☐ | All ER relationship types are explained (if ERD) |
+| ☐ | Legend is positioned outside main diagram content |
+| ☐ | Text labels clearly describe arrow meaning |
+| ☐ | Arrow samples match exact styles used in diagram |
+
+---
+
 ### Edge Routing Styles
 
 | Style | Description | Use Case |
@@ -2062,6 +2368,7 @@ Control where edges connect to shapes:
     - `none` - Associations without direction
 13. **Add edge labels for protocols** - Label connections with protocol names (HTTPS, gRPC, TCP:5432, etc.)
 14. **Use dashed lines for management relationships** - Set `dashed=1` for control plane, monitoring, or optional paths
+15. **CRITICAL: Include Arrow Legend when using meaningful arrow styles** - Every diagram with protocol-based colors, ER relationships, or internal/external traffic differentiation MUST include a legend explaining arrow meanings
 
 ### Frames and Containers
 15. **Use hierarchical stroke widths for groups:**
@@ -2092,6 +2399,7 @@ Control where edges connect to shapes:
 - Group resources by VPC/VNet/VPC
 - Indicate public vs private subnets
 - Show internet gateways and NAT gateways
+- **Include Arrow Legend** for protocol colors (HTTP, DB, Cache, Queue)
 
 **Kubernetes:**
 - Show namespace boundaries
@@ -2104,18 +2412,21 @@ Control where edges connect to shapes:
 - Show firewall rules as text labels
 - Indicate VPN/tunnel connections with dashed lines
 - Group by network zones (DMZ, Internal, External)
+- **Include Arrow Legend** for internal vs external traffic, VPN, management flows
 
 **Software Architecture:**
 - Use layers (Presentation, Business, Data)
 - Show synchronous vs asynchronous communication
 - Indicate databases with cylinder shapes
 - Group microservices by domain
+- **Include Arrow Legend** when differentiating sync vs async, protocols
 
 **Integration Architecture:**
 - Show message flow direction
 - Indicate queue/topic names
 - Use different colors for sync vs async
 - Show retry/error paths with dashed lines
+- **Include Arrow Legend** explaining sync/async colors and patterns
 
 **Database ERD:**
 - Use `swimlane` shape for tables with column details
@@ -2146,3 +2457,4 @@ Control where edges connect to shapes:
 26. **Label all components** - Include service names in the `value` attribute
 27. **Position logically** - Arrange components following left-to-right or top-to-bottom flow
 28. **Be consistent** - Use same icon size, spacing, and style throughout the diagram
+29. **ALWAYS include Arrow Legend** - When using meaningful arrow colors/styles (protocols, ER relationships, internal/external traffic), include a legend section explaining each arrow type

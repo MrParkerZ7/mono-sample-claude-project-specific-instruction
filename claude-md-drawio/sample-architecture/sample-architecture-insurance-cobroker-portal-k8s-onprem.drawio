@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="CoBroker-Portal-K8s-OnPrem" id="cobroker-k8s-onprem-1">
-        <mxGraphModel dx="2739" dy="624" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2800" pageHeight="2000" math="0" shadow="0">
+        <mxGraphModel dx="2623" dy="737" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2800" pageHeight="2000" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -26,7 +26,7 @@
                     <mxGeometry x="380" y="40" width="80" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="external-group" value="External Systems &amp; Partners (via API Gateway)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;fontSize=12;fontStyle=1;shadow=1;textShadow=1;" parent="1" vertex="1">
-                    <mxGeometry x="40" y="1720" width="700" height="140" as="geometry"/>
+                    <mxGeometry x="40" y="1900" width="700" height="140" as="geometry"/>
                 </mxCell>
                 <mxCell id="insurance-api" value="Insurance&#xa;Companies API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;fontStyle=1;shadow=1;textShadow=1;" parent="external-group" vertex="1">
                     <mxGeometry x="20" y="40" width="100" height="50" as="geometry"/>
@@ -477,6 +477,36 @@
                 </mxCell>
                 <mxCell id="legend-nodes" value="Node Specifications:&#xa;• Masters: 3x (4C/16GB)&#xa;• Workers: 16x total&#xa;• Storage: 3x (4x1TB NVMe)&#xa;• Total: 22 nodes" style="text;html=1;fontSize=9;align=left;shadow=1;textShadow=1;" parent="legend" vertex="1">
                     <mxGeometry x="250" y="110" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow-legend" value="Arrow Legend" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;fontSize=12;fontStyle=1;shadow=1;textShadow=1;" parent="datacenter" vertex="1">
+                    <mxGeometry x="1740" y="460" width="380" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-arrow-title" value="Connection Types:" style="text;html=1;fontSize=10;fontStyle=1;shadow=1;textShadow=1;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="20" y="30" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-http-sample" value="───▶" style="text;html=1;fontSize=11;fontColor=#232F3E;shadow=1;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="20" y="55" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-http-desc" value="HTTP/HTTPS Request (gray)" style="text;html=1;fontSize=9;shadow=1;textShadow=1;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="65" y="55" width="150" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-db-sample" value="◀──▶" style="text;html=1;fontSize=11;fontColor=#C925D1;shadow=1;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="20" y="80" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-db-desc" value="Database Read/Write (purple)" style="text;html=1;fontSize=9;shadow=1;textShadow=1;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="65" y="80" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-gitops-sample" value="- - -▶" style="text;html=1;fontSize=11;fontColor=#232F3E;shadow=1;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="20" y="105" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-gitops-desc" value="GitOps/Async Deploy (dashed)" style="text;html=1;fontSize=9;shadow=1;textShadow=1;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="65" y="105" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-internal-sample" value="───▶" style="text;html=1;fontSize=11;fontColor=#4285F4;shadow=1;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="230" y="55" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-internal-desc" value="Internal Service (blue)" style="text;html=1;fontSize=9;shadow=1;textShadow=1;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="275" y="55" width="100" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="edge-users-network" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="users-group" target="network-layer" edge="1">
                     <mxGeometry relative="1" as="geometry">

@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="AWS-ECS-Architecture" id="aws-ecs-arch-1">
-        <mxGraphModel dx="902" dy="737" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="700" math="0" shadow="0">
+        <mxGraphModel dx="1308" dy="737" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="700" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -90,6 +90,39 @@
                 </mxCell>
                 <mxCell id="users" value="Users" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#232F3E;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.users;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="40" y="160" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow-legend" value="Arrow Legend" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;fontStyle=1;fontSize=12;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="460" width="340" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-http-arrow" value="───▶" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#232F3E;fontStyle=1;" vertex="1" parent="arrow-legend">
+                    <mxGeometry x="10" y="30" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-http-text" value="HTTP/HTTPS Request" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="75" y="30" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-db-arrow" value="◀──▶" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#C925D1;fontStyle=1;" vertex="1" parent="arrow-legend">
+                    <mxGeometry x="10" y="55" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-db-text" value="Database Read/Write (SQL)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="75" y="55" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-cache-arrow" value="◀──▶" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#DC382D;fontStyle=1;" vertex="1" parent="arrow-legend">
+                    <mxGeometry x="10" y="80" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-cache-text" value="Cache Read/Write (Redis)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="75" y="80" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-storage-arrow" value="───▶" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#7AA116;fontStyle=1;" vertex="1" parent="arrow-legend">
+                    <mxGeometry x="10" y="105" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-storage-text" value="Storage (S3/Backup)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="75" y="105" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-mq-arrow" value="- - -▷" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#E7157B;fontStyle=1;" vertex="1" parent="arrow-legend">
+                    <mxGeometry x="10" y="130" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-mq-text" value="Queue Consume (Polling)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="75" y="130" width="150" height="20" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

@@ -121,12 +121,9 @@ Perform a complete codebase analysis and create an all-in-one diagram covering:
 
 Save diagram to:  [YOUR_PROJECT_PATH]\docs\architecture-overview.drawio
 
----
 
-Project: [YOUR_PROJECT_PATH]
+## Parameters:
+- CLAUDE_DIAGRAMS_STANDARD_FORMAT:
+- YOUR_PROJECT_PATH:
+- YOUR_OUT_PUT_DIAGRAM_PROJECT_PATH:
 ```
----
-Parameters:
-- YOUR_PROJECT_PATH: 
-- CLAUDE_DIAGRAMS_STANDARD_FORMAT: 
----

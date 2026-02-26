@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="AWS-Portal-K8s-Insurance" id="portal-insurance-1">
-        <mxGraphModel dx="916" dy="655" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+        <mxGraphModel dx="2863" dy="737" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -50,7 +50,7 @@
                     <mxGeometry x="60" y="260" width="60" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="onprem-dc" value="On-Premises Data Center" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=1;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_corporate_data_center;strokeColor=#5A6C86;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#5A6C86;dashed=0;strokeWidth=4;" parent="1" vertex="1">
-                    <mxGeometry x="840" y="140" width="700" height="520" as="geometry"/>
+                    <mxGeometry x="780" y="40" width="700" height="520" as="geometry"/>
                 </mxCell>
                 <mxCell id="onprem-network" value="Corporate Network 192.168.0.0/16" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=11;fontStyle=0;rounded=0;fillColor=none;strokeColor=#5A6C86;verticalAlign=top;align=left;spacingLeft=10;fontColor=#5A6C86;dashed=1;strokeWidth=3;" parent="onprem-dc" vertex="1">
                     <mxGeometry x="20" y="40" width="660" height="460" as="geometry"/>
@@ -102,6 +102,9 @@
                 </mxCell>
                 <mxCell id="vpn-endpoint" value="VPN&lt;br&gt;Endpoint" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#5A6C86;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.vpn_connection;shadow=1;textShadow=1;" parent="onprem-network" vertex="1">
                     <mxGeometry x="40" y="230" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="fw-rules-label" value="Firewall Rules&#xa;Allow: 8443 (10.0.0.0/16 → 192.168.10.0/24)&#xa;Allow: 1521 (192.168.10.0/24 → 192.168.20.0/24)&#xa;Deny: All other" style="text;html=1;strokeColor=#B85450;fillColor=#f8cecc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=8;fontColor=#333333;spacing=4;shadow=1;textShadow=1;" parent="onprem-network" vertex="1">
+                    <mxGeometry x="20" y="380" width="220" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="edge-user-igw" value="HTTPS:443" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;fontSize=9;fontColor=#666666;labelBackgroundColor=#ffffff;flowAnimation=1;shadow=1;textShadow=1;" parent="1" source="users" target="igw" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -175,14 +178,44 @@
                 <mxCell id="sg-data-label" value="SG: Data&#xa;Inbound: 5432 (SG-App)&#xa;Outbound: None" style="text;html=1;strokeColor=#C925D1;fillColor=#f8cecc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=8;fontColor=#333333;spacing=4;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="460" y="350" width="130" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="fw-rules-label" value="Firewall Rules&#xa;Allow: 8443 (10.0.0.0/16 → 192.168.10.0/24)&#xa;Allow: 1521 (192.168.10.0/24 → 192.168.20.0/24)&#xa;Deny: All other" style="text;html=1;strokeColor=#B85450;fillColor=#f8cecc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=8;fontColor=#333333;spacing=4;shadow=1;textShadow=1;" parent="1" vertex="1">
-                    <mxGeometry x="880" y="570" width="220" height="60" as="geometry"/>
-                </mxCell>
                 <mxCell id="vpn-label" value="Site-to-Site VPN&#xa;IPSec IKEv2&#xa;AES-256 Encryption&#xa;BGP Routing" style="text;html=1;strokeColor=#5A6C86;fillColor=#f5f5f5;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=8;fontColor=#333333;spacing=4;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="760" y="420" width="100" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="users" value="End Users" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3E;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.users;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="40" y="620" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow-legend" value="Arrow Legend" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;fontStyle=1;fontSize=12;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="600" width="180" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-http-arrow" value="───▶" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#232F3E;fontStyle=1;" vertex="1" parent="arrow-legend">
+                    <mxGeometry x="5" y="30" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-http-text" value="HTTP/HTTPS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="55" y="30" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-db-arrow" value="◀──▶" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#C925D1;fontStyle=1;" vertex="1" parent="arrow-legend">
+                    <mxGeometry x="5" y="55" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-db-text" value="Database R/W" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="55" y="55" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-storage-arrow" value="- - -▶" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#7AA116;fontStyle=1;" vertex="1" parent="arrow-legend">
+                    <mxGeometry x="5" y="80" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-storage-text" value="Backup/Storage" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="55" y="80" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-sec-arrow" value="───■" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#DD344C;fontStyle=1;" vertex="1" parent="arrow-legend">
+                    <mxGeometry x="5" y="105" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-sec-text" value="Secrets Fetch" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="55" y="105" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-vpn-arrow" value="◀= =▶" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#5A6C86;fontStyle=1;" vertex="1" parent="arrow-legend">
+                    <mxGeometry x="5" y="130" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-vpn-text" value="VPN Tunnel" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;" parent="arrow-legend" vertex="1">
+                    <mxGeometry x="55" y="130" width="70" height="20" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
