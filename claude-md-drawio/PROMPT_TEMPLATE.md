@@ -14,7 +14,7 @@ This prompt orchestrates a **two-step workflow**:
 ## Parameters (fill these values, they will be used throughout):
 - PROJECT_PATH: __path_to_project_to_analyze__
 - OUTPUT_PATH: __where_to_save_outputs__e_g___PROJECT_PATH_docs__
-- CLAUDE_MD_PROJECT_ANALYSIS: __ath_to_analysis_templates_file__
+- CLAUDE_MD_PROJECT_ANALYSIS: __path_to_analysis_templates_file__
 - CLAUDE_DIAGRAMS_STANDARD_FORMAT: __path_to_diagram_standards_file__
 
 Use the parameter values above wherever you see [PARAMETER_NAME] below.
