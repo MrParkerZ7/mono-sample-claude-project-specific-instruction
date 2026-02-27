@@ -14,6 +14,21 @@ Comprehensive guide for creating `.drawio` architecture diagrams covering:
 
 DrawIO uses XML format with specific style attributes to reference official shape libraries for each domain.
 
+### Important: Skip Irrelevant Diagram Types
+
+> **Note:** Not all diagram types apply to every project. If the target project does not have sufficient information for a specific diagram type, **skip creating that diagram entirely**.
+>
+> **Examples:**
+> - No database/ORM → Skip ERD diagrams
+> - No cloud infrastructure → Skip AWS/Azure/GCP diagrams
+> - No Kubernetes → Skip K8s diagrams
+> - No microservices → Skip complex service mesh diagrams
+> - No message queues → Skip async messaging flow diagrams
+> - Simple monolith → Skip C4 Component level diagrams
+> - No CI/CD pipeline → Skip DevOps diagrams
+>
+> **Do not create empty or placeholder diagrams.** Only generate diagrams for aspects that actually exist in the codebase or infrastructure.
+
 ---
 
 ## Table of Contents
