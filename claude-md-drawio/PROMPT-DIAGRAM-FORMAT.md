@@ -1490,10 +1490,16 @@ A legend is **MANDATORY** when:
 
 **Position:** Bottom-left or bottom-right corner of the diagram, outside main content area.
 
+**CRITICAL: Root Level Placement**
+- Arrow Legend MUST be at root level: `parent="1"`
+- Arrow Legend should NEVER be placed inside a group container (AWS Cloud, VPC, System Boundary, etc.)
+- ALL legend elements (container box, line samples, text labels) must have `parent="1"`
+- This ensures the legend remains independent and doesn't move with diagram groups
+
 **Required Elements:**
-1. **Legend container** - Gray background box with title "Legend"
-2. **Arrow samples** - Visual example of each arrow type used
-3. **Text labels** - Clear description of what each arrow means
+1. **Legend container** - Gray background box with title "Legend" (`parent="1"`)
+2. **Arrow samples** - Visual edge examples (`parent="1"`, use `edge="1"`)
+3. **Text labels** - Clear description of what each arrow means (`parent="1"`)
 
 ### Arrow Legend Template (Infrastructure/Architecture Diagrams)
 
@@ -2383,7 +2389,7 @@ Control where edges connect to shapes:
     - `none` - Associations without direction
 13. **Add edge labels for protocols** - Label connections with protocol names (HTTPS, gRPC, TCP:5432, etc.)
 14. **Use dashed lines for management relationships** - Set `dashed=1` for control plane, monitoring, or optional paths
-15. **CRITICAL: Include Arrow Legend when using meaningful arrow styles** - Every diagram with protocol-based colors, ER relationships, or internal/external traffic differentiation MUST include a legend explaining arrow meanings
+15. **CRITICAL: Include Arrow Legend when using meaningful arrow styles** - Every diagram with protocol-based colors, ER relationships, or internal/external traffic differentiation MUST include a legend explaining arrow meanings. **Arrow Legend MUST be at root level (`parent="1"`), NEVER inside a group container.**
 
 ### Frames and Containers
 15. **Use hierarchical stroke widths for groups:**
@@ -2472,4 +2478,4 @@ Control where edges connect to shapes:
 26. **Label all components** - Include service names in the `value` attribute
 27. **Position logically** - Arrange components following left-to-right or top-to-bottom flow
 28. **Be consistent** - Use same icon size, spacing, and style throughout the diagram
-29. **ALWAYS include Arrow Legend** - When using meaningful arrow colors/styles (protocols, ER relationships, internal/external traffic), include a legend section explaining each arrow type
+29. **ALWAYS include Arrow Legend at root level** - When using meaningful arrow colors/styles (protocols, ER relationships, internal/external traffic), include a legend section explaining each arrow type. Legend MUST have `parent="1"`, never inside groups.
