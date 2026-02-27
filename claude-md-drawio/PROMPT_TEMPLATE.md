@@ -6,6 +6,21 @@ This prompt orchestrates a **two-step workflow**:
 1. **Step 1**: Analyze project → Generate structured `.md` analysis files
 2. **Step 2**: Read analysis files → Generate `.drawio` diagrams
 
+### Important: Skip Irrelevant Analysis/Diagram Types
+
+> **Note:** Not all analysis and diagram types apply to every project. **Skip any section that doesn't apply** to the target project.
+>
+> **Examples:**
+> - No database/ORM → Skip Data Models / ERD
+> - No cloud infrastructure / IaC → Skip Infrastructure Analysis
+> - No Kubernetes → Skip K8s diagrams
+> - No message queues or events → Skip async flow sections
+> - Simple CRUD / monolith → Skip DDD Analysis
+> - No external APIs → Skip API Contract Analysis
+> - No complex workflows → Skip Flowchart / State Machine
+>
+> **Do not create empty or placeholder files.** Only generate analysis and diagrams for aspects that exist in the codebase.
+
 ---
 
 ## Full Workflow Prompt
@@ -92,7 +107,45 @@ Analyze and document:
 
 **Output**: [OUTPUT_PATH]/analysis/c4-model-analysis.md
 
-## 1.6 DDD Analysis (if applicable)
+## 1.6 Flowchart / Process Analysis (if applicable)
+Analyze and document:
+- Business processes and workflows
+- Decision points with branching logic
+- User journeys and UI flows
+- Approval workflows
+- State transitions (simple)
+
+**Output**: [OUTPUT_PATH]/analysis/flowchart-analysis.md
+
+## 1.7 Sequence Diagram Analysis (if applicable)
+Analyze and document:
+- API interaction sequences
+- Service-to-service communication flows
+- Database interaction sequences
+- External system integration flows
+- Asynchronous message flows
+
+**Output**: [OUTPUT_PATH]/analysis/sequence-analysis.md
+
+## 1.8 Use Case Analysis (if applicable)
+Analyze and document:
+- Actors (persons, systems)
+- Use cases with flows (main, alternative, exception)
+- Include/extend relationships
+- Actor-use case matrix
+
+**Output**: [OUTPUT_PATH]/analysis/use-case-analysis.md
+
+## 1.9 State Machine Analysis (if applicable)
+Analyze and document:
+- Stateful entities and their states
+- State transitions with triggers and guards
+- Composite and parallel states
+- State history and persistence
+
+**Output**: [OUTPUT_PATH]/analysis/state-machine-analysis.md
+
+## 1.10 DDD Analysis (if applicable)
 Analyze and document:
 - Domain and subdomains (core, supporting, generic)
 - Bounded contexts with ubiquitous language
@@ -101,6 +154,36 @@ Analyze and document:
 - Domain events and services
 
 **Output**: [OUTPUT_PATH]/analysis/ddd-analysis.md
+
+## 1.11 Security Analysis (if applicable)
+Analyze and document:
+- Authentication and authorization methods
+- Security boundaries and trust zones
+- Data protection (encryption, masking)
+- Threat model (STRIDE)
+- Security controls and secrets management
+
+**Output**: [OUTPUT_PATH]/analysis/security-analysis.md
+
+## 1.12 API Contract Analysis (if applicable)
+Analyze and document:
+- API type and versioning strategy
+- Endpoints with auth requirements
+- Request/response schemas
+- Error codes and pagination
+- Webhooks if applicable
+
+**Output**: [OUTPUT_PATH]/analysis/api-contract-analysis.md
+
+## 1.13 Dependency Analysis (if applicable)
+Analyze and document:
+- Package dependencies (production/dev)
+- Internal module dependencies
+- Circular dependencies
+- Outdated packages and vulnerabilities
+- License compliance
+
+**Output**: [OUTPUT_PATH]/analysis/dependency-analysis.md
 
 ---
 
@@ -157,7 +240,46 @@ Read the analysis files and generate DrawIO diagrams following all standards.
   - Follow C4 color conventions
   - Include arrow legends
 
-## 2.6 DDD Context Map (if DDD analysis exists)
+## 2.6 Flowchart Diagram (if flowchart analysis exists)
+- **Input**: [OUTPUT_PATH]/analysis/flowchart-analysis.md
+- **Requirements**:
+  - Use standard flowchart shapes (rounded rect, diamond, parallelogram)
+  - Show decision branches (Yes/No paths)
+  - Use swimlanes for multi-actor processes
+  - Include error/exception paths
+  - Include arrow legend
+- **Output**: [OUTPUT_PATH]/diagrams/flowchart-[process-name].drawio
+
+## 2.7 Sequence Diagram (if sequence analysis exists)
+- **Input**: [OUTPUT_PATH]/analysis/sequence-analysis.md
+- **Requirements**:
+  - Use UML sequence notation (lifelines, activation bars)
+  - Solid arrows for sync, dashed for async
+  - Show self-calls and return messages
+  - Include opt/alt/loop fragments
+  - Include arrow legend
+- **Output**: [OUTPUT_PATH]/diagrams/sequence-[flow-name].drawio
+
+## 2.8 Use Case Diagram (if use case analysis exists)
+- **Input**: [OUTPUT_PATH]/analysis/use-case-analysis.md
+- **Requirements**:
+  - Stick figures for actors, ovals for use cases
+  - Show include/extend relationships
+  - Group by subsystem/package
+  - Include arrow legend
+- **Output**: [OUTPUT_PATH]/diagrams/use-case-[domain].drawio
+
+## 2.9 State Machine Diagram (if state machine analysis exists)
+- **Input**: [OUTPUT_PATH]/analysis/state-machine-analysis.md
+- **Requirements**:
+  - Rounded rectangles for states
+  - Initial/final state markers
+  - Label transitions with trigger [guard] / action
+  - Show composite states if applicable
+  - Include arrow legend
+- **Output**: [OUTPUT_PATH]/diagrams/state-machine-[entity].drawio
+
+## 2.10 DDD Context Map (if DDD analysis exists)
 - **Input**: [OUTPUT_PATH]/analysis/ddd-analysis.md
 - **Requirements**:
   - Show bounded contexts as containers
@@ -167,14 +289,35 @@ Read the analysis files and generate DrawIO diagrams following all standards.
   - Include arrow legend
 - **Output**: [OUTPUT_PATH]/diagrams/ddd-context-map.drawio
 
+## 2.11 Security Architecture Diagram (if security analysis exists)
+- **Input**: [OUTPUT_PATH]/analysis/security-analysis.md
+- **Requirements**:
+  - Show trust zones with colored regions
+  - Mark entry points and security controls
+  - Show data flow with sensitivity levels
+  - Distinct colors for public/DMZ/private zones
+  - Include arrow legend
+- **Output**: [OUTPUT_PATH]/diagrams/security-architecture.drawio
+
+## 2.12 Module Dependency Diagram (if dependency analysis exists)
+- **Input**: [OUTPUT_PATH]/analysis/dependency-analysis.md
+- **Requirements**:
+  - Show internal modules as rectangles
+  - Arrows indicate dependency direction
+  - Highlight circular dependencies in red
+  - Group by layer/domain
+  - Include arrow legend
+- **Output**: [OUTPUT_PATH]/diagrams/module-dependencies.drawio
+
 ---
 
 ## Execution Instructions
 
-1. Execute STEP 1 completely - generate all analysis .md files
-2. Execute STEP 2 completely - generate all .drawio diagrams from analysis
-3. Ensure all diagrams include mandatory arrow legends
-4. Follow all standards from the provided template files
+1. Execute STEP 1 - generate analysis .md files **only for applicable sections**
+2. Execute STEP 2 - generate .drawio diagrams **only for existing analysis files**
+3. **Skip any section** where the project lacks relevant information
+4. Ensure all diagrams include mandatory arrow legends
+5. Follow all standards from the provided template files
 ```
 
 ---
@@ -217,22 +360,37 @@ Save all outputs to: D:\Projects\my-ecommerce-app\docs
 
 ### Expected Output Structure
 
+> **Note:** Only applicable files will be generated. Skip sections that don't apply.
+
 ```
 docs/
 ├── analysis/
 │   ├── architecture-analysis.md
 │   ├── data-models-analysis.md
 │   ├── data-flow-analysis.md
-│   ├── infrastructure-analysis.md
+│   ├── flowchart-analysis.md          # if workflows exist
+│   ├── sequence-analysis.md           # if complex interactions exist
+│   ├── use-case-analysis.md           # if documenting requirements
+│   ├── state-machine-analysis.md      # if stateful entities exist
+│   ├── infrastructure-analysis.md     # if cloud/IaC exists
 │   ├── c4-model-analysis.md
-│   └── ddd-analysis.md
+│   ├── ddd-analysis.md                # if DDD patterns used
+│   ├── security-analysis.md           # if security review needed
+│   ├── api-contract-analysis.md       # if APIs exist
+│   └── dependency-analysis.md         # if dependency review needed
 └── diagrams/
     ├── architecture-overview.drawio
     ├── entity-erd.drawio
     ├── data-flow.drawio
+    ├── flowchart-[process].drawio
+    ├── sequence-[flow].drawio
+    ├── use-case-[domain].drawio
+    ├── state-machine-[entity].drawio
     ├── infrastructure.drawio
     ├── c4-1-context.drawio
     ├── c4-2-container.drawio
     ├── c4-3-component-[name].drawio
-    └── ddd-context-map.drawio
+    ├── ddd-context-map.drawio
+    ├── security-architecture.drawio
+    └── module-dependencies.drawio
 ```
