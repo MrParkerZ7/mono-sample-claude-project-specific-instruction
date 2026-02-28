@@ -1,0 +1,149 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="C4 Context" id="c4-context">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="C4 Context Diagram - Lerna TypeScript Monorepo"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#232F3E;"
+          vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="500" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Developer (Person) -->
+        <mxCell id="developer" value="&lt;b&gt;Developer&lt;/b&gt;&lt;br&gt;[Person]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Develops, tests, and&lt;br&gt;maintains packages&lt;/font&gt;"
+          style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#FFFFFF;labelPosition=center;align=center;spacingTop=-60;spacing=0;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="120" y="200" width="80" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Build System (External System) -->
+        <mxCell id="build-system" value="&lt;b&gt;Build System&lt;/b&gt;&lt;br&gt;[External System]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;CI/CD or local build&lt;br&gt;process (Yarn/Lerna)&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="80" y="450" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Main System: Lerna TypeScript Monorepo -->
+        <mxCell id="monorepo" value="&lt;b&gt;Lerna TypeScript Monorepo&lt;/b&gt;&lt;br&gt;[Software System]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Modular TypeScript monorepo&lt;br&gt;providing shared utilities and&lt;br&gt;services for Node.js applications&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=3;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="500" y="250" width="300" height="180" as="geometry"/>
+        </mxCell>
+
+        <!-- Consuming Application (External System) -->
+        <mxCell id="consumer" value="&lt;b&gt;Consuming Application&lt;/b&gt;&lt;br&gt;[External System]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;External applications that&lt;br&gt;import published packages&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="1050" y="290" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- npm Registry (External System) -->
+        <mxCell id="npm" value="&lt;b&gt;npm Registry&lt;/b&gt;&lt;br&gt;[External System]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Package registry for&lt;br&gt;publishing packages&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="560" y="530" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Git Repository (External System) -->
+        <mxCell id="git" value="&lt;b&gt;Git Repository&lt;/b&gt;&lt;br&gt;[External System]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Source control and&lt;br&gt;version management&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="1050" y="530" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Relationships -->
+
+        <!-- Developer -> Monorepo -->
+        <mxCell id="rel-dev-mono" value="Develops, tests,&lt;br&gt;maintains"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="developer" target="monorepo">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Developer -> Build System -->
+        <mxCell id="rel-dev-build" value="Triggers builds"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="developer" target="build-system">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Build System -> Monorepo -->
+        <mxCell id="rel-build-mono" value="Compiles,&lt;br&gt;tests"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="build-system" target="monorepo">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Monorepo -> Consumer -->
+        <mxCell id="rel-mono-consumer" value="Exports&lt;br&gt;packages"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="monorepo" target="consumer">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Monorepo -> npm -->
+        <mxCell id="rel-mono-npm" value="Publishes"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;shadow=1;flowAnimation=1;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="monorepo" target="npm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Consumer -> npm -->
+        <mxCell id="rel-consumer-npm" value="Downloads"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;shadow=1;flowAnimation=1;dashed=1;dashPattern=8 8;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="consumer" target="npm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1140" y="480"/>
+              <mxPoint x="900" y="480"/>
+              <mxPoint x="900" y="580"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Developer -> Git -->
+        <mxCell id="rel-dev-git" value="Commits,&lt;br&gt;pushes"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;shadow=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="developer" target="git">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="140"/>
+              <mxPoint x="1140" y="140"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="Legend"
+          style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;fontSize=12;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="80" y="680" width="280" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-person" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#08427B;width:20px;'&gt;&lt;/td&gt;&lt;td&gt; Person (Actor)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;"
+          vertex="1" parent="legend">
+          <mxGeometry y="26" width="280" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-system" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#438DD5;width:20px;'&gt;&lt;/td&gt;&lt;td&gt; Software System (Internal)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;"
+          vertex="1" parent="legend">
+          <mxGeometry y="52" width="280" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-external" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#999999;width:20px;'&gt;&lt;/td&gt;&lt;td&gt; External System&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;"
+          vertex="1" parent="legend">
+          <mxGeometry y="78" width="280" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-rel" value="&lt;table&gt;&lt;tr&gt;&lt;td&gt;───▶&lt;/td&gt;&lt;td&gt; Uses / Depends On&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;"
+          vertex="1" parent="legend">
+          <mxGeometry y="104" width="280" height="26" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

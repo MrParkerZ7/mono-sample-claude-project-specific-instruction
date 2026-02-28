@@ -1,0 +1,277 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Architecture Overview" id="arch-overview">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="Lerna TypeScript Monorepo - Architecture Overview"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#232F3E;"
+          vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="500" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Root Workspace Container -->
+        <mxCell id="workspace" value="Lerna TypeScript Monorepo (Root Workspace)"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=3;verticalAlign=top;align=left;spacingLeft=15;spacingTop=10;fontStyle=1;fontSize=14;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="100" y="80" width="1100" height="520" as="geometry"/>
+        </mxCell>
+
+        <!-- Configuration Layer -->
+        <mxCell id="config-layer" value="Configuration Layer"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="30" y="50" width="1040" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Config Files -->
+        <mxCell id="config-lerna" value="lerna.json"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="50" y="85" width="90" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="config-tsconfig" value="tsconfig.json"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="160" y="85" width="90" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="config-tslint" value="tslint.json"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="270" y="85" width="90" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="config-prettier" value=".prettierrc"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="380" y="85" width="90" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="config-package" value="package.json"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="490" y="85" width="90" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="config-jest" value=".jest/setup.ts"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="600" y="85" width="90" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Packages Layer -->
+        <mxCell id="packages-layer" value="packages/"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="30" y="170" width="1040" height="320" as="geometry"/>
+        </mxCell>
+
+        <!-- Commons Container -->
+        <mxCell id="commons-container" value="commons/"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="50" y="210" width="480" height="260" as="geometry"/>
+        </mxCell>
+
+        <!-- Sample Common Package -->
+        <mxCell id="sample-common" value="@lerna-ts/sample-common"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=3;verticalAlign=top;align=center;spacingTop=8;fontStyle=1;fontSize=12;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="70" y="250" width="440" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- Sample Common - Source -->
+        <mxCell id="common-src" value="src/&lt;br&gt;index.ts"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="90" y="290" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Sample Common - Tests -->
+        <mxCell id="common-test" value="src/&lt;br&gt;index.test.ts"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="190" y="290" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Sample Common - Output -->
+        <mxCell id="common-lib" value="lib/&lt;br&gt;index.js + .d.ts"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="90" y="360" width="100" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Sample Common - Function -->
+        <mxCell id="common-func" value="sampleFunction()&lt;br&gt;&lt;font style='font-size:9px'&gt;(msg) =&gt; string&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="290" y="290" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Services Container -->
+        <mxCell id="services-container" value="services/"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="570" y="210" width="480" height="260" as="geometry"/>
+        </mxCell>
+
+        <!-- Sample Service Package -->
+        <mxCell id="sample-service" value="@lerna-ts/sample-service"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;verticalAlign=top;align=center;spacingTop=8;fontStyle=1;fontSize=12;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="590" y="250" width="440" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- Sample Service - Source -->
+        <mxCell id="service-src" value="src/&lt;br&gt;index.ts"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="610" y="290" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Sample Service - Tests -->
+        <mxCell id="service-test" value="src/&lt;br&gt;index.test.ts"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="710" y="290" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Sample Service - Output -->
+        <mxCell id="service-dist" value="dist/&lt;br&gt;index.js + .d.ts"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="610" y="360" width="100" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Sample Service - Re-export -->
+        <mxCell id="service-export" value="Re-exports&lt;br&gt;&lt;font style='font-size:9px'&gt;sampleFunction&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=10;shadow=1;"
+          vertex="1" parent="workspace">
+          <mxGeometry x="810" y="290" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Dependency Arrow: service -> common -->
+        <mxCell id="dep-service-common" value="imports"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;fontColor=#232F3E;fontSize=10;shadow=1;flowAnimation=1;"
+          edge="1" parent="1" source="service-export" target="common-func">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="405"/>
+              <mxPoint x="570" y="405"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Compile Arrow: src -> lib -->
+        <mxCell id="compile-common" value="tsc"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;dashed=1;dashPattern=4 4;endArrow=classic;endFill=1;fontColor=#666666;fontSize=9;shadow=1;"
+          edge="1" parent="1" source="common-src" target="common-lib">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Compile Arrow: src -> dist -->
+        <mxCell id="compile-service" value="tsc"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;dashed=1;dashPattern=4 4;endArrow=classic;endFill=1;fontColor=#666666;fontSize=9;shadow=1;"
+          edge="1" parent="1" source="service-src" target="service-dist">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Tools Legend -->
+        <mxCell id="tools-legend" value="Tools &amp; Technologies"
+          style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="100" y="630" width="200" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="tool-ts" value="TypeScript 4.5.5"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=10;"
+          vertex="1" parent="tools-legend">
+          <mxGeometry y="26" width="200" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="tool-lerna" value="Lerna 6.6.0"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=10;"
+          vertex="1" parent="tools-legend">
+          <mxGeometry y="52" width="200" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="tool-yarn" value="Yarn Workspaces"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=10;"
+          vertex="1" parent="tools-legend">
+          <mxGeometry y="78" width="200" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="tool-jest" value="Jest 27.5.1 (ts-jest)"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=10;"
+          vertex="1" parent="tools-legend">
+          <mxGeometry y="104" width="200" height="26" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow Legend -->
+        <mxCell id="arrow-legend" value="Arrow Legend"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;fontStyle=1;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="320" y="630" width="280" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- Import Arrow Sample -->
+        <mxCell id="legend-import-line" value=""
+          style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="670" as="sourcePoint"/>
+            <mxPoint x="410" y="670" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-import-text" value="Package Import (runtime)"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+          vertex="1" parent="1">
+          <mxGeometry x="420" y="660" width="150" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- Compile Arrow Sample -->
+        <mxCell id="legend-compile-line" value=""
+          style="edgeStyle=none;rounded=0;html=1;strokeColor=#666666;strokeWidth=1;dashed=1;dashPattern=4 4;endArrow=classic;endFill=1;shadow=1;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="700" as="sourcePoint"/>
+            <mxPoint x="410" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-compile-text" value="TypeScript Compilation"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;"
+          vertex="1" parent="1">
+          <mxGeometry x="420" y="690" width="150" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- Color Legend -->
+        <mxCell id="color-legend" value="Package Types"
+          style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="620" y="630" width="200" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="color-commons" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#d5e8d4;width:20px;border:1px solid #82b366'&gt;&lt;/td&gt;&lt;td&gt; Commons (Library)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=10;"
+          vertex="1" parent="color-legend">
+          <mxGeometry y="26" width="200" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="color-services" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#dae8fc;width:20px;border:1px solid #6c8ebf'&gt;&lt;/td&gt;&lt;td&gt; Services (Consumer)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=10;"
+          vertex="1" parent="color-legend">
+          <mxGeometry y="52" width="200" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="color-config" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#fff2cc;width:20px;border:1px solid #d6b656'&gt;&lt;/td&gt;&lt;td&gt; Configuration&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=10;"
+          vertex="1" parent="color-legend">
+          <mxGeometry y="78" width="200" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="color-test" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#f8cecc;width:20px;border:1px solid #b85450'&gt;&lt;/td&gt;&lt;td&gt; Test Files&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=10;"
+          vertex="1" parent="color-legend">
+          <mxGeometry y="104" width="200" height="26" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

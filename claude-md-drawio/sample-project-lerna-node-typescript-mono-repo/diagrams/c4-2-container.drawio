@@ -1,0 +1,163 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="C4 Container" id="c4-container">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="C4 Container Diagram - Lerna TypeScript Monorepo"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#232F3E;"
+          vertex="1" parent="1">
+          <mxGeometry x="450" y="20" width="500" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Developer (Person) -->
+        <mxCell id="developer" value="&lt;b&gt;Developer&lt;/b&gt;&lt;br&gt;[Person]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Develops, tests&lt;/font&gt;"
+          style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#FFFFFF;labelPosition=center;align=center;spacingTop=-60;spacing=0;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="60" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- System Boundary -->
+        <mxCell id="boundary" value="Lerna TypeScript Monorepo [Software System]"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#3C7FC0;strokeWidth=4;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=20;spacingTop=10;fontSize=16;fontStyle=1;fontColor=#3C7FC0;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="200" y="100" width="1100" height="650" as="geometry"/>
+        </mxCell>
+
+        <!-- Root Workspace Container -->
+        <mxCell id="root-workspace" value="&lt;b&gt;Root Workspace&lt;/b&gt;&lt;br&gt;[Container: Yarn + Lerna]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Orchestrates build, test,&lt;br&gt;lint, and dependency&lt;br&gt;management for all packages&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="570" y="160" width="260" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Commons Package Container -->
+        <mxCell id="sample-common" value="&lt;b&gt;@lerna-ts/sample-common&lt;/b&gt;&lt;br&gt;[Container: TypeScript Library]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Shared utility library providing&lt;br&gt;core functions like sampleFunction&lt;br&gt;&lt;br&gt;Entry: lib/index.js&lt;br&gt;Types: lib/index.d.ts&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="300" y="380" width="260" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- Service Package Container -->
+        <mxCell id="sample-service" value="&lt;b&gt;@lerna-ts/sample-service&lt;/b&gt;&lt;br&gt;[Container: TypeScript Service]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Service package that consumes&lt;br&gt;and re-exports from sample-common&lt;br&gt;&lt;br&gt;Entry: dist/index.js&lt;br&gt;Types: dist/index.d.ts&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="840" y="380" width="260" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- Configuration Container -->
+        <mxCell id="config" value="&lt;b&gt;Configuration&lt;/b&gt;&lt;br&gt;[Container: Config Files]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Shared configuration:&lt;br&gt;tsconfig.json, tslint.json,&lt;br&gt;.prettierrc, jest setup&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="570" y="590" width="260" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Consumer (External) -->
+        <mxCell id="consumer" value="&lt;b&gt;Consuming Application&lt;/b&gt;&lt;br&gt;[External System]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;External applications&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#8A8A8A;strokeWidth=2;fontColor=#FFFFFF;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="1350" y="405" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Relationships -->
+
+        <!-- Developer -> Root Workspace -->
+        <mxCell id="rel-dev-root" value="Runs scripts&lt;br&gt;(yarn setup)"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="developer" target="root-workspace">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Root Workspace -> Sample Common -->
+        <mxCell id="rel-root-common" value="Builds,&lt;br&gt;tests"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="root-workspace" target="sample-common">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Root Workspace -> Sample Service -->
+        <mxCell id="rel-root-service" value="Builds,&lt;br&gt;tests"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="root-workspace" target="sample-service">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Sample Service -> Sample Common (imports) -->
+        <mxCell id="rel-service-common" value="imports&lt;br&gt;[TypeScript]"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;fontColor=#232F3E;fontSize=9;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="sample-service" target="sample-common">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Sample Service -> Consumer -->
+        <mxCell id="rel-service-consumer" value="exports&lt;br&gt;[npm]"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="sample-service" target="consumer">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Config -> Common -->
+        <mxCell id="rel-config-common" value="extends"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;dashed=1;dashPattern=4 4;fontColor=#666666;fontSize=9;shadow=1;endArrow=open;endFill=0;"
+          edge="1" parent="1" source="config" target="sample-common">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="650"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Config -> Service -->
+        <mxCell id="rel-config-service" value="extends"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;dashed=1;dashPattern=4 4;fontColor=#666666;fontSize=9;shadow=1;endArrow=open;endFill=0;"
+          edge="1" parent="1" source="config" target="sample-service">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="970" y="650"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="Legend"
+          style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;fontSize=12;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="580" width="300" height="182" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-person" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#08427B;width:20px;'&gt;&lt;/td&gt;&lt;td&gt; Person (Actor)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;"
+          vertex="1" parent="legend">
+          <mxGeometry y="26" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-container" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#438DD5;width:20px;'&gt;&lt;/td&gt;&lt;td&gt; Container (Package)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;"
+          vertex="1" parent="legend">
+          <mxGeometry y="52" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-component" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#85BBF0;width:20px;'&gt;&lt;/td&gt;&lt;td&gt; Component (Config)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;"
+          vertex="1" parent="legend">
+          <mxGeometry y="78" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-external" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#999999;width:20px;'&gt;&lt;/td&gt;&lt;td&gt; External System&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;"
+          vertex="1" parent="legend">
+          <mxGeometry y="104" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-import" value="&lt;table&gt;&lt;tr&gt;&lt;td&gt;───▶&lt;/td&gt;&lt;td&gt; Import (Runtime)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;"
+          vertex="1" parent="legend">
+          <mxGeometry y="130" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-extends" value="&lt;table&gt;&lt;tr&gt;&lt;td&gt;- - -&gt;&lt;/td&gt;&lt;td&gt; Extends (Config)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;"
+          vertex="1" parent="legend">
+          <mxGeometry y="156" width="300" height="26" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

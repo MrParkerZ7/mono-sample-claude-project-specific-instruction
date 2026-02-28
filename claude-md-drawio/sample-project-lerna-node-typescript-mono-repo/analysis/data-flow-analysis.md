@@ -1,0 +1,263 @@
+# Data Flow Analysis: Lerna TypeScript Monorepo
+
+## 1. Overview
+
+This document analyzes the data flow patterns within the Lerna TypeScript Monorepo project. Given the simple nature of this project (a shared utility library), the data flow primarily involves function exports and imports between packages.
+
+---
+
+## 2. Flow Types
+
+### 2.1 Export/Import Flow
+
+The primary data flow is the export and import of functions between packages:
+
+| Flow | Source | Target | Data Type |
+|------|--------|--------|-----------|
+| Function Export | sample-common | sample-service | `sampleFunction` |
+| Re-export | sample-service | External Consumer | `sampleFunction` |
+
+---
+
+## 3. Function Flow Diagram
+
+```
+┌───────────────────────────────────────────────────────────────────────────┐
+│                          Function Export Flow                              │
+│                                                                           │
+│  ┌──────────────────────────────────────────────────────────────────┐    │
+│  │                   @lerna-ts/sample-common                        │    │
+│  │                                                                  │    │
+│  │   ┌────────────────────────────────────────────────────────┐    │    │
+│  │   │  src/index.ts                                          │    │    │
+│  │   │                                                        │    │    │
+│  │   │  export const sampleFunction = (msg: string): string   │────┼────┼──┐
+│  │   │    => `SampleFunction Print :: ${msg}`                 │    │    │  │
+│  │   │                                                        │    │    │  │
+│  │   └────────────────────────────────────────────────────────┘    │    │  │
+│  │                                                                  │    │  │
+│  └──────────────────────────────────────────────────────────────────┘    │  │
+│                                                                           │  │
+│                                   exports                                  │  │
+│                                     │                                      │  │
+│                                     ▼                                      │  │
+│  ┌──────────────────────────────────────────────────────────────────┐    │  │
+│  │                   @lerna-ts/sample-service                       │    │  │
+│  │                                                                  │    │  │
+│  │   ┌────────────────────────────────────────────────────────┐    │    │  │
+│  │   │  src/index.ts                                          │    │    │  │
+│  │   │                                                        │◀───┼────┼──┘
+│  │   │  export { sampleFunction }                             │    │    │
+│  │   │    from '@lerna-ts/sample-common'                      │────┼────┼──┐
+│  │   │                                                        │    │    │  │
+│  │   └────────────────────────────────────────────────────────┘    │    │  │
+│  │                                                                  │    │  │
+│  └──────────────────────────────────────────────────────────────────┘    │  │
+│                                                                           │  │
+│                                  re-exports                                │  │
+│                                     │                                      │  │
+│                                     ▼                                      │  │
+│  ┌──────────────────────────────────────────────────────────────────┐    │  │
+│  │                   External Consumer                              │    │  │
+│  │                                                                  │    │  │
+│  │   import { sampleFunction } from '@lerna-ts/sample-service'    │◀───┼──┘
+│  │                                                                  │    │
+│  │   const result = sampleFunction('Hello')                        │    │
+│  │   // Returns: "SampleFunction Print :: Hello"                   │    │
+│  │                                                                  │    │
+│  └──────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 4. Build Data Flow
+
+### 4.1 TypeScript Compilation Flow
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        Build Process Flow                                │
+│                                                                         │
+│  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐     │
+│  │   Source Code   │    │   TypeScript    │    │  Compiled JS    │     │
+│  │    (.ts)        │───▶│   Compiler      │───▶│  + Types        │     │
+│  │                 │    │   (tsc)         │    │  (.js + .d.ts)  │     │
+│  └─────────────────┘    └─────────────────┘    └─────────────────┘     │
+│                                                                         │
+│  Compilation Order (Lerna respects dependencies):                       │
+│                                                                         │
+│  ┌─────────────────────────────────────────────────────────────┐       │
+│  │  Step 1: @lerna-ts/sample-common                            │       │
+│  │                                                             │       │
+│  │  src/index.ts  ──────▶  lib/index.js                       │       │
+│  │                        lib/index.d.ts                       │       │
+│  └─────────────────────────────────────────────────────────────┘       │
+│                              │                                          │
+│                              │ (dependency ready)                       │
+│                              ▼                                          │
+│  ┌─────────────────────────────────────────────────────────────┐       │
+│  │  Step 2: @lerna-ts/sample-service                           │       │
+│  │                                                             │       │
+│  │  src/index.ts  ──────▶  dist/index.js                      │       │
+│  │                        dist/index.d.ts                      │       │
+│  └─────────────────────────────────────────────────────────────┘       │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### 4.2 Test Execution Flow
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        Test Execution Flow                               │
+│                                                                         │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐                 │
+│  │   .env      │───▶│ .jest/      │───▶│   Jest      │                 │
+│  │  (RUN=TEST) │    │ setup.ts    │    │  Runtime    │                 │
+│  └─────────────┘    └─────────────┘    └─────────────┘                 │
+│                                              │                          │
+│                                              │ runs                     │
+│                                              ▼                          │
+│  ┌─────────────────────────────────────────────────────────────┐       │
+│  │  Test Files                                                 │       │
+│  │                                                             │       │
+│  │  ┌─────────────────────────────────────────────────────┐   │       │
+│  │  │  packages/commons/sample/src/index.test.ts          │   │       │
+│  │  │                                                     │   │       │
+│  │  │  describe('Test Sample') {                         │   │       │
+│  │  │    test('Case Sample') {                           │   │       │
+│  │  │      expect(sampleFunction('Mock'))                │   │       │
+│  │  │        .toEqual('SampleFunction Print :: Mock')    │   │       │
+│  │  │    }                                               │   │       │
+│  │  │  }                                                  │   │       │
+│  │  └─────────────────────────────────────────────────────┘   │       │
+│  │                                                             │       │
+│  │  ┌─────────────────────────────────────────────────────┐   │       │
+│  │  │  packages/services/sample/src/index.test.ts         │   │       │
+│  │  │                                                     │   │       │
+│  │  │  describe('Test Sample') {                         │   │       │
+│  │  │    test('Case Sample') {                           │   │       │
+│  │  │      expect(sampleFunction('Mock'))                │   │       │
+│  │  │        .toEqual('SampleFunction Print :: Mock')    │   │       │
+│  │  │    }                                               │   │       │
+│  │  │  }                                                  │   │       │
+│  │  └─────────────────────────────────────────────────────┘   │       │
+│  │                                                             │       │
+│  └─────────────────────────────────────────────────────────────┘       │
+│                              │                                          │
+│                              │ generates                                │
+│                              ▼                                          │
+│  ┌─────────────────────────────────────────────────────────────┐       │
+│  │  Coverage Reports                                           │       │
+│  │                                                             │       │
+│  │  packages/commons/sample/coverage/                         │       │
+│  │  packages/services/sample/coverage/                        │       │
+│  │                                                             │       │
+│  │  Threshold: 100% (branches, functions, lines, statements)  │       │
+│  └─────────────────────────────────────────────────────────────┘       │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 5. Function Input/Output
+
+### sampleFunction
+
+| Aspect | Details |
+|--------|---------|
+| **Input** | `msg: string` |
+| **Output** | `string` |
+| **Transformation** | Prepends "SampleFunction Print :: " to input |
+| **Side Effects** | None (pure function) |
+
+```typescript
+// Data transformation example
+Input:  "Hello World"
+Output: "SampleFunction Print :: Hello World"
+```
+
+---
+
+## 6. Development Workflow Data Flow
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    Development Workflow Data Flow                        │
+│                                                                         │
+│  ┌─────────────┐                                                        │
+│  │  Developer  │                                                        │
+│  └──────┬──────┘                                                        │
+│         │                                                               │
+│         │ yarn setup                                                    │
+│         ▼                                                               │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │  1. Install Dependencies                                        │   │
+│  │     yarn install                                                │   │
+│  └───────────────────────────────────┬─────────────────────────────┘   │
+│                                      │                                  │
+│                                      ▼                                  │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │  2. Bootstrap & Link                                            │   │
+│  │     lerna bootstrap                                             │   │
+│  │     - Creates symlinks between packages                         │   │
+│  │     - sample-service → sample-common                            │   │
+│  └───────────────────────────────────┬─────────────────────────────┘   │
+│                                      │                                  │
+│                                      ▼                                  │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │  3. Compile TypeScript                                          │   │
+│  │     yarn tsc                                                    │   │
+│  │     - sample-common → lib/                                      │   │
+│  │     - sample-service → dist/                                    │   │
+│  └───────────────────────────────────┬─────────────────────────────┘   │
+│                                      │                                  │
+│                                      ▼                                  │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │  4. Run Tests                                                   │   │
+│  │     yarn test                                                   │   │
+│  │     - Load .env                                                 │   │
+│  │     - Execute Jest                                              │   │
+│  │     - Generate coverage                                         │   │
+│  └─────────────────────────────────────────────────────────────────┘   │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 7. Summary
+
+| Flow Type | Description | Direction |
+|-----------|-------------|-----------|
+| **Function Export** | sampleFunction from commons | Outward |
+| **Re-export** | sampleFunction via service | Passthrough |
+| **Build** | Source to compiled | Transform |
+| **Test** | Source to coverage | Validation |
+| **Workspace Link** | Internal dependencies | Bidirectional |
+
+---
+
+## 8. Diagram Requirements
+
+### Data Flow Diagram Elements
+
+**Nodes**:
+1. sample-common/src/index.ts (Source)
+2. sample-common/lib/ (Compiled)
+3. sample-service/src/index.ts (Re-export)
+4. sample-service/dist/ (Compiled)
+5. External Consumer (User)
+
+**Edges**:
+- Export arrows (function flow)
+- Compile arrows (build flow)
+- Import arrows (dependency flow)
+
+**Legend**:
+- Solid blue: Function export
+- Dashed gray: Compilation
+- Green: Test execution

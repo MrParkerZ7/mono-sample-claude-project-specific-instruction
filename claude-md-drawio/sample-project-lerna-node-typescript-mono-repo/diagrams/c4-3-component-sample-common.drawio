@@ -1,0 +1,187 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="C4 Component - sample-common" id="c4-comp-common">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="C4 Component Diagram - @lerna-ts/sample-common"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#232F3E;"
+          vertex="1" parent="1">
+          <mxGeometry x="380" y="20" width="500" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Container Boundary -->
+        <mxCell id="boundary" value="@lerna-ts/sample-common [Container: TypeScript Library]"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#3C7FC0;strokeWidth=3;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=20;spacingTop=10;fontSize=14;fontStyle=1;fontColor=#3C7FC0;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="1100" height="580" as="geometry"/>
+        </mxCell>
+
+        <!-- Source Directory -->
+        <mxCell id="src-dir" value="src/"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="160" y="140" width="500" height="260" as="geometry"/>
+        </mxCell>
+
+        <!-- index.ts Component -->
+        <mxCell id="index-ts" value="&lt;b&gt;index.ts&lt;/b&gt;&lt;br&gt;[Component: Entry Point]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Main module that exports&lt;br&gt;all public functions&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="200" y="190" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- sampleFunction Component -->
+        <mxCell id="sample-func" value="&lt;b&gt;sampleFunction&lt;/b&gt;&lt;br&gt;[Component: Function]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;(msg: string) =&gt; string&lt;br&gt;&lt;br&gt;Core utility function that&lt;br&gt;prepends prefix to message&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5A9BD5;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="200" y="310" width="180" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- index.test.ts Component -->
+        <mxCell id="index-test" value="&lt;b&gt;index.test.ts&lt;/b&gt;&lt;br&gt;[Component: Test Suite]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Jest test suite for&lt;br&gt;sampleFunction&lt;br&gt;&lt;br&gt;Coverage: 100%&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="440" y="190" width="180" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Output Directory -->
+        <mxCell id="lib-dir" value="lib/"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="720" y="140" width="460" height="260" as="geometry"/>
+        </mxCell>
+
+        <!-- index.js Output -->
+        <mxCell id="index-js" value="&lt;b&gt;index.js&lt;/b&gt;&lt;br&gt;[Component: Compiled JS]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;CommonJS module output&lt;br&gt;&lt;br&gt;ES2022 target&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="760" y="190" width="160" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- index.d.ts Output -->
+        <mxCell id="index-dts" value="&lt;b&gt;index.d.ts&lt;/b&gt;&lt;br&gt;[Component: Type Defs]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;TypeScript declaration file&lt;br&gt;for type checking&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="980" y="190" width="160" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Coverage Output -->
+        <mxCell id="coverage" value="&lt;b&gt;coverage/&lt;/b&gt;&lt;br&gt;[Component: Reports]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;LCOV coverage reports&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="760" y="310" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Config Files -->
+        <mxCell id="config-dir" value="Configuration"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="160" y="460" width="1020" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- package.json -->
+        <mxCell id="package-json" value="&lt;b&gt;package.json&lt;/b&gt;&lt;br&gt;[Config]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:9px'&gt;main: lib/index.js&lt;br&gt;types: lib/index.d.ts&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=10;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="200" y="505" width="140" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- tsconfig.json -->
+        <mxCell id="tsconfig" value="&lt;b&gt;tsconfig.json&lt;/b&gt;&lt;br&gt;[Config]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:9px'&gt;outDir: lib/&lt;br&gt;rootDir: src/&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=10;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="380" y="505" width="140" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- jest.config.ts -->
+        <mxCell id="jest-config" value="&lt;b&gt;jest.config.ts&lt;/b&gt;&lt;br&gt;[Config]&lt;br&gt;&lt;br&gt;&lt;font style='font-size:9px'&gt;preset: ts-jest&lt;br&gt;coverage: 100%&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontColor=#000000;verticalAlign=middle;fontSize=10;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="560" y="505" width="140" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- Relationships -->
+
+        <!-- index.ts contains sampleFunction -->
+        <mxCell id="rel-index-func" value="contains"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;strokeWidth=2;fontColor=#707070;fontSize=9;shadow=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="index-ts" target="sample-func">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- test imports index -->
+        <mxCell id="rel-test-index" value="imports"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;fontColor=#232F3E;fontSize=9;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="index-test" target="index-ts">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- src -> lib (compile) -->
+        <mxCell id="rel-compile" value="tsc compiles"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;dashed=1;dashPattern=4 4;fontColor=#666666;fontSize=9;shadow=1;flowAnimation=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="index-ts" target="index-js">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="240"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- tsc also generates types -->
+        <mxCell id="rel-types" value="generates"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;dashed=1;dashPattern=4 4;fontColor=#666666;fontSize=9;shadow=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="index-js" target="index-dts">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- test -> coverage -->
+        <mxCell id="rel-coverage" value="generates"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;dashed=1;dashPattern=4 4;fontColor=#666666;fontSize=9;shadow=1;endArrow=classic;endFill=1;"
+          edge="1" parent="1" source="index-test" target="coverage">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="530" y="350"/>
+              <mxPoint x="680" y="350"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="Legend"
+          style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;fontSize=11;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="700" width="300" height="156" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-source" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#85BBF0;width:20px;border:1px solid #5A9BD5'&gt;&lt;/td&gt;&lt;td&gt; Source Component&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=10;"
+          vertex="1" parent="legend">
+          <mxGeometry y="26" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-test" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#f8cecc;width:20px;border:1px solid #b85450'&gt;&lt;/td&gt;&lt;td&gt; Test Component&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=10;"
+          vertex="1" parent="legend">
+          <mxGeometry y="52" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-output" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#dae8fc;width:20px;border:1px solid #6c8ebf'&gt;&lt;/td&gt;&lt;td&gt; Compiled Output&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=10;"
+          vertex="1" parent="legend">
+          <mxGeometry y="78" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-config" value="&lt;table&gt;&lt;tr&gt;&lt;td style='background:#fff2cc;width:20px;border:1px solid #d6b656'&gt;&lt;/td&gt;&lt;td&gt; Configuration&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=10;"
+          vertex="1" parent="legend">
+          <mxGeometry y="104" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-compile" value="&lt;table&gt;&lt;tr&gt;&lt;td&gt;- - -▶&lt;/td&gt;&lt;td&gt; Build/Generate&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;fontSize=10;"
+          vertex="1" parent="legend">
+          <mxGeometry y="130" width="300" height="26" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
