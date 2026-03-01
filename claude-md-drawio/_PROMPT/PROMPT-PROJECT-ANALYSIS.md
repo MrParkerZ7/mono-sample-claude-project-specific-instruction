@@ -1147,6 +1147,70 @@ Save diagram to: [YOUR_PROJECT_PATH]/docs/diagrams/entity-erd.drawio
 
 ---
 
+## Generate NoSQL Data Model Diagram
+
+```
+## Task: Generate NoSQL Data Model Diagram
+
+Use diagram standards from: [CLAUDE_DIAGRAMS_STANDARD_FORMAT_PATH]
+
+### Input Analysis
+Read and use: [YOUR_PROJECT_PATH]/docs/analysis/data-models-analysis.md
+
+### Requirements
+1. Create a NoSQL data model diagram based on the data models analysis
+2. Use swimlane table format with PK (🔑) and TTL (⏱) indicators
+3. Color-code tables by domain:
+   - User/Profile: Purple (#C925D1 header, #E1D5E7 fill)
+   - Security/Rate Limit: Red (#DD344C header, #F8CECC fill)
+   - Business Data: Green (#7AA116 header, #D5E8D4 fill)
+   - Queue/Workflow: Blue (#6C8EBF header, #DAE8FC fill)
+4. Include legend for:
+   - Domain color meanings
+   - PK (Partition Key) notation
+   - TTL attribute notation
+5. Add Access Patterns box listing common query patterns
+6. Do NOT show FK relationships (NoSQL has no FK constraints)
+
+### Output
+Save diagram to: [YOUR_PROJECT_PATH]/docs/diagrams/nosql-data-model.drawio
+```
+
+---
+
+## Generate Conceptual ERD (NoSQL)
+
+```
+## Task: Generate Conceptual ERD for NoSQL
+
+Use diagram standards from: [CLAUDE_DIAGRAMS_STANDARD_FORMAT_PATH]
+
+### Input Analysis
+Read and use: [YOUR_PROJECT_PATH]/docs/analysis/data-models-analysis.md
+
+### Requirements
+1. Create a conceptual ERD showing logical entities (not physical tables)
+2. Group entities by domain using swimlane containers:
+   - User Domain (blue border, light blue fill)
+   - Authentication Domain (red border, light red fill)
+   - Business Domain (green border, light green fill)
+3. Show logical relationships with ERD arrows:
+   - ERone → ERone for 1:1 relationships
+   - ERone → ERmany for 1:N relationships
+4. Mark FK fields as "(FK)" with italic style
+5. Include relationship labels (e.g., "has profile", "owns", "requests")
+6. Include legend for:
+   - Relationship notation (1:1, 1:N)
+   - PK/FK notation
+   - Domain color meanings
+7. Note: These are logical/application-level relationships, not database constraints
+
+### Output
+Save diagram to: [YOUR_PROJECT_PATH]/docs/diagrams/entity-erd-conceptual.drawio
+```
+
+---
+
 ## Generate Data Flow Diagram
 
 ```
@@ -1739,6 +1803,116 @@ The README.md serves as:
 ### Reference Data
 - categories
 - countries
+```
+
+---
+
+## NoSQL Data Models Output Template
+
+For NoSQL databases (DynamoDB, MongoDB, Firestore), use this template that emphasizes partition keys, access patterns, and denormalized data structures.
+
+```markdown
+# Data Models Analysis: [Project Name]
+
+## 1. Overview
+
+| Attribute | Value |
+|-----------|-------|
+| **Database Type** | AWS DynamoDB (NoSQL) |
+| **Schema Type** | Schema-less (inferred from code) |
+| **Table Naming** | `{APP_ENV}-{app-name}-{table-name}` |
+| **Key Strategy** | Single-table design with composite keys |
+
+## 2. DynamoDB Tables
+
+### 2.1 Core Tables
+
+| Table Name | Purpose | Partition Key | Sort Key |
+|------------|---------|---------------|----------|
+| `user-profile` | User profile storage | userId | - |
+| `user-device` | Device registration | deviceId | - |
+| `rate-limit` | Rate limiting | key | type |
+
+## 3. Entity Definitions
+
+### 3.1 User Profile
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `userId` | String (PK) | User unique identifier |
+| `name` | String | Display name |
+| `email` | String | User email |
+| `status` | String | active / inactive |
+| `createdAt` | String (ISO) | Creation timestamp |
+
+### 3.2 Device Registration
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `deviceId` | String (PK) | Device unique identifier |
+| `userId` | String | Associated user ID |
+| `token` | String | Auth token |
+| `status` | String | lock / nonLock |
+| `TimeToExist` | Number | TTL for expiration |
+
+### 3.3 Rate Limit
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `key` | String (PK) | Rate limit key (userId, deviceId, etc.) |
+| `type` | String (SK) | Limit type (SMS, PIN, API) |
+| `count` | Number | Current count |
+| `status` | String | lock / nonLock |
+| `lockedStartTime` | Number | Lock start timestamp |
+
+## 4. Static Configuration Entities
+
+### 4.1 App Channels (JSON Resource)
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `code` | String | Channel code (A, B, C) |
+| `name` | String | Channel display name |
+
+**Values:**
+- A: Channel A
+- B: Channel B
+
+## 5. Relationships (Logical)
+
+> Note: NoSQL databases don't enforce FK constraints. These are application-level logical relationships.
+
+### 5.1 User → Device (1:N)
+- One user can have multiple devices
+- Device stores tokens and status
+
+### 5.2 User → Rate Limit (1:N)
+- One user can have multiple rate limit entries
+- Rate limits tracked per type (SMS, PIN, API)
+
+## 6. Rate Limiting Strategy
+
+| Entity | Table | Limit | Lock Duration |
+|--------|-------|-------|---------------|
+| SMS OTP | rate-limit | 5 per window | Time-based |
+| PIN Attempts | rate-limit | 5 attempts | Time-based |
+| API Calls | rate-limit | Configurable | Configurable |
+
+## 7. TTL (Time-To-Live) Usage
+
+| Entity | TTL Attribute | Purpose |
+|--------|---------------|---------|
+| OTP Records | TimeToExist | Auto-expire OTPs |
+| Session Tokens | TimeToExist | Session expiration |
+| Rate Limit Locks | lockedStartTime | Auto-unlock after duration |
+
+## 8. Access Patterns
+
+| Pattern | Table | Key Condition | Use Case |
+|---------|-------|---------------|----------|
+| Get user by ID | user-profile | PK = userId | Profile lookup |
+| Get device by ID | user-device | PK = deviceId | Auth token validation |
+| Check rate limit | rate-limit | PK = key, SK = type | Rate limit check |
 ```
 
 ---

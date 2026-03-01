@@ -1400,6 +1400,171 @@ Row 4: Transactions       [transactions] → [contracts] [payments]
 
 ---
 
+## NoSQL / DynamoDB Data Model Diagrams
+
+For NoSQL databases (DynamoDB, MongoDB, etc.), ERD diagrams show table/collection structures with partition keys, sort keys, and access patterns instead of traditional FK relationships.
+
+### NoSQL Table Style
+
+NoSQL tables use the same swimlane format but with different key indicators:
+
+```xml
+<!-- DynamoDB Table -->
+<mxCell id="tbl-mr-identity" value="mr-identity"
+  style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;swimlaneFillColor=#C925D1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=3;shadow=1;fontSize=12;fontColor=#FFFFFF;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="100" width="280" height="280" as="geometry"/>
+</mxCell>
+
+<!-- Partition Key row -->
+<mxCell id="mr-id-pk" value="🔑 mrId : String (PK)"
+  style="text;strokeColor=#9673A6;fillColor=#F3E8FF;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=11;"
+  vertex="1" parent="tbl-mr-identity">
+  <mxGeometry y="30" width="280" height="25" as="geometry"/>
+</mxCell>
+
+<!-- TTL attribute row -->
+<mxCell id="dev-ttl" value="⏱ TimeToExist : Number (TTL)"
+  style="text;strokeColor=#9673A6;fillColor=#FFF2CC;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;fontStyle=2;"
+  vertex="1" parent="tbl-mr-device">
+  <mxGeometry y="205" width="280" height="25" as="geometry"/>
+</mxCell>
+```
+
+### NoSQL Key Indicators
+
+| Key Type | Style | Example |
+|----------|-------|---------|
+| Partition Key (PK) | 🔑 prefix, bold, light purple fill | `🔑 mrId : String (PK)` |
+| Sort Key (SK) | 🔑 prefix, bold, light blue fill | `🔑 timestamp : Number (SK)` |
+| TTL Attribute | ⏱ prefix, italic, yellow fill (#FFF2CC) | `⏱ TimeToExist : Number (TTL)` |
+| GSI | 📇 prefix | `📇 email-index` |
+
+### NoSQL Color Scheme by Domain
+
+| Domain | Header Color | Fill Color | Stroke Color |
+|--------|--------------|------------|--------------|
+| User/Profile | `#C925D1` | `#E1D5E7` | `#9673A6` |
+| Security/Rate Limit | `#DD344C` | `#F8CECC` | `#B85450` |
+| Business Data | `#7AA116` | `#D5E8D4` | `#82B366` |
+| Queue/Workflow | `#6C8EBF` | `#DAE8FC` | `#6C8EBF` |
+
+### NoSQL Legend Example
+
+```xml
+<!-- Legend -->
+<mxCell id="legend" value="Legend"
+  style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;fontSize=12;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="620" width="280" height="182" as="geometry"/>
+</mxCell>
+<mxCell id="leg1" value="■ User/Profile Tables"
+  style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#9673A6;fontSize=11;fontStyle=1;"
+  vertex="1" parent="legend">
+  <mxGeometry y="26" width="280" height="26" as="geometry"/>
+</mxCell>
+<mxCell id="leg5" value="🔑 = Partition Key (PK)"
+  style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;fontSize=11;"
+  vertex="1" parent="legend">
+  <mxGeometry y="130" width="280" height="26" as="geometry"/>
+</mxCell>
+<mxCell id="leg6" value="⏱ = TTL Attribute (Auto-expire)"
+  style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#333333;fontSize=11;"
+  vertex="1" parent="legend">
+  <mxGeometry y="156" width="280" height="26" as="geometry"/>
+</mxCell>
+```
+
+### Access Patterns Box
+
+For NoSQL, include an access patterns box showing query patterns:
+
+```xml
+<!-- Access Patterns -->
+<mxCell id="patterns" value="Access Patterns"
+  style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;fontSize=12;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="360" y="620" width="300" height="182" as="geometry"/>
+</mxCell>
+<mxCell id="pat1" value="• Get MR profile by mrId"
+  style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;"
+  vertex="1" parent="patterns">
+  <mxGeometry y="26" width="300" height="22" as="geometry"/>
+</mxCell>
+```
+
+---
+
+## Conceptual ERD for NoSQL (Domain-Based)
+
+When creating conceptual ERDs for NoSQL databases, group entities by domain and show logical relationships (even though NoSQL doesn't enforce FK constraints).
+
+### Domain Container Style
+
+```xml
+<!-- Domain container using swimlane -->
+<mxCell id="user-domain" value="User Domain"
+  style="swimlane;startSize=0;strokeWidth=3;labelBorderColor=none;textShadow=1;labelBackgroundColor=default;fillColor=#E6F2FF;strokeColor=#6C8EBF;fontSize=14;fontStyle=1;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="80" width="500" height="400" as="geometry"/>
+</mxCell>
+```
+
+### Logical Relationship Arrows for NoSQL
+
+Use ERD arrows to show logical relationships (application-enforced, not database-enforced):
+
+```xml
+<!-- One-to-One relationship -->
+<mxCell id="rel-emp-mr"
+  style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#6C8EBF;strokeWidth=2;endArrow=ERone;endFill=0;startArrow=ERone;startFill=0;shadow=1;"
+  edge="1" parent="1" source="employee" target="mr-profile">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- One-to-Many relationship -->
+<mxCell id="rel-emp-dev"
+  style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#6C8EBF;strokeWidth=2;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;shadow=1;"
+  edge="1" parent="1" source="employee" target="device">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+```
+
+### Conceptual ERD Legend
+
+```xml
+<!-- Relationship Legend -->
+<mxCell id="legend" value="Relationship Legend"
+  style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;fontSize=12;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="40" y="520" width="250" height="130" as="geometry"/>
+</mxCell>
+<mxCell id="leg1" value="──|──  One-to-One (1:1)"
+  style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;"
+  vertex="1" parent="legend">
+  <mxGeometry y="26" width="250" height="26" as="geometry"/>
+</mxCell>
+<mxCell id="leg2" value="──|──&lt;  One-to-Many (1:N)"
+  style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;"
+  vertex="1" parent="legend">
+  <mxGeometry y="52" width="250" height="26" as="geometry"/>
+</mxCell>
+<mxCell id="leg4" value="(FK) = Foreign Key (logical reference)"
+  style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontStyle=2;"
+  vertex="1" parent="legend">
+  <mxGeometry y="104" width="250" height="26" as="geometry"/>
+</mxCell>
+
+<!-- Domain Legend -->
+<mxCell id="domain-legend" value="Domain Colors"
+  style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;fontSize=12;shadow=1;"
+  vertex="1" parent="1">
+  <mxGeometry x="320" y="520" width="200" height="104" as="geometry"/>
+</mxCell>
+```
+
+---
+
 ## Lines and Edges (Connections)
 
 Edges connect shapes and represent data flow, dependencies, or relationships between components.
