@@ -39,18 +39,19 @@ This document provides **two-step workflow templates** for generating accurate D
 
 ### Analysis Prompts (Step 1)
 - [Architecture Analysis](#1-architecture-analysis-prompt)
-- [Data Models / ERD Analysis](#2-data-models--erd-analysis-prompt)
-- [Data Flow Analysis](#3-data-flow-analysis-prompt)
-- [Flowchart / Process Analysis](#4-flowchart--process-analysis-prompt)
-- [Sequence Diagram Analysis](#5-sequence-diagram-analysis-prompt)
-- [Use Case Analysis](#6-use-case-analysis-prompt)
-- [State Machine Analysis](#7-state-machine-analysis-prompt)
-- [Infrastructure Analysis](#8-infrastructure-analysis-prompt)
-- [C4 Model Analysis](#9-c4-model-analysis-prompt)
-- [Domain-Driven Design Analysis](#10-domain-driven-design-analysis-prompt)
-- [Security Analysis](#11-security-analysis-prompt)
-- [API Contract Analysis](#12-api-contract-analysis-prompt)
-- [Dependency Analysis](#13-dependency-analysis-prompt)
+- [Project Structure Analysis](#2-project-structure-analysis-prompt)
+- [Data Models / ERD Analysis](#3-data-models--erd-analysis-prompt)
+- [Data Flow Analysis](#4-data-flow-analysis-prompt)
+- [Flowchart / Process Analysis](#5-flowchart--process-analysis-prompt)
+- [Sequence Diagram Analysis](#6-sequence-diagram-analysis-prompt)
+- [Use Case Analysis](#7-use-case-analysis-prompt)
+- [State Machine Analysis](#8-state-machine-analysis-prompt)
+- [Infrastructure Analysis](#9-infrastructure-analysis-prompt)
+- [C4 Model Analysis](#10-c4-model-analysis-prompt)
+- [Domain-Driven Design Analysis](#11-domain-driven-design-analysis-prompt)
+- [Security Analysis](#12-security-analysis-prompt)
+- [API Contract Analysis](#13-api-contract-analysis-prompt)
+- [Dependency Analysis](#14-dependency-analysis-prompt)
 
 ### Diagram Generation Prompts (Step 2)
 - [Generate Diagrams from Analysis](#step-2-generate-diagrams-from-analysis)
@@ -58,6 +59,7 @@ This document provides **two-step workflow templates** for generating accurate D
 ### Output Templates
 - [**README (Project Summary) - REQUIRED**](#readme-project-summary-output-template)
 - [Architecture Analysis Output Template](#architecture-analysis-output-template)
+- [Project Structure Output Template](#project-structure-output-template)
 - [Data Models Output Template](#data-models-output-template)
 - [Data Flow Output Template](#data-flow-output-template)
 - [Flowchart Output Template](#flowchart-output-template)
@@ -142,7 +144,68 @@ Save to: [YOUR_PROJECT_PATH]/docs/analysis/architecture-analysis.md
 
 ---
 
-## 2. Data Models / ERD Analysis Prompt
+## 2. Project Structure Analysis Prompt
+
+Use this to analyze the folder structure, module organization, and codebase layout of a project.
+
+```
+## Task: Project Structure Analysis
+
+Analyze the project folder structure and module organization.
+
+### Project Path
+[YOUR_PROJECT_PATH]
+
+### Analysis Requirements
+
+Examine the entire project structure and document:
+
+#### 1. Overview
+- Project type (Monorepo, Multi-module, Single-app, etc.)
+- Primary languages used
+- Build tools (Gradle, Maven, npm, pip, etc.)
+- IaC tools if any (Terraform, CloudFormation, etc.)
+
+#### 2. Root Directory Structure
+- List all top-level directories with their purpose
+- List key root files (build configs, CI/CD, etc.)
+
+#### 3. Module/Package Structure
+For EACH major module or package directory:
+- **Name**: Module/directory name
+- **Purpose**: What this module does
+- **Subdirectories**: Key subdirectories and their roles
+- **Key Files**: Important files in this module
+
+#### 4. Source Code Organization
+- Language-specific structure (src/, lib/, pkg/, etc.)
+- Test directory structure
+- Resource/asset locations
+
+#### 5. Build & Configuration Files
+- Build configuration files and their purpose
+- Environment configuration
+- CI/CD pipeline files
+
+#### 6. Module Dependencies
+- Internal module dependency graph
+- Which modules depend on which
+
+#### 7. Naming Conventions
+- File naming patterns
+- Directory naming patterns
+- Module/package naming standards
+
+### Output Format
+Follow the [Project Structure Output Template] structure.
+
+### Output Path
+Save to: [YOUR_PROJECT_PATH]/docs/analysis/project-structure-analysis.md
+```
+
+---
+
+## 3. Data Models / ERD Analysis Prompt
 
 Use this to analyze entities, relationships, and database schema.
 
@@ -1211,6 +1274,42 @@ Save diagram to: [YOUR_PROJECT_PATH]/docs/diagrams/entity-erd-conceptual.drawio
 
 ---
 
+## Generate Project Structure Diagram
+
+```
+## Task: Generate Project Structure Diagram
+
+Use diagram standards from: [CLAUDE_DIAGRAMS_STANDARD_FORMAT_PATH]
+
+### Input Analysis
+Read and use: [YOUR_PROJECT_PATH]/docs/analysis/project-structure-analysis.md
+
+### Requirements
+1. Create a visual project structure diagram based on the analysis
+2. Use swimlane containers for major directory sections (root, modules, infrastructure)
+3. Color-code by language/technology:
+   - Blue (#dae8fc): Primary language modules (e.g., Kotlin, TypeScript)
+   - Orange (#fff2cc): Secondary language modules (e.g., Python, JavaScript)
+   - Green (#d5e8d4): Infrastructure/DevOps files (Terraform, Docker)
+   - Gray (#f5f5f5): Build/config files
+   - Purple (#e1d5e7): Shared/common modules
+4. Show hierarchical structure with proper indentation
+5. Include module counts and key files
+6. Group related modules logically (aws, common, function, etc.)
+7. Add a color legend explaining each color meaning
+
+### Visual Layout
+- Use vertical swimlanes for major sections
+- Show folder icons (📁) for directories
+- Show file icons (📄) for individual files
+- Include brief descriptions for key modules
+
+### Output
+Save diagram to: [YOUR_PROJECT_PATH]/docs/diagrams/project-structure.drawio
+```
+
+---
+
 ## Generate Data Flow Diagram
 
 ```
@@ -1913,6 +2012,150 @@ For NoSQL databases (DynamoDB, MongoDB, Firestore), use this template that empha
 | Get user by ID | user-profile | PK = userId | Profile lookup |
 | Get device by ID | user-device | PK = deviceId | Auth token validation |
 | Check rate limit | rate-limit | PK = key, SK = type | Rate limit check |
+```
+
+---
+
+## Project Structure Output Template
+
+```markdown
+# Project Structure Analysis: [Project Name]
+
+## 1. Overview
+
+| Attribute | Value |
+|-----------|-------|
+| **Project Type** | [Monorepo / Multi-module / Microservices] |
+| **Languages** | [Primary languages and versions] |
+| **Build Tools** | [Gradle / Maven / npm / etc.] |
+| **IaC** | [Terraform / CloudFormation / None] |
+| **CI/CD** | [Jenkins / GitHub Actions / etc.] |
+
+## 2. Root Directory Structure
+
+```
+project-root/
+├── src/                       # Source code
+├── config/                    # Configuration files
+├── scripts/                   # Build/deployment scripts
+├── docs/                      # Documentation
+├── tests/                     # Test files
+├── build.gradle               # Build configuration
+└── README.md                  # Project documentation
+```
+
+## 3. Module Structure
+
+### 3.1 Overview
+```
+src/
+├── core/                      # Core business logic
+├── shared/                    # Shared utilities
+├── features/                  # Feature modules
+└── infrastructure/            # Infrastructure code
+```
+
+### 3.2 Core Modules (`src/core/`)
+
+| Module | Purpose | Key Classes |
+|--------|---------|-------------|
+| `module-a` | [Description] | `ClassA`, `ClassB` |
+| `module-b` | [Description] | `ClassC`, `ClassD` |
+
+### 3.3 Feature Modules (`src/features/`)
+
+| Module | Feature | Description |
+|--------|---------|-------------|
+| `feature-x` | [Feature Name] | [What it does] |
+| `feature-y` | [Feature Name] | [What it does] |
+
+## 4. Shared Libraries (`src/shared/`)
+
+| Module | Purpose |
+|--------|---------|
+| `utils` | Utility functions |
+| `models` | Shared data models |
+| `constants` | Application constants |
+
+## 5. Module Dependencies
+
+### 5.1 Dependency Graph
+```
+features/*
+    └── core/*
+          └── shared/*
+                ├── utils
+                ├── models
+                └── constants
+```
+
+### 5.2 External Dependencies
+
+| Category | Libraries |
+|----------|-----------|
+| HTTP Client | axios, fetch |
+| Database | typeorm, prisma |
+| Validation | joi, zod |
+
+## 6. Build Process
+
+### 6.1 Build Steps
+1. `npm install` - Install dependencies
+2. `npm run build` - Compile source
+3. `npm run test` - Run tests
+4. `npm run deploy` - Deploy to environment
+
+### 6.2 Build Artifacts
+
+| Output | Location | Purpose |
+|--------|----------|---------|
+| Compiled JS | `dist/` | Production code |
+| Source maps | `dist/*.map` | Debugging |
+| Bundle | `dist/bundle.js` | Single file output |
+
+## 7. Configuration Files
+
+| File | Purpose |
+|------|---------|
+| `tsconfig.json` | TypeScript configuration |
+| `package.json` | NPM dependencies and scripts |
+| `.env.example` | Environment variables template |
+| `jest.config.js` | Test configuration |
+
+## 8. Naming Conventions
+
+| Element | Convention | Example |
+|---------|------------|---------|
+| Module | kebab-case | `user-service` |
+| Class | PascalCase | `UserService` |
+| Function | camelCase | `getUserById` |
+| Constant | UPPER_SNAKE | `MAX_RETRY_COUNT` |
+| File | kebab-case | `user-service.ts` |
+
+## 9. Key Design Patterns
+
+### 9.1 Architecture Pattern
+- **Pattern**: [Layered / Clean / Hexagonal]
+- **Description**: [How it's implemented]
+
+### 9.2 Module Organization
+```
+Handler/Controller → Service → Repository → Database
+```
+
+### 9.3 Code Organization
+- Shared code in `shared/` directories
+- Feature-specific code in `features/`
+- Infrastructure concerns separated
+
+## 10. File Count Summary
+
+| Directory | Purpose | Approximate Count |
+|-----------|---------|-------------------|
+| `src/core/` | Core modules | X modules |
+| `src/features/` | Feature modules | Y modules |
+| `src/shared/` | Shared utilities | Z modules |
+| `config/` | Configuration | N files |
 ```
 
 ---
