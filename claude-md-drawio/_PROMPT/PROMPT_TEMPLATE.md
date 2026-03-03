@@ -35,6 +35,20 @@ Do not create empty files.
 
 Generate structured markdown analysis files for applicable sections only.
 
+## 1.0 README - Project Summary (REQUIRED)
+- Project overview table (name, type, language, framework, database, build tool, architecture)
+- Technology stack (core technologies, key libraries with versions)
+- Framework patterns demonstrated
+- Business target (purpose, domain, use cases, complexity)
+- Module/package summary table
+- Links to all analysis documents created
+- Links to all diagram artifacts created
+- Quick start guide (prerequisites, installation, running)
+- Sample code snippets
+- Configuration examples
+- Key takeaways
+→ Output: [OUTPUT_PATH]/README.md
+
 ## 1.1 Architecture Analysis
 - Application overview (name, type, language, framework)
 - Architecture pattern (MVC, Clean, Hexagonal, Layered)
@@ -186,6 +200,7 @@ Generate DrawIO diagrams from existing analysis files only.
 ## Execution
 1. STEP 1: Generate analysis .md files (skip non-applicable)
 2. STEP 2: Generate .drawio diagrams (only for existing analysis)
-3. Include mandatory arrow legends in all diagrams
+3. STEP 3: Generate README.md with links to all created analysis files and diagrams (REQUIRED)
+4. Include mandatory arrow legends in all diagrams
 ```
 
