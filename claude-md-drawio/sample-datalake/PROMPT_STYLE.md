@@ -21,9 +21,10 @@
 
 | Spacing Type | Blocks | Pixels | Description |
 |--------------|--------|--------|-------------|
-| Shape to group border | 2 | 20px | Shape edge to container border |
-| Shape with bottom text | +2 | +20px | Additional space below for label |
-| Shape to shape (vertical) | - | 70px | 40 (shape) + 20 (text) + 10 (gap) |
+| Shape to group border | 2 | 20px | Shape edge to container border (left/right/bottom) |
+| Shape to top of group | 4 | 40px | Space from top of group to first shape |
+| Shape to shape (no text) | 2 | 20px | Gap between shapes without bottom text |
+| Shape to shape (with text) | 4 | 40px | Gap between shapes when shape has bottom text |
 
 ---
 
@@ -67,10 +68,15 @@ Total width = 10 + 180 + 20 + 180 + 10 = 400px
 ### Vertical Shape Positions
 
 ```
-y = 20   → Shape 1 (top margin: 2 blocks)
-y = 90   → Shape 2 (20 + 40 shape + 20 text + 10 gap)
+y = 40   → Shape 1 (4 blocks from top of group)
+y = 120  → Shape 2 (40 + 40 shape + 40 gap for text)
+y = 200  → Shape 3 (120 + 40 shape + 40 gap)
+y = 280  → Shape 4 (200 + 40 shape + 40 gap)
+
+Without bottom text:
+y = 40   → Shape 1
+y = 100  → Shape 2 (40 + 40 shape + 20 gap)
 y = 160  → Shape 3
-y = 230  → Shape 4
 ```
 
 ---
@@ -78,16 +84,27 @@ y = 230  → Shape 4
 ## Container Height Calculation
 
 ```
-Height = 20 (top margin)
+With text labels (4 blocks gap between shapes):
+Height = 40 (top margin)
        + (N shapes × 40)
-       + ((N shapes) × 20) for text labels
-       + ((N-1) × 10) for gaps between shapes
+       + ((N-1) × 40) for gaps between shapes (with text)
        + 20 (bottom margin)
 
-Example (4 shapes):
-= 20 + (4×40) + (4×20) + (3×10) + 20
-= 20 + 160 + 80 + 30 + 20
-= 310px
+Example (4 shapes with text):
+= 40 + (4×40) + (3×40) + 20
+= 40 + 160 + 120 + 20
+= 340px
+
+Without text labels (2 blocks gap between shapes):
+Height = 40 (top margin)
+       + (N shapes × 40)
+       + ((N-1) × 20) for gaps between shapes
+       + 20 (bottom margin)
+
+Example (4 shapes without text):
+= 40 + (4×40) + (3×20) + 20
+= 40 + 160 + 60 + 20
+= 280px
 ```
 
 ---
@@ -101,11 +118,18 @@ Example (4 shapes):
 │  │ 10px from parent               ││
 │  │  ┌───────────┐  20px  ┌───────┐││
 │  │  │ Sub-group │ ←────→ │ Sub-  │││
-│  │  │           │        │ group │││
+│  │  │ (label)   │        │ group │││
+│  │  │ 40px top  │        │       │││
 │  │  │  ┌────┐   │        │       │││
 │  │  │  │    │   │        │       │││
 │  │  │  │40x40   │        │       │││
 │  │  │  │    │   │        │       │││
+│  │  │  └────┘   │        │       │││
+│  │  │  (text)   │        │       │││
+│  │  │  40px gap │ ← with text     ││
+│  │  │  (or 20px │ ← without text  ││
+│  │  │  ┌────┐   │        │       │││
+│  │  │  │next│   │        │       │││
 │  │  │  └────┘   │        │       │││
 │  │  │  20px     │        │       │││
 │  │  │  margin   │        │       │││
@@ -130,7 +154,9 @@ Example (4 shapes):
 | Grid block | 10px |
 | Shape size | 40x40 (4x4 blocks) |
 | Shape to group border | 20px (2 blocks) |
+| Shape to top of group | 40px (4 blocks) |
+| Shape to shape (no text) | 20px (2 blocks) |
+| Shape to shape (with text) | 40px (4 blocks) |
 | Group to group gap | 20px (2 blocks) |
 | Group to sub-group | 10px (1 block) |
 | Sub-group to sub-group | 20px (2 blocks) |
-| Bottom text space | 20px (2 blocks) |
