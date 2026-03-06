@@ -27,12 +27,25 @@ This document defines **minimum spacing rules** for infrastructure architecture 
 | Bottom label space | `+20px` (2 blocks) | Additional space for shapes with bottom text labels |
 | Horizontal gap | `30px` minimum | Minimum space between adjacent icons (edge-to-edge) |
 
+### Icon Size Standard
+
+**Rule: The shorter side must be at least 4 blocks (40px)**
+
+| Aspect Ratio | Size (blocks) | Size (px) | Example |
+|--------------|---------------|-----------|---------|
+| 1:1 (square) | 4 x 4 | 40 x 40 | Standard service icons |
+| 1:2 | 4 x 8 | 40 x 80 | Tall icons (e.g., person, server rack) |
+| 2:1 | 8 x 4 | 80 x 40 | Wide icons (e.g., load balancer banner) |
+| 2:3 | 4 x 6 | 40 x 60 | Slightly tall icons |
+
+**Calculation:** `shorter_side = 4 blocks (40px)`, then scale the longer side proportionally.
+
 ### Container Height Guidelines
 
-| Content | Minimum Height | Notes |
-|---------|----------------|-------|
-| Single row of icons | `110px` | 30 (title) + 50 (icon) + 20 (label) + 10 (margin) |
-| Two rows of icons | `190px` | Adjust based on actual content |
+| Content | Minimum Height | Calculation |
+|---------|----------------|-------------|
+| Single row (4x4 icons) | `100px` | 30 (title) + 40 (icon) + 20 (label) + 10 (margin) |
+| Two rows (4x4 icons) | `170px` | 30 + (40+20)×2 + 10 gap + 10 margin |
 
 ## Key Principles
 
