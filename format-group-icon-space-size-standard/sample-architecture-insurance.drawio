@@ -279,6 +279,106 @@
                 <mxCell id="conn3" value="REST API" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;fontSize=9;" parent="1" source="partners" target="apigw" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
+                <!-- Edge to Public Subnet -->
+                <mxCell id="conn4" value="Route" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C4FFF;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="cloudfront" target="alb" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn5" value="Route" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C4FFF;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="waf" target="alb" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- ALB to Customer Services -->
+                <mxCell id="conn6" value="HTTP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="alb" target="portal-svc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn7" value="HTTP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="alb" target="auth-svc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- API GW to Core Services -->
+                <mxCell id="conn8" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="apigw" target="policy-svc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn9" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="apigw" target="claims-svc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn10" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="apigw" target="quote-svc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Services to Databases -->
+                <mxCell id="conn11" value="SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="policy-svc" target="rds-policy" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn12" value="SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="claims-svc" target="rds-claims" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn13" value="SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="portal-svc" target="rds-customer" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn14" value="Cache" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="quote-svc" target="elasticache" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn15" value="NoSQL" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="auth-svc" target="dynamodb" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Services to Event Processing -->
+                <mxCell id="conn16" value="Publish" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="policy-svc" target="sqs-policy" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn17" value="Publish" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="claims-svc" target="sqs-claims" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn18" value="Event" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="eventbridge" target="step-func" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn19" value="Trigger" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="sqs-claims" target="lambda-worker" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Services to Storage -->
+                <mxCell id="conn20" value="Upload" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7AA116;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="doc-svc" target="s3-docs" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn21" value="Store" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7AA116;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="claims-svc" target="s3-claims" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- AI/ML Connections -->
+                <mxCell id="conn22" value="Extract" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#01A88D;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="claims-svc" target="textract" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn23" value="Analyze" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#01A88D;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="claims-svc" target="rekognition" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn24" value="Risk" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#01A88D;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="underwriting-svc" target="sagemaker" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Security Connections -->
+                <mxCell id="conn25" value="Auth" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#DD344C;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="auth-svc" target="cognito" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn26" value="Secrets" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#DD344C;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="core-svc" target="secrets" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- External Integrations -->
+                <mxCell id="conn27" value="Pay" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5A6C86;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="billing-svc" target="payment-gw" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn28" value="Credit" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5A6C86;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="underwriting-svc" target="credit-bureau" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn29" value="Notify" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="notif-svc" target="email-svc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn30" value="SMS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="notif-svc" target="sms-svc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Analytics Connections -->
+                <mxCell id="conn31" value="ETL" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C4FFF;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="db-group" target="glue" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn32" value="Query" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C4FFF;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="athena" target="s3-docs" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn33" value="BI" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C4FFF;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="quicksight" target="redshift" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <!-- Arrow Legend -->
                 <mxCell id="arrow-legend" value="Arrow Legend" style="swimlane;startSize=0;strokeWidth=2;labelBorderColor=none;textShadow=1;labelBackgroundColor=default;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;shadow=1;textShadow=1;" parent="1" vertex="1">
                     <mxGeometry x="160" y="1340" width="500" height="140" as="geometry"/>
