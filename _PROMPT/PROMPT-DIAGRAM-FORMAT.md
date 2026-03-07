@@ -75,7 +75,7 @@ DrawIO uses XML format with specific style attributes to reference official shap
 - [Lines and Edges (Connections)](#lines-and-edges-connections) - Edge styles, routing
 - [Arrow Color Standards (Protocol-Based)](#arrow-color-standards-protocol-based) - HTTP, Database, Cache, Queue colors
 - [CRITICAL: Mandatory Arrow Legend Requirements](#critical-mandatory-arrow-legend-requirements) - **Required legends for meaningful arrows**
-- [Component Legend (Infrastructure/Network/Architecture)](#component-legend-infrastructurenetworkarchitecture-diagrams) - Subnet types, service categories
+- [CRITICAL: Mandatory Component Legend Requirements](#critical-mandatory-component-legend-requirements) - **Required for infrastructure/architecture diagrams**
 - [Arrows (Edge Endpoints)](#arrows-edge-endpoints) - Arrow types, selection guide
 - [Frames and Containers](#frames-and-containers) - Grouping, styling
 - [Waypoints and Edge Control Points](#waypoints-and-edge-control-points)
@@ -2442,21 +2442,25 @@ Before finalizing any diagram, verify:
 | ☐ | Legend is positioned outside main diagram content |
 | ☐ | Text labels clearly describe arrow meaning |
 | ☐ | Arrow samples match exact styles used in diagram |
-| ☐ | Component Legend included for infrastructure/network diagrams |
+| ☐ | **Component Legend included for infrastructure/network diagrams (MANDATORY)** |
 
 ---
 
-## Component Legend (Infrastructure/Network/Architecture Diagrams)
+## CRITICAL: Mandatory Component Legend Requirements
 
-**For infrastructure, network security, and architecture diagrams, include a Component Legend alongside the Arrow Legend to explain the color coding of different component categories.**
+**Every infrastructure, network, or architecture diagram MUST include a Component Legend alongside the Arrow Legend to explain the color coding of different component categories.**
 
 ### When Component Legend is Required
 
-A Component Legend is **RECOMMENDED** when:
+A Component Legend is **MANDATORY** when:
+- Creating **AWS, Azure, GCP, or Kubernetes** architecture diagrams
 - Using **subnet color coding** (public, compute, data subnets)
 - Using **service category colors** (compute, networking, database, security, messaging)
 - Creating **multi-cloud or multi-AZ** architecture diagrams
 - Building **network security** diagrams with zone-based coloring
+- Creating **banking, insurance, or enterprise** architecture diagrams
+
+> **IMPORTANT:** Just like the Arrow Legend, the Component Legend is REQUIRED for all infrastructure diagrams. Without it, readers cannot understand the meaning of different colors used for subnets and service categories.
 
 ### Component Color Standards
 
@@ -2595,15 +2599,19 @@ For infrastructure diagrams, place both legends side by side at the bottom:
 └─────────────────────────────┘  └─────────────────────────────┘
 ```
 
-### Component Legend Checklist
+### Component Legend Checklist (MANDATORY)
 
 | Check | Description |
 |-------|-------------|
+| ☐ | **Component Legend container exists** with gray background |
 | ☐ | Subnet types explained with color squares |
 | ☐ | Service categories match AWS/Azure color standards |
 | ☐ | Legend positioned alongside Arrow Legend |
 | ☐ | All subnet colors used in diagram are documented |
 | ☐ | Service category colors match icons used |
+| ☐ | External integrations color explained (if applicable) |
+
+> **FAILURE TO INCLUDE:** If a diagram uses colored subnets or service categories without a Component Legend, the diagram is incomplete.
 
 ---
 
@@ -3247,7 +3255,7 @@ Control where edges connect to shapes:
 - Indicate public vs private subnets
 - Show internet gateways and NAT gateways
 - **Include Arrow Legend** for protocol colors (HTTP, DB, Cache, Queue)
-- **Include Component Legend** for subnet types (public, compute, data) and service categories
+- **MUST Include Component Legend** for subnet types (public, compute, data) and service categories
 
 **Kubernetes:**
 - Show namespace boundaries
@@ -3261,7 +3269,7 @@ Control where edges connect to shapes:
 - Indicate VPN/tunnel connections with dashed lines
 - Group by network zones (DMZ, Internal, External)
 - **Include Arrow Legend** for internal vs external traffic, VPN, management flows
-- **Include Component Legend** for zone types and security boundaries
+- **MUST Include Component Legend** for zone types and security boundaries
 
 **Software Architecture:**
 - Use layers (Presentation, Business, Data)
@@ -3307,4 +3315,4 @@ Control where edges connect to shapes:
 27. **Position logically** - Arrange components following left-to-right or top-to-bottom flow
 28. **Be consistent** - Use same icon size, spacing, and style throughout the diagram
 29. **ALWAYS include Arrow Legend at root level** - When using meaningful arrow colors/styles (protocols, ER relationships, internal/external traffic), include a legend section explaining each arrow type. Legend MUST have `parent="1"`, never inside groups.
-30. **Include Component Legend for infrastructure diagrams** - For cloud architecture, network, and security diagrams, add a Component Legend alongside Arrow Legend explaining subnet types (public, compute, data) and service categories (compute, networking, database, security, messaging).
+30. **MANDATORY: Include Component Legend for infrastructure diagrams** - For ALL cloud architecture, network, and security diagrams, you MUST add a Component Legend alongside Arrow Legend explaining subnet types (public, compute, data) and service categories (compute, networking, database, security, messaging). This is NOT optional.
