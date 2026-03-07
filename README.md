@@ -24,9 +24,9 @@ mono-sample-claude-project-specific-instruction/
 │   ├── PROMPT_TEMPLATE.md         # Quick-start prompt
 │   └── PROMPT_TEMPLATE_DOCS.md    # Documentation prompt
 │
-├── format-architect/              # Formatting Style Guides
-│   ├── PROMPT_STYLE.md            # Spacing & sizing rules
-│   └── sample-*.drawio            # Format-compliant samples
+├── format-group-icon-space-size standard/  # Formatting Style Guides
+│   ├── PROMPT_STYLE.md                     # Spacing & sizing rules
+│   └── sample-*.drawio                     # Format-compliant samples
 │
 ├── poc-architecture/              # Cloud Architecture Samples
 ├── poc-c4-model/                  # C4 Model Samples

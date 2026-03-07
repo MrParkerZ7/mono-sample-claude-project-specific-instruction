@@ -22,9 +22,9 @@ mono-sample-claude-project-specific-instruction/
 │   ├── PROMPT_TEMPLATE.md         # Quick-start template
 │   └── PROMPT_TEMPLATE_DOCS.md    # Documentation generation
 │
-├── format-architect/              # Formatting Style Guides
-│   ├── PROMPT_STYLE.md            # Spacing, sizing, grid rules
-│   └── sample-*.drawio            # Format-compliant examples
+├── format-group-icon-space-size standard/  # Formatting Style Guides
+│   ├── PROMPT_STYLE.md                     # Spacing, sizing, grid rules
+│   └── sample-*.drawio                     # Format-compliant examples
 │
 ├── poc-{diagram-type}/            # Diagram Type Samples
 │   ├── README.md                  # Type-specific instructions
@@ -41,7 +41,7 @@ mono-sample-claude-project-specific-instruction/
 |------|---------|
 | `_PROMPT/PROMPT-DIAGRAM-FORMAT.md` | Main DrawIO standards - shapes, styles, colors, arrows |
 | `_PROMPT/PROMPT-PROJECT-ANALYSIS.md` | Analysis workflow and output templates |
-| `format-architect/PROMPT_STYLE.md` | Spacing and sizing rules |
+| `format-group-icon-space-size standard/PROMPT_STYLE.md` | Spacing and sizing rules |
 
 ## Working with This Repository
 
@@ -61,7 +61,7 @@ mono-sample-claude-project-specific-instruction/
 
 ### Format Standards (MANDATORY)
 
-All diagrams must follow these rules from `format-architect/PROMPT_STYLE.md`:
+All diagrams must follow these rules from `format-group-icon-space-size standard/PROMPT_STYLE.md`:
 
 | Rule | Requirement |
 |------|-------------|
