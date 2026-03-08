@@ -21,11 +21,12 @@ mono-sample-claude-project-specific-instruction/
 ├── _PROMPT/                       # Prompt Templates
 │   ├── PROMPT-DIAGRAM-FORMAT.md   # DrawIO shape/style reference (158KB)
 │   ├── PROMPT-PROJECT-ANALYSIS.md # Project analysis templates
+│   ├── PROMPT_OBJECT_FORMAT.md    # Universal spacing, sizing, arrow rules
+│   ├── PROMPT_LAYOUT_PATTERN.md   # Layout patterns (margins, icon spacing, wrap rule)
 │   ├── PROMPT_TEMPLATE.md         # Quick-start prompt
 │   └── PROMPT_TEMPLATE_DOCS.md    # Documentation prompt
 │
-├── format-group-icon-space-size-standard/  # Formatting Style Guides
-│   ├── PROMPT_OBJECT_FORMAT.md             # Universal spacing, sizing, arrow rules
+├── format-object-layout-standard/                 # Formatting Style Guides
 │   └── sample-*.drawio                     # Format-compliant samples
 │
 ├── poc-architecture/              # Cloud Architecture Samples

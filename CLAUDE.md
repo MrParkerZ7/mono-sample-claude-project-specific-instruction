@@ -19,11 +19,12 @@ mono-sample-claude-project-specific-instruction/
 ├── _PROMPT/                       # Core Prompt Templates
 │   ├── PROMPT-DIAGRAM-FORMAT.md   # Main DrawIO standards (shapes, colors, arrows)
 │   ├── PROMPT-PROJECT-ANALYSIS.md # Project analysis workflow
+│   ├── PROMPT_OBJECT_FORMAT.md    # Universal spacing, sizing, arrow rules
+│   ├── PROMPT_LAYOUT_PATTERN.md   # Layout patterns (margins, icon spacing, wrap rule)
 │   ├── PROMPT_TEMPLATE.md         # Quick-start template
 │   └── PROMPT_TEMPLATE_DOCS.md    # Documentation generation
 │
-├── format-group-icon-space-size-standard/  # Formatting Style Guides
-│   ├── PROMPT_OBJECT_FORMAT.md             # Universal spacing, sizing, arrow rules
+├── format-object-layout-standard/                 # Formatting Style Guides
 │   └── sample-*.drawio                     # Format-compliant examples
 │
 ├── poc-{diagram-type}/            # Diagram Type Samples
@@ -41,7 +42,7 @@ mono-sample-claude-project-specific-instruction/
 |------|---------|
 | `_PROMPT/PROMPT-DIAGRAM-FORMAT.md` | Main DrawIO standards - shapes, styles, colors, arrows |
 | `_PROMPT/PROMPT-PROJECT-ANALYSIS.md` | Analysis workflow and output templates |
-| `format-group-icon-space-size-standard/PROMPT_OBJECT_FORMAT.md` | Universal spacing, sizing, arrow rules (all diagram types) |
+| `_PROMPT/PROMPT_OBJECT_FORMAT.md` | Universal spacing, sizing, arrow rules (all diagram types) |
 
 ## Working with This Repository
 
@@ -61,7 +62,7 @@ mono-sample-claude-project-specific-instruction/
 
 ### Format Standards (MANDATORY)
 
-All diagrams must follow these rules from `format-group-icon-space-size-standard/PROMPT_OBJECT_FORMAT.md`:
+All diagrams must follow these rules from `_PROMPT/PROMPT_OBJECT_FORMAT.md`:
 
 | Rule | Requirement |
 |------|-------------|
