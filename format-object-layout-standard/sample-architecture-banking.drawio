@@ -280,103 +280,242 @@
                 <mxCell id="push-svc" value="Push (SNS)" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sns;shadow=1;textShadow=1;" parent="external-svc" vertex="1">
                     <mxGeometry x="30" y="590" width="60" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="conn1" value="HTTPS" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;fontSize=9;" parent="1" source="customers" target="cloudfront" edge="1">
+                <mxCell id="conn1" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="customers" target="cloudfront" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="120" y="230"/>
+                            <mxPoint x="120" y="220"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="conn2" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="staff" target="cloudfront" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="130" y="430"/>
+                            <mxPoint x="130" y="250"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="conn3" value="REST API" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="partners" target="apigw" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="140" y="630"/>
+                            <mxPoint x="140" y="420"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="conn4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="cloudfront" target="alb" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="260" y="320"/>
+                            <mxPoint x="280" y="320"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="conn5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="waf" target="alb" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="380" y="330"/>
+                            <mxPoint x="290" y="330"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="conn6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="alb" target="mobile-svc" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="conn2" value="HTTPS" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;fontSize=9;" parent="1" source="staff" target="cloudfront" edge="1">
+                <mxCell id="conn7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="alb" target="ibank-svc" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="290" y="500"/>
+                            <mxPoint x="400" y="500"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="conn8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="apigw" target="auth-svc" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="400" y="490"/>
+                            <mxPoint x="520" y="490"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="conn9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="mobile-svc" target="account-svc" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="280" y="650"/>
+                            <mxPoint x="300" y="650"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="conn10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="ibank-svc" target="transfer-svc" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="400" y="640"/>
+                            <mxPoint x="860" y="640"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="conn11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="mobile-svc" target="payment-svc" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="270" y="660"/>
+                            <mxPoint x="980" y="660"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="conn12" value="Publish" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="transfer-svc" target="sqs-txn" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="860" y="1010"/>
+                            <mxPoint x="280" y="1010"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="conn13" value="Publish" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="payment-svc" target="sqs-payment" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="970" y="1020"/>
+                            <mxPoint x="400" y="1020"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="conn14" value="Event" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="notif-svc" target="sqs-notif" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="640" y="1000"/>
+                            <mxPoint x="520" y="1000"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="conn15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="sns" target="eventbridge" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="conn3" value="REST API" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;textShadow=1;fontSize=9;" parent="1" source="partners" target="apigw" edge="1">
+                <mxCell id="conn16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="eventbridge" target="step-func" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="conn4" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;" parent="1" source="cloudfront" target="alb" edge="1">
+                <mxCell id="conn17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="step-func" target="lambda" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="conn5" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;" parent="1" source="waf" target="alb" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn18" value="SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="account-svc" target="rds-core" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="340" y="990"/>
+                            <mxPoint x="340" y="1160"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="conn6" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;" parent="1" source="alb" target="mobile-svc" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn19" value="SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="transfer-svc" target="rds-txn" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="850" y="980"/>
+                            <mxPoint x="460" y="980"/>
+                            <mxPoint x="460" y="1160"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="conn7" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;" parent="1" source="alb" target="ibank-svc" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn20" value="SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="loan-svc" target="rds-loan" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="580" y="970"/>
+                            <mxPoint x="580" y="1160"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="conn8" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;" parent="1" source="apigw" target="auth-svc" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn21" value="NoSQL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="card-svc" target="dynamodb" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="700" y="960"/>
+                            <mxPoint x="700" y="1160"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="conn9" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;" parent="1" source="mobile-svc" target="account-svc" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn22" value="Cache" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#DC382D;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="auth-svc" target="elasticache" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="520" y="580"/>
+                            <mxPoint x="820" y="580"/>
+                            <mxPoint x="820" y="1160"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="conn10" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;" parent="1" source="ibank-svc" target="transfer-svc" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn23" value="S3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#7AA116;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="notif-svc" target="s3-docs" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="630" y="670"/>
+                            <mxPoint x="250" y="670"/>
+                            <mxPoint x="250" y="1150"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="conn11" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;" parent="1" source="mobile-svc" target="payment-svc" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn24" value="Auth" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#DD344C;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="auth-svc" target="cognito" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1450" y="560"/>
+                            <mxPoint x="1450" y="390"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="conn12" value="Publish" style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="transfer-svc" target="sqs-txn" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn25" value="SWIFT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="transfer-svc" target="swift" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1470" y="750"/>
+                            <mxPoint x="1470" y="800"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="conn13" value="Publish" style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="payment-svc" target="sqs-payment" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn26" value="Payment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="payment-svc" target="payment-network" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="980" y="770"/>
+                            <mxPoint x="1460" y="770"/>
+                            <mxPoint x="1460" y="800"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="conn14" value="Event" style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="notif-svc" target="sqs-notif" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn27" value="Credit Check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="credit-svc" target="credit-bureau" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1480" y="910"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="conn15" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;" parent="1" source="sns" target="eventbridge" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn28" value="Fraud" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;jumpStyle=arc;jumpSize=10;" parent="1" source="fraud-svc" target="fraud-ext" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="970" y="920"/>
+                            <mxPoint x="1440" y="920"/>
+                            <mxPoint x="1440" y="1020"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="conn16" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;" parent="1" source="eventbridge" target="step-func" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#8C4FFF;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="rds-core" target="glue" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="310" y="1510"/>
+                            <mxPoint x="520" y="1510"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="conn17" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;" parent="1" source="step-func" target="lambda" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#8C4FFF;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="glue" target="redshift" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="530" y="1520"/>
+                            <mxPoint x="280" y="1520"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="conn18" value="SQL" style="edgeStyle=none;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="account-svc" target="rds-core" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="conn19" value="SQL" style="edgeStyle=none;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="transfer-svc" target="rds-txn" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="conn20" value="SQL" style="edgeStyle=none;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="loan-svc" target="rds-loan" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="conn21" value="NoSQL" style="edgeStyle=none;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="card-svc" target="dynamodb" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="conn22" value="Cache" style="edgeStyle=none;rounded=0;html=1;strokeColor=#DC382D;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="auth-svc" target="elasticache" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="conn23" value="S3" style="edgeStyle=none;rounded=0;html=1;strokeColor=#7AA116;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="notif-svc" target="s3-docs" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="conn24" value="Auth" style="edgeStyle=none;rounded=0;html=1;strokeColor=#DD344C;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="auth-svc" target="cognito" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="conn25" value="SWIFT" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="transfer-svc" target="swift" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="conn26" value="Payment" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="payment-svc" target="payment-network" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="conn27" value="Credit Check" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="credit-svc" target="credit-bureau" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="conn28" value="Fraud" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;fontSize=9;" parent="1" source="fraud-svc" target="fraud-ext" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="conn29" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#8C4FFF;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;" parent="1" source="rds-core" target="glue" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="conn30" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#8C4FFF;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;" parent="1" source="glue" target="redshift" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="conn31" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#8C4FFF;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;" parent="1" source="redshift" target="quicksight" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="conn31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#8C4FFF;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;jumpStyle=arc;jumpSize=10;" parent="1" source="redshift" target="quicksight" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="290" y="1530"/>
+                            <mxPoint x="640" y="1530"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="arrow-legend" value="Arrow Legend" style="swimlane;startSize=0;strokeWidth=2;labelBorderColor=none;textShadow=1;labelBackgroundColor=default;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;shadow=1;" parent="1" vertex="1">
                     <mxGeometry x="160" y="1910" width="500" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="legend-http-line" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;" parent="1" edge="1">
+                <mxCell id="legend-http-line" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#232F3E;strokeWidth=2;endArrow=classic;endFill=1;flowAnimation=1;shadow=1;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="180" y="1950" as="sourcePoint"/>
                         <mxPoint x="260" y="1950" as="targetPoint"/>
@@ -385,7 +524,7 @@
                 <mxCell id="legend-http-text" value="HTTPS / REST API Request" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;" parent="1" vertex="1">
                     <mxGeometry x="270" y="1940" width="160" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="legend-db-line" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;" parent="1" edge="1">
+                <mxCell id="legend-db-line" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#C925D1;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="180" y="1980" as="sourcePoint"/>
                         <mxPoint x="260" y="1980" as="targetPoint"/>
@@ -394,7 +533,7 @@
                 <mxCell id="legend-db-text" value="Database Connection (SQL)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;" parent="1" vertex="1">
                     <mxGeometry x="270" y="1970" width="160" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="legend-cache-line" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#DC382D;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;" parent="1" edge="1">
+                <mxCell id="legend-cache-line" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#DC382D;strokeWidth=2;startArrow=classic;startFill=1;endArrow=classic;endFill=1;shadow=1;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="180" y="2010" as="sourcePoint"/>
                         <mxPoint x="260" y="2010" as="targetPoint"/>
@@ -403,7 +542,7 @@
                 <mxCell id="legend-cache-text" value="Cache (Redis)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;" parent="1" vertex="1">
                     <mxGeometry x="270" y="2000" width="120" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="legend-queue-line" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;" parent="1" edge="1">
+                <mxCell id="legend-queue-line" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#E7157B;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;shadow=1;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="420" y="1950" as="sourcePoint"/>
                         <mxPoint x="500" y="1950" as="targetPoint"/>
@@ -412,7 +551,7 @@
                 <mxCell id="legend-queue-text" value="Message Queue (Async)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;" parent="1" vertex="1">
                     <mxGeometry x="510" y="1940" width="140" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="legend-storage-line" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#7AA116;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;" parent="1" edge="1">
+                <mxCell id="legend-storage-line" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#7AA116;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="420" y="1980" as="sourcePoint"/>
                         <mxPoint x="500" y="1980" as="targetPoint"/>
@@ -421,7 +560,7 @@
                 <mxCell id="legend-storage-text" value="Storage (S3)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;shadow=0;" parent="1" vertex="1">
                     <mxGeometry x="510" y="1970" width="100" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="legend-auth-line" value="" style="edgeStyle=none;rounded=0;html=1;strokeColor=#DD344C;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;" parent="1" edge="1">
+                <mxCell id="legend-auth-line" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#DD344C;strokeWidth=2;endArrow=classic;endFill=1;shadow=1;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="420" y="2010" as="sourcePoint"/>
                         <mxPoint x="500" y="2010" as="targetPoint"/>

@@ -21,6 +21,7 @@ mono-sample-claude-project-specific-instruction/
 │   ├── PROMPT-PROJECT-ANALYSIS.md # Project analysis workflow
 │   ├── PROMPT_OBJECT_FORMAT.md    # Universal spacing, sizing, arrow rules
 │   ├── PROMPT_LAYOUT_PATTERN.md   # Layout patterns (margins, icon spacing, wrap rule)
+│   ├── PROMPT_ARROW_CABLE_MANAGEMENT.md # Arrow cable management routing (orthogonal, waypoints, channels)
 │   ├── PROMPT_TEMPLATE.md         # Quick-start template
 │   └── PROMPT_TEMPLATE_DOCS.md    # Documentation generation
 │
@@ -43,6 +44,7 @@ mono-sample-claude-project-specific-instruction/
 | `_PROMPT/PROMPT-DIAGRAM-FORMAT.md` | Main DrawIO standards - shapes, styles, colors, arrows |
 | `_PROMPT/PROMPT-PROJECT-ANALYSIS.md` | Analysis workflow and output templates |
 | `_PROMPT/PROMPT_OBJECT_FORMAT.md` | Universal spacing, sizing, arrow rules (all diagram types) |
+| `_PROMPT/PROMPT_ARROW_CABLE_MANAGEMENT.md` | Orthogonal arrow routing with cable channel system |
 
 ## Working with This Repository
 

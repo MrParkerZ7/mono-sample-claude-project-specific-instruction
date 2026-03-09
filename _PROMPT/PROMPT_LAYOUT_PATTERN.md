@@ -29,7 +29,9 @@ Reference diagrams:
 | exitX/exitY | None | Auto-detected from icon boundaries |
 | entryX/entryY | None | Auto-detected from icon boundaries |
 
-> **Why not orthogonalEdgeStyle?** Orthogonal creates multiple right-angle bends that clutter dense diagrams. Straight lines are cleaner and easier to follow.
+> **Why not orthogonalEdgeStyle?** For simple diagrams (≤15 icons), orthogonal creates unnecessary right-angle bends. Straight lines are cleaner and easier to follow.
+>
+> **When TO use orthogonalEdgeStyle:** For complex diagrams (>15 icons, >15 arrows), use orthogonal with **cable management routing** — see `PROMPT_ARROW_CABLE_MANAGEMENT.md` for the full channel-based routing system with waypoints, vertical risers, and jump arcs.
 >
 > **Why not entityRelationEdgeStyle?** ER style is for ERD table-to-table connections only. It creates messy L-shaped bends in architecture diagrams with nested groups.
 
